@@ -51,11 +51,40 @@ margin-bottom:15px;
 }
 
 details{
-margin-bottom:12px;
-border:1px solid #ddd;
-border-radius:8px;
-padding:10px;
-background:#fafafa;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:10px;
+    background:#fafafa;
+}
+
+/* Hide the default browser arrow */
+summary{
+    list-style:none;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+    color:#003366;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+/* Show + when closed */
+summary::before{
+    content:"+";
+    display:inline-block;
+    width:24px;
+    font-size:24px;
+    font-weight:bold;
+    color:#003366;
+    margin-right:8px;
+}
+
+/* Show - when open */
+details[open] > summary::before{
+    content:"−";
 }
 
 summary{

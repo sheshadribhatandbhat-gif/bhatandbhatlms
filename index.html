@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bhat and Bhat Tutorials - LMS</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <style>
 
@@ -195,6 +196,43 @@ margin-top:30px;
     }
 }
 
+/*=========================
+ Banner Carousel
+==========================*/
+
+.myBanner{
+    width:100%;
+    max-width:1400px;
+    height:420px;
+    margin:auto;
+    overflow:hidden;
+    background:#fff;
+}
+
+.myBanner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.swiper-button-next,
+.swiper-button-prev{
+    color:#ffffff;
+}
+
+.swiper-pagination-bullet{
+    background:#ffffff;
+}
+
+@media(max-width:768px){
+
+.myBanner{
+    height:180px;
+}
+
+}
+
 </style>
 </head>
 
@@ -216,6 +254,29 @@ margin-top:30px;
 <p>Study Materials / Notes / Question Banks / Question Papers</p>
 
 </header>
+
+<div class="swiper myBanner">
+
+    <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+            <img src="images/timetable1.jpg" alt="MS Timetable 1">
+        </div>
+
+        <div class="swiper-slide">
+            <img src="images/timetable2.jpg" alt="MS Timetable 2">
+        </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Dots -->
+    <div class="swiper-pagination"></div>
+
+</div>
 
 <div id="tickerSection"></div>
 
@@ -321,6 +382,35 @@ loadSection("section-10icse","sections/10-icse.html");
 loadSection("section-11science","sections/11-science..html");
 
 loadSection("section-12science","sections/12-science.html");
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+
+const swiper = new Swiper(".myBanner",{
+
+loop:true,
+
+speed:800,
+
+autoplay:{
+delay:4000,
+disableOnInteraction:false,
+},
+
+pagination:{
+el:".swiper-pagination",
+clickable:true,
+},
+
+navigation:{
+nextEl:".swiper-button-next",
+prevEl:".swiper-button-prev",
+},
+
+});
 
 </script>
 

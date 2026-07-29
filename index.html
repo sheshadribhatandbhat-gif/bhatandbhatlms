@@ -203,14 +203,19 @@ margin-top:30px;
 .myBanner{
     width:100%;
     max-width:1400px;
+    height:550px;       /* Adjust to 500–650px if needed */
     margin:0 auto;
-    background:#fff;
+    background:#ffffff;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .myBanner img{
     width:100%;
-    height:auto;
-    display:block;
+    height:100%;
+    object-fit:contain;   /* Shows the whole timetable */
 }
 
 .swiper-button-next,

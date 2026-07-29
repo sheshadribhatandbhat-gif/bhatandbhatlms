@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bhat and Bhat Tutorials - LMS</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <style>
 
@@ -196,17 +195,18 @@ margin-top:30px;
     }
 }
 
-/*=========================
- Banner Carousel
-==========================*/
+/* ==========================
+   Homepage Banner
+========================== */
 
 .myBanner{
-    width:90%;
-    max-width:1000px;
-    margin:20px auto;
-    border-radius:12px;
+    width:100%;
+    max-width:1400px;
+    margin:15px auto;
+    background:#fff;
     overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 .myBanner img{
@@ -254,27 +254,9 @@ margin-top:30px;
 
 </header>
 
-<div class="swiper myBanner">
-
-    <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-            <img src="images/me-august-month-examination-schedule-2026.jpg" alt="ME August Month Examination Schedule 2026">
-        </div>
-
-        <div class="swiper-slide">
-            <img src="images/mtx-august-month-examination-schedule-2026.jpg" alt="MTX August Month Examination Schedule 2026">
-        </div>
-
-    </div>
-
-    <!-- Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-
-    <!-- Dots -->
-    <div class="swiper-pagination"></div>
-
+<div class="myBanner">
+    <img src="images/mtx-me-timteable-august.jpg"
+         alt="August 2026 Examination Timetable">
 </div>
 
 <div id="tickerSection"></div>
@@ -381,35 +363,6 @@ loadSection("section-10icse","sections/10-icse.html");
 loadSection("section-11science","sections/11-science..html");
 
 loadSection("section-12science","sections/12-science.html");
-
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-
-const swiper = new Swiper(".myBanner",{
-
-loop:true,
-
-speed:800,
-
-autoplay:{
-delay:4000,
-disableOnInteraction:false,
-},
-
-pagination:{
-el:".swiper-pagination",
-clickable:true,
-},
-
-navigation:{
-nextEl:".swiper-button-next",
-prevEl:".swiper-button-prev",
-},
-
-});
 
 </script>
 

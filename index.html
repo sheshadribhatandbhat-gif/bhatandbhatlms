@@ -1084,53 +1084,6 @@ e.target.style.transform="scale(1)";
 
 });
 
-/* ========================= */
-/* Mid-Term Syllabus Ticker */
-/* ========================= */
-
-.ticker-wrap{
-    width:100%;
-    overflow:hidden;
-    background:#FFD54F;
-    border-top:2px solid #003366;
-    border-bottom:2px solid #003366;
-    padding:10px 0;
-}
-
-.ticker{
-    display:inline-flex;
-    align-items:center;
-    white-space:nowrap;
-    width:max-content;
-    animation:ticker 40s linear infinite;
-}
-
-.ticker:hover{
-    animation-play-state:paused;
-}
-
-.ticker a{
-    color:#003366;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:17px;
-    margin-right:45px;
-}
-
-.ticker a:hover{
-    color:red;
-    text-decoration:underline;
-}
-
-@keyframes ticker{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-50%);
-    }
-}
-
 </script>
 
 </body>

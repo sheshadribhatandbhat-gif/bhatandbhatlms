@@ -626,10 +626,10 @@ z-index:9999;
 
     <h1>Bhat and Bhat Tutorials</h1>
 
-    <p><i>Where Students Achieve Success</i></p>
+    <p><i>"Where Students Achieve Success"</i></p>
 
     <p style="margin-top:8px;font-size:16px;font-weight:500;">
-        Learning Management System
+        Learning Management System (LMS)
     </p>
 
 </header>
@@ -680,8 +680,6 @@ TIMETABLE TITLE
 
 </h2>
 
-
-
 <!-- ===========================
 TIMETABLE BANNER
 ============================ -->
@@ -707,14 +705,52 @@ Click on the timetable above to view the full-size examination schedule.
 
 </p>
 
+/* ========================= */
+/* Mid-Term Syllabus Ticker */
+/* ========================= */
 
+.ticker-wrap{
+    width:100%;
+    overflow:hidden;
+    background:#FFD54F;
+    border-top:2px solid #003366;
+    border-bottom:2px solid #003366;
+    padding:10px 0;
+}
 
-<!-- ===========================
-TICKER
-============================ -->
+.ticker{
+    display:inline-flex;
+    align-items:center;
+    white-space:nowrap;
+    width:max-content;
+    animation:ticker 40s linear infinite;
+}
 
-<div id="tickerSection"></div>
+.ticker:hover{
+    animation-play-state:paused;
+}
 
+.ticker a{
+    color:#003366;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:17px;
+    margin-right:45px;
+}
+
+.ticker a:hover{
+    color:red;
+    text-decoration:underline;
+}
+
+@keyframes ticker{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
 
 
 <!-- ===========================
@@ -983,36 +1019,18 @@ console.log("Unable to load "+file);
 
 async function loadTicker(){
 
-try{
+const response = await fetch("ticker.html");
 
-const response=await fetch("ticker.html");
+const html = await response.text();
 
-const html=await response.text();
-
-document.getElementById("tickerSection").innerHTML=html;
+document.getElementById("tickerSection").innerHTML = html;
 
 }
-
-catch(error){
-
-console.log("Ticker not found.");
-
-}
-
-}
-
-
-
-// ==============================
-// INITIAL PAGE LOAD
-// ==============================
-
-window.onload=function(){
 
 loadTicker();
 
 loadSection("section-08cbse","sections/08-cbse.html");
-
+    
 loadSection("section-08icse","sections/08-icse.html");
 
 loadSection("section-09cbse","sections/09-cbse.html");
@@ -1025,13 +1043,9 @@ loadSection("section-10state","sections/10-state.html");
 
 loadSection("section-10icse","sections/10-icse.html");
 
-loadSection("section-11science","sections/11-science.html");
+loadSection("section-11science","sections/11-science..html");
 
 loadSection("section-12science","sections/12-science.html");
-
-};
-
-
 
 // ==============================
 // BACK TO TOP BUTTON

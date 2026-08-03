@@ -8,6 +8,7 @@
 
 <title>08th ICSE | Syllabus Status | Bhat and Bhat Tutorials</title>
 
+
 <style>
 
 *{
@@ -17,31 +18,80 @@
     font-family:"Segoe UI", Arial, sans-serif;
 }
 
+
 body{
     background:#f4f7fb;
     color:#222;
 }
 
-/* HEADER */
+
+/* ================= HEADER ================= */
+
 
 .header{
     background:#003366;
     color:white;
-    padding:20px;
+    padding:15px 20px;
+}
+
+
+.header-container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    max-width:1200px;
+    margin:auto;
+
+}
+.logo{
+    width:110px;
+    height:auto;
+}
+
+.header-text{
     text-align:center;
 }
-
+    
 .header h1{
-    font-size:28px;
+    font-size:30px;
 }
-
+    
 .header p{
-    margin-top:8px;
-    font-size:16px;
+    margin-top:5px;
+    font-size:17px;
 }
 
+.header h2{
+    margin-top:10px;
+    font-size:24px;
+}
 
-/* CONTAINER */
+/* RETURN BUTTON */
+
+.return-btn{
+
+    display:block;
+    width:max-content;
+    margin:20px auto 0;
+
+    background:#003366;
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+.return-btn:hover{
+    background:#00509e;
+}
+
+/* ================= CONTAINER ================= */
+
 
 .container{
     width:95%;
@@ -49,8 +99,7 @@ body{
     margin:25px auto;
 }
 
-
-/* SUMMARY BOX */
+/* ================= SUMMARY ================= */
 
 .summary{
     background:white;
@@ -63,10 +112,13 @@ body{
 .summary h2{
     color:#003366;
     margin-bottom:10px;
+    font-size:22px;
 }
 
 
-/* SUBJECT CARD */
+
+/* ================= SUBJECT CARD ================= */
+
 
 .subject{
     background:white;
@@ -76,9 +128,7 @@ body{
     box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
-
 .subject-title{
-
     background:#003366;
     color:white;
     padding:12px 15px;
@@ -86,152 +136,160 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
-
 }
-
 
 .faculty{
     font-size:14px;
-    background:#fff;
+    background:white;
     color:#003366;
     padding:5px 10px;
     border-radius:20px;
 }
 
-
-/* TABLE */
+/* ================= TABLE ================= */
 
 .table-container{
     overflow-x:auto;
 }
 
-
 table{
-
     width:100%;
     border-collapse:collapse;
-
 }
-
-
+    
 th{
-
     background:#e8f0fa;
     color:#003366;
     padding:10px;
     text-align:left;
-
 }
-
 
 td{
-
     padding:10px;
     border-bottom:1px solid #ddd;
-
 }
-
 
 tr:last-child td{
     border-bottom:none;
 }
 
-
 /* STATUS */
 
 .completed{
-
     color:green;
     font-weight:bold;
-
 }
 
-.progress{
 
+.progress{
     color:#ff9800;
     font-weight:bold;
-
 }
 
 .pending{
-
     color:red;
     font-weight:bold;
-
 }
-
 
 /* FOOTER */
 
 .footer{
-
     text-align:center;
     background:#003366;
     color:white;
     padding:15px;
     margin-top:30px;
-
 }
 
+/* ================= DESKTOP ================= */
 
-/* MOBILE */
+@media(min-width:768px){
+.header-container{
+    justify-content:flex-start;
+}
+.header-text{
+    flex:1;
+}
+}
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
-
-.header h1{
-    font-size:22px;
+.header{
+    padding:12px;
 }
-
-
+.header-container{
+    flex-direction:column;
+    gap:8px;
+}
+.logo{
+    width:75px;
+}
+.header h1{
+    font-size:21px;
+}
+.header p{
+    font-size:14px;
+}
+.header h2{
+    font-size:18px;
+}
+.return-btn{
+    font-size:14px;
+    padding:8px 16px;
+}
+.container{
+    width:96%;
+}
+.summary h2{
+    font-size:18px;
+}
 .subject-title{
-
     font-size:17px;
     flex-direction:column;
     gap:8px;
-
+    text-align:center;
 }
-
-
+.faculty{
+    font-size:12px;
+}
 table{
-
-    font-size:14px;
-
+    font-size:13px;
 }
-
-
-.container{
-
-    width:96%;
-
+th,td{
+    padding:8px;
 }
-
+.footer{
+    font-size:13px;
 }
-
+}
 </style>
-
-
-</head>
-
 
 <body>
 
 
+<!-- HEADER -->
+
 <div class="header">
-
+<div class="header-container">
+<img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
+<div class="header-text">
 <h1>Bhat and Bhat Tutorials</h1>
-
 <p><i>"Where Students Achieve Success"</i></p>
-
 <h2>08th ICSE - Syllabus Status 2026-27</h2>
-
+</div>
+</div>
 </div>
 
+<!-- RETURN BUTTON -->
+
+<a href="index.html" class="return-btn">
+⬅ Return to Main LMS
+</a>
 <div class="container">
 
+<!-- SUMMARY -->
 <div class="summary">
-
 <h2>Syllabus Progress Snapshot</h2>
-
 <p>
 Academic Year : 2026 - 2027
 <br>
@@ -239,188 +297,73 @@ Class : 08th ICSE
 <br>
 Last Updated : 03 August 2026
 </p>
-
 </div>
-
-<!-- MATHEMATICS -->
 
 <div class="subject">
 
-<div class="subject-title">
-
-Mathematics
-
-<span class="faculty">
-Faculty : __________
-</span>
-
-</div>
-
-
-<div class="table-container">
-
-<table>
-
-<tr>
-<th>Chapter / Topic</th>
-<th>Status</th>
-</tr>
-
-
-<tr>
-<td>Chapter 1 : __________________</td>
-<td class="completed">Completed</td>
-</tr>
-
-
-<tr>
-<td>Chapter 2 : __________________</td>
-<td class="progress">In Progress</td>
-</tr>
-
-
-<tr>
-<td>Chapter 3 : __________________</td>
-<td class="pending">Pending</td>
-</tr>
-
-
-</table>
-
-</div>
-
-</div>
-
-
-
-
-
-
-<!-- PHYSICS -->
-
-<div class="subject">
 
 <div class="subject-title">
 
-Physics
-
-<span class="faculty">
-Faculty : __________
-</span>
-
-</div>
-
-
-<div class="table-container">
-
-<table>
-
-<tr>
-<th>Chapter / Topic</th>
-<th>Status</th>
-</tr>
-
-
-<tr>
-<td>Chapter 1 : __________________</td>
-<td class="completed">Completed</td>
-</tr>
-
-
-<tr>
-<td>Chapter 2 : __________________</td>
-<td class="progress">In Progress</td>
-</tr>
-
-
-</table>
-
-</div>
-
-</div>
-
-
-
-
-
-
-<!-- CHEMISTRY -->
-
-<div class="subject">
-
-<div class="subject-title">
 
 Chemistry
 
+
 <span class="faculty">
+
 Faculty : __________
+
 </span>
-
 </div>
-
-
 <div class="table-container">
-
 <table>
-
 <tr>
+
 <th>Chapter / Topic</th>
+
 <th>Status</th>
 </tr>
-
-
 <tr>
+    
 <td>Chapter 1 : __________________</td>
 <td class="completed">Completed</td>
 </tr>
-
-
 <tr>
 <td>Chapter 2 : __________________</td>
 <td class="progress">In Progress</td>
 </tr>
-
-
 </table>
-
 </div>
-
 </div>
 
 <!-- BIOLOGY -->
 
 <div class="subject">
-
 <div class="subject-title">
-
 Biology
-
 <span class="faculty">
 Faculty : __________
 </span>
-
 </div>
-
-
 <div class="table-container">
-
 <table>
-
 <tr>
 <th>Chapter / Topic</th>
 <th>Status</th>
 </tr>
-
-
 <tr>
+
 <td>Chapter 1 : __________________</td>
+
 <td class="completed">Completed</td>
+
 </tr>
 
-
 <tr>
+
 <td>Chapter 2 : __________________</td>
+
 <td class="pending">Pending</td>
+
 </tr>
 
 </table>
@@ -431,6 +374,7 @@ Faculty : __________
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
 © Bhat and Bhat Tutorials | LMS Portal
 </div>

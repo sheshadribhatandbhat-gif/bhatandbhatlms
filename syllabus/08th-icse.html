@@ -196,6 +196,68 @@ border:1px solid #d9e7ff;
 
 }
 
+.chapter-table{
+
+margin-top:30px;
+
+overflow-x:auto;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+table th{
+
+background:#003366;
+
+color:white;
+
+padding:14px;
+
+font-size:15px;
+
+text-align:left;
+
+}
+
+table td{
+
+padding:14px;
+
+border-bottom:1px solid #e6e6e6;
+
+font-size:15px;
+
+}
+
+table tr:hover{
+
+background:#f8fbff;
+
+}
+
+.completed{
+
+color:#0b8b3c;
+
+font-weight:600;
+
+}
+
+.progress{
+
+color:#d97706;
+
+font-weight:600;
+
+}
+
 </style>
 
 </head>
@@ -257,6 +319,144 @@ Faculty • <span id="facultyName">--</span>
 </div>
 
 </div>
+
+<div class="chapter-table">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th width="8%">Sl. No.</th>
+
+<th>Chapter Name</th>
+
+<th width="18%">Status</th>
+
+</tr>
+
+</thead>
+
+<tbody id="chapterBody">
+
+<tr>
+
+<td colspan="3" style="text-align:center;padding:30px;">
+
+Please select a subject to view the syllabus status.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+const syllabus={
+
+Mathematics:[
+["Real Numbers","Completed"],
+["Polynomials","Completed"],
+["Quadratic Equations","In Progress"],
+["Triangles",""],
+["Circles",""]
+],
+
+Physics:[
+["Matter","Completed"],
+["Motion","Completed"],
+["Force",""],
+["Energy",""]
+],
+
+Chemistry:[
+["Matter and Composition","Completed"],
+["Physical Quantities","Completed"],
+["Force and Pressure","In Progress"],
+["Energy",""],
+["Light",""]
+],
+
+Biology:[
+["Cell","Completed"],
+["Plant Tissue",""],
+["Human Body",""]
+]
+
+};
+
+const facultyData={
+
+"Mathematics":"Mr. Rajesh Kumar",
+
+"Physics":"Mr. Arun Kumar",
+
+"Chemistry":"Mrs. Kavitha",
+
+"Biology":"Mr. Prakash"
+
+};
+
+document.getElementById("subject").addEventListener("change",function(){
+
+let subject=this.value;
+
+document.getElementById("subjectTitle").innerHTML=subject || "Select a Subject";
+
+document.getElementById("facultyName").innerHTML=
+facultyData[subject] || "--";
+
+let body=document.getElementById("chapterBody");
+
+body.innerHTML="";
+
+if(!subject){
+
+body.innerHTML=`<tr>
+<td colspan="3" style="text-align:center;padding:30px;">
+Please select a subject to view the syllabus status.
+</td>
+</tr>`;
+
+return;
+
+}
+
+syllabus[subject].forEach((chapter,index)=>{
+
+let status=chapter[1];
+
+let cls="";
+
+if(status=="Completed") cls="completed";
+
+if(status=="In Progress") cls="progress";
+
+body.innerHTML+=`
+
+<tr>
+
+<td>${index+1}</td>
+
+<td>${chapter[0]}</td>
+
+<td class="${cls}">${status}</td>
+
+</tr>
+
+`;
+
+});
+
+});
+
+</script>
 
 </body>
 

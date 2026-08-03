@@ -4,460 +4,435 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>08th ICSE • Syllabus Status</title>
+<title>08th ICSE | Syllabus Status | Bhat and Bhat Tutorials</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
 }
 
 body{
-
-font-family:Arial,Helvetica,sans-serif;
-
-background:#f4f6fb;
-
-color:#333;
-
+    background:#f4f7fb;
+    color:#222;
 }
 
-.container{
-
-max-width:1100px;
-
-margin:35px auto;
-
-background:white;
-
-border-radius:12px;
-
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-padding:35px;
-
-}
-
-.back-btn{
-
-display:inline-block;
-
-text-decoration:none;
-
-color:#0b4a8b;
-
-font-weight:bold;
-
-margin-bottom:25px;
-
-}
-
-.back-btn:hover{
-
-text-decoration:underline;
-
-}
+/* HEADER */
 
 .header{
-
-text-align:center;
-
-margin-bottom:30px;
-
+    background:#003366;
+    color:white;
+    padding:20px;
+    text-align:center;
 }
 
 .header h1{
+    font-size:28px;
+}
 
-font-size:34px;
+.header p{
+    margin-top:8px;
+    font-size:16px;
+}
 
-color:#003366;
 
-margin-bottom:10px;
+/* CONTAINER */
+
+.container{
+    width:95%;
+    max-width:1200px;
+    margin:25px auto;
+}
+
+
+/* SUMMARY BOX */
+
+.summary{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
+
+.summary h2{
+    color:#003366;
+    margin-bottom:10px;
+}
+
+
+/* SUBJECT CARD */
+
+.subject{
+    background:white;
+    margin-bottom:25px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+
+.subject-title{
+
+    background:#003366;
+    color:white;
+    padding:12px 15px;
+    font-size:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
 }
 
-.header h2{
 
-font-size:24px;
-
-font-weight:normal;
-
-color:#555;
-
-margin-bottom:20px;
-
+.faculty{
+    font-size:14px;
+    background:#fff;
+    color:#003366;
+    padding:5px 10px;
+    border-radius:20px;
 }
 
-.updated{
 
-display:inline-block;
+/* TABLE */
 
-background:#eef4ff;
-
-color:#003366;
-
-padding:8px 18px;
-
-border-radius:30px;
-
-font-size:14px;
-
-font-weight:600;
-
-border:1px solid #d9e7ff;
-
+.table-container{
+    overflow-x:auto;
 }
 
-.subject-box{
-
-margin:35px auto;
-
-max-width:450px;
-
-}
-
-.subject-box label{
-
-display:block;
-
-font-size:16px;
-
-font-weight:600;
-
-margin-bottom:10px;
-
-color:#003366;
-
-}
-
-.subject-box select{
-
-width:100%;
-
-padding:14px;
-
-font-size:16px;
-
-border:1px solid #ccc;
-
-border-radius:8px;
-
-}
-
-.subject-header{
-
-margin-top:40px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-padding-bottom:15px;
-
-border-bottom:2px solid #e6e6e6;
-
-}
-
-.subject-header h3{
-
-font-size:30px;
-
-color:#003366;
-
-margin:0;
-
-}
-
-.faculty-badge{
-
-background:#eef4ff;
-
-color:#003366;
-
-padding:8px 18px;
-
-border-radius:25px;
-
-font-size:14px;
-
-font-weight:600;
-
-border:1px solid #d9e7ff;
-
-}
-
-.chapter-table{
-
-margin-top:30px;
-
-overflow-x:auto;
-
-}
 
 table{
 
-width:100%;
-
-border-collapse:collapse;
-
-}
-
-table th{
-
-background:#003366;
-
-color:white;
-
-padding:14px;
-
-font-size:15px;
-
-text-align:left;
+    width:100%;
+    border-collapse:collapse;
 
 }
 
-table td{
 
-padding:14px;
+th{
 
-border-bottom:1px solid #e6e6e6;
+    background:#e8f0fa;
+    color:#003366;
+    padding:10px;
+    text-align:left;
 
-font-size:15px;
+}
+
+
+td{
+
+    padding:10px;
+    border-bottom:1px solid #ddd;
 
 }
 
-table tr:hover{
 
-background:#f8fbff;
-
+tr:last-child td{
+    border-bottom:none;
 }
+
+
+/* STATUS */
 
 .completed{
 
-color:#0b8b3c;
-
-font-weight:600;
+    color:green;
+    font-weight:bold;
 
 }
 
 .progress{
 
-color:#d97706;
+    color:#ff9800;
+    font-weight:bold;
 
-font-weight:600;
+}
+
+.pending{
+
+    color:red;
+    font-weight:bold;
+
+}
+
+
+/* FOOTER */
+
+.footer{
+
+    text-align:center;
+    background:#003366;
+    color:white;
+    padding:15px;
+    margin-top:30px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.header h1{
+    font-size:22px;
+}
+
+
+.subject-title{
+
+    font-size:17px;
+    flex-direction:column;
+    gap:8px;
+
+}
+
+
+table{
+
+    font-size:14px;
+
+}
+
+
+.container{
+
+    width:96%;
+
+}
 
 }
 
 </style>
 
+
 </head>
+
 
 <body>
 
-<div class="container">
-
-<a href="../index.html" class="back-btn">
-
-← Back to LMS Home
-
-</a>
 
 <div class="header">
 
 <h1>Bhat and Bhat Tutorials</h1>
 
-<h2>08th ICSE • Syllabus Status</h2>
+<p><i>"Where Students Achieve Success"</i></p>
 
-<div class="updated">
-
-Last Updated • 31 July 2026
+<h2>08th ICSE - Syllabus Status 2026-27</h2>
 
 </div>
 
-</div>
+<div class="container">
 
-<div class="subject-box">
+<div class="summary">
 
-<label>Select Subject</label>
+<h2>Syllabus Progress Snapshot</h2>
 
-<select id="subject">
-
-<option value="">-- Select Subject --</option>
-
-<option>Mathematics</option>
-
-<option>Physics</option>
-
-<option>Chemistry</option>
-
-<option>Biology</option>
-
-</select>
-
-</div>
-  
-</div>
-
-<div class="subject-header">
-
-<h3 id="subjectTitle">Select a Subject</h3>
-
-<div class="faculty-badge">
-
-Faculty • <span id="facultyName">--</span>
+<p>
+Academic Year : 2026 - 2027
+<br>
+Class : 08th ICSE
+<br>
+Last Updated : 03 August 2026
+</p>
 
 </div>
 
+<!-- MATHEMATICS -->
+
+<div class="subject">
+
+<div class="subject-title">
+
+Mathematics
+
+<span class="faculty">
+Faculty : __________
+</span>
+
 </div>
 
-<div class="chapter-table">
+
+<div class="table-container">
 
 <table>
 
-<thead>
-
 <tr>
-
-<th width="8%">Sl. No.</th>
-
-<th>Chapter Name</th>
-
-<th width="18%">Status</th>
-
+<th>Chapter / Topic</th>
+<th>Status</th>
 </tr>
 
-</thead>
-
-<tbody id="chapterBody">
 
 <tr>
-
-<td colspan="3" style="text-align:center;padding:30px;">
-
-Please select a subject to view the syllabus status.
-
-</td>
-
+<td>Chapter 1 : __________________</td>
+<td class="completed">Completed</td>
 </tr>
 
-</tbody>
+
+<tr>
+<td>Chapter 2 : __________________</td>
+<td class="progress">In Progress</td>
+</tr>
+
+
+<tr>
+<td>Chapter 3 : __________________</td>
+<td class="pending">Pending</td>
+</tr>
+
 
 </table>
 
 </div>
 
-<script>
+</div>
 
-const syllabus={
 
-Mathematics:[
-["Real Numbers","Completed"],
-["Polynomials","Completed"],
-["Quadratic Equations","In Progress"],
-["Triangles",""],
-["Circles",""]
-],
 
-Physics:[
-["Matter","Completed"],
-["Motion","Completed"],
-["Force",""],
-["Energy",""]
-],
 
-Chemistry:[
-["Matter and Composition","Completed"],
-["Physical Quantities","Completed"],
-["Force and Pressure","In Progress"],
-["Energy",""],
-["Light",""]
-],
 
-Biology:[
-["Cell","Completed"],
-["Plant Tissue",""],
-["Human Body",""]
-]
 
-};
+<!-- PHYSICS -->
 
-const facultyData={
+<div class="subject">
 
-"Mathematics":"Mr. Rajesh Kumar",
+<div class="subject-title">
 
-"Physics":"Mr. Arun Kumar",
+Physics
 
-"Chemistry":"Mrs. Kavitha",
+<span class="faculty">
+Faculty : __________
+</span>
 
-"Biology":"Mr. Prakash"
+</div>
 
-};
 
-document.getElementById("subject").addEventListener("change",function(){
+<div class="table-container">
 
-let subject=this.value;
-
-document.getElementById("subjectTitle").innerHTML=subject || "Select a Subject";
-
-document.getElementById("facultyName").innerHTML=
-facultyData[subject] || "--";
-
-let body=document.getElementById("chapterBody");
-
-body.innerHTML="";
-
-if(!subject){
-
-body.innerHTML=`<tr>
-<td colspan="3" style="text-align:center;padding:30px;">
-Please select a subject to view the syllabus status.
-</td>
-</tr>`;
-
-return;
-
-}
-
-syllabus[subject].forEach((chapter,index)=>{
-
-let status=chapter[1];
-
-let cls="";
-
-if(status=="Completed") cls="completed";
-
-if(status=="In Progress") cls="progress";
-
-body.innerHTML+=`
+<table>
 
 <tr>
-
-<td>${index+1}</td>
-
-<td>${chapter[0]}</td>
-
-<td class="${cls}">${status}</td>
-
+<th>Chapter / Topic</th>
+<th>Status</th>
 </tr>
 
-`;
 
-});
+<tr>
+<td>Chapter 1 : __________________</td>
+<td class="completed">Completed</td>
+</tr>
 
-});
 
-</script>
+<tr>
+<td>Chapter 2 : __________________</td>
+<td class="progress">In Progress</td>
+</tr>
 
+
+</table>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- CHEMISTRY -->
+
+<div class="subject">
+
+<div class="subject-title">
+
+Chemistry
+
+<span class="faculty">
+Faculty : __________
+</span>
+
+</div>
+
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Chapter / Topic</th>
+<th>Status</th>
+</tr>
+
+
+<tr>
+<td>Chapter 1 : __________________</td>
+<td class="completed">Completed</td>
+</tr>
+
+
+<tr>
+<td>Chapter 2 : __________________</td>
+<td class="progress">In Progress</td>
+</tr>
+
+
+</table>
+
+</div>
+
+</div>
+
+<!-- BIOLOGY -->
+
+<div class="subject">
+
+<div class="subject-title">
+
+Biology
+
+<span class="faculty">
+Faculty : __________
+</span>
+
+</div>
+
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Chapter / Topic</th>
+<th>Status</th>
+</tr>
+
+
+<tr>
+<td>Chapter 1 : __________________</td>
+<td class="completed">Completed</td>
+</tr>
+
+
+<tr>
+<td>Chapter 2 : __________________</td>
+<td class="pending">Pending</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+© Bhat and Bhat Tutorials | LMS Portal
+</div>
 </body>
-
 </html>

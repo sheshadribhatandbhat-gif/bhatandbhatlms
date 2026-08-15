@@ -9,27 +9,22 @@
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background:#f4f7fa; color:#333; min-height:100vh; }
     
-    /* Top Header */
     header { background:#003366; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
     .logo-container { display:flex; align-items:center; gap:15px; }
     .logo-container img { height:45px; background:white; padding:4px; border-radius:6px; }
     .logo-container h1 { font-size:20px; font-weight:700; }
     .user-badge { background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:20px; font-size:13px; font-weight:600; }
     
-    /* Layout Container */
     .dashboard-container { display:flex; min-height:calc(100vh - 75px); }
     
-    /* Navigation Sidebar */
     .sidebar { width:250px; background:#ffffff; border-right:1px solid #e0e6ed; padding:20px 0; }
     .nav-item { padding:14px 25px; display:block; color:#4a5568; font-weight:600; text-decoration:none; border-left:4px solid transparent; cursor:pointer; transition:0.2s; }
     .nav-item:hover, .nav-item.active { background:#eeb00015; color:#003366; border-left-color:#003366; }
     
-    /* Main Content Area */
     .content-area { flex:1; padding:30px; overflow-y:auto; }
     .tab-content { display:none; }
     .tab-content.active { display:block; }
 
-    /* UI Components */
     .card { background:white; padding:25px; border-radius:10px; border:1px solid #e2e8f0; box-shadow:0 4px 6px rgba(0,0,0,0.02); margin-bottom:25px; }
     .card-title { font-size:18px; color:#003366; margin-bottom:15px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
     .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
@@ -37,14 +32,13 @@
     
     .form-group { margin-bottom:15px; }
     label { display:block; font-size:12px; font-weight:700; color:#4a5568; margin-bottom:6px; text-transform:uppercase; }
-    input, select { width:100%; padding:10px 12px; border:1px solid #cbd5e0; border-radius:6px; font-size:14px; outline:none; }
+    input, select { width:100%; padding:10px 12px; border:1px solid #cbd5e0; border-radius:6px; font-size:14px; outline:none; background:#fff; }
     input:focus, select:focus { border-color:#003366; box-shadow:0 0 0 3px rgba(0,51,102,0.1); }
     
     .btn { background:#003366; color:white; border:none; padding:10px 18px; font-weight:700; border-radius:6px; cursor:pointer; transition:0.2s; }
     .btn:hover { background:#0059b3; }
     .btn-success { background:#2e7d32; } .btn-danger { background:#c62828; }
     
-    /* Data Tables */
     table { width:100%; border-collapse:collapse; margin-top:15px; }
     th, td { padding:12px 15px; text-align:left; border-bottom:1px solid #e2e8f0; font-size:14px; }
     th { background:#f7fafc; color:#4a5568; font-weight:700; }
@@ -53,7 +47,7 @@
     @media(max-width:768px) {
       .dashboard-container { flex-direction:column; }
       .sidebar { width:100%; display:flex; overflow-x:auto; padding:10px; }
-      .nav-item { padding:10px 15px; border-left:none; border-bottom:3px solid transparent; whitespace:nowrap; }
+      .nav-item { padding:10px 15px; border-left:none; border-bottom:3px solid transparent; white-space:nowrap; }
       .nav-item.active { border-left-color:transparent; border-bottom-color:#003366; }
       .grid-2, .grid-3 { grid-template-columns:1fr; }
     }
@@ -73,7 +67,6 @@
 </header>
 
 <div class="dashboard-container">
-  <!-- Sidebar Navigation Tabs -->
   <div class="sidebar">
     <a class="nav-item active" onclick="switchTab('studentsTab', this)">🎓 Student Database</a>
     <a class="nav-item" onclick="switchTab('coursesTab', this)">📚 Courses & Subjects</a>
@@ -81,7 +74,6 @@
     <a class="nav-item superadmin-only" id="adminTabNav" onclick="switchTab('adminsTab', this)" style="display:none;">🛡️ Admin User Control</a>
   </div>
 
-  <!-- Main View Area -->
   <div class="content-area">
     
     <!-- TAB 1: STUDENT DATABASE MANAGEMENT -->
@@ -95,13 +87,45 @@
         </div>
         <div class="grid-3">
           <div class="form-group"><label>Class</label><input type="text" id="s_class" placeholder="10th"></div>
-          <div class="form-group"><label>Board</label><input type="text" id="s_board" placeholder="CBSE"></div>
-          <div class="form-group"><label>Section</label><input type="text" id="s_section" placeholder="A"></div>
+          
+          <!-- Board Dropdown -->
+          <div class="form-group">
+            <label>Board Type</label>
+            <select id="s_board">
+              <option value="CBSE">CBSE</option>
+              <option value="ICSE">ICSE</option>
+              <option value="State Board">State Board</option>
+            </select>
+          </div>
+          
+          <!-- Section Dropdown -->
+          <div class="form-group">
+            <label>Section</label>
+            <select id="s_section">
+              <option value="A">Section A</option>
+              <option value="B">Section B</option>
+              <option value="C">Section C</option>
+              <option value="D">Section D</option>
+            </select>
+          </div>
         </div>
-        <div class="grid-2">
+
+        <div class="grid-3">
           <div class="form-group"><label>Subjects Opted</label><input type="text" id="s_subjects" placeholder="Physics, Chemistry"></div>
+          
+          <!-- Batch Type Dropdown -->
+          <div class="form-group">
+            <label>Batch Type</label>
+            <select id="s_batch">
+              <option value="Regular">Regular Batch</option>
+              <option value="Weekend">Weekend Batch</option>
+              <option value="Crash Course">Crash Course</option>
+            </select>
+          </div>
+
           <div class="form-group"><label>Student Contact</label><input type="text" id="s_mobile" placeholder="Mobile Number"></div>
         </div>
+
         <button class="btn" onclick="saveStudent()">Save Student Record</button>
         <div id="studentStatus" style="margin-top:10px; font-weight:bold;"></div>
       </div>
@@ -110,14 +134,14 @@
         <div class="card-title">Enrolled Students Directory</div>
         <table id="studentsTable">
           <thead>
-            <tr><th>SRN</th><th>Name</th><th>Class</th><th>Board</th><th>Mobile</th><th>Actions</th></tr>
+            <tr><th>SRN</th><th>Name</th><th>Class</th><th>Board</th><th>Section</th><th>Batch</th><th>Mobile</th><th>Actions</th></tr>
           </thead>
-          <tbody><!-- Dynamically Rendered --></tbody>
+          <tbody></tbody>
         </table>
       </div>
     </div>
 
-    <!-- TAB 2: COURSES AND SUBJECTS MANAGEMENT -->
+    <!-- TAB 2: COURSES & SUBJECTS -->
     <div id="coursesTab" class="tab-content">
       <div class="card">
         <div class="card-title">Add Course / Subject Mapping</div>
@@ -135,15 +159,15 @@
           <thead>
             <tr><th>Course / Class</th><th>Assigned Subjects</th></tr>
           </thead>
-          <tbody><!-- Dynamically Rendered --></tbody>
+          <tbody></tbody>
         </table>
       </div>
     </div>
 
-    <!-- TAB 3: NOTES UPLOAD MANAGEMENT -->
+    <!-- TAB 3: DIRECT FILE UPLOAD (PDF, DOCX, IMAGES) -->
     <div id="notesTab" class="tab-content">
       <div class="card">
-        <div class="card-title">Publish Notes / Study Material</div>
+        <div class="card-title">Upload Study Material / Document</div>
         <div class="form-group"><label>Material Title</label><input type="text" id="n_title" placeholder="e.g. Chapter 1 - Real Numbers Handout"></div>
         <div class="grid-2">
           <div class="form-group">
@@ -155,39 +179,54 @@
             <select id="n_subject"><option value="">-- Select Subject --</option></select>
           </div>
         </div>
-        <div class="form-group"><label>Google Drive PDF File ID</label><input type="text" id="n_driveid" placeholder="e.g. 1BxiMVs0XRA5nFMdKbBdBnmg17B65Q1"></div>
-        <button class="btn btn-success" onclick="publishNotes()">Publish to LMS Main Page</button>
+        <div class="form-group">
+          <label>Select Document File (PDF, DOCX, Images)</label>
+          <input type="file" id="n_file" accept=".pdf,.docx,.doc,.png,.jpg,.jpeg">
+        </div>
+        <button class="btn btn-success" onclick="publishNotesFile()">Upload Document</button>
         <div id="notesStatus" style="margin-top:10px; font-weight:bold;"></div>
       </div>
 
       <div class="card">
-        <div class="card-title">Published Material Directory</div>
+        <div class="card-title">Uploaded Material Directory</div>
         <table id="notesTable">
           <thead>
-            <tr><th>Title</th><th>Course</th><th>Subject</th><th>Drive ID</th></tr>
+            <tr><th>Title</th><th>Course</th><th>Subject</th><th>Action</th></tr>
           </thead>
-          <tbody><!-- Dynamically Rendered --></tbody>
+          <tbody></tbody>
         </table>
       </div>
     </div>
 
-    <!-- TAB 4: SUPER ADMIN USER MANAGEMENT -->
+    <!-- TAB 4: SUPER ADMIN CONTROL WITH EDITABLE USER DATABASE -->
     <div id="adminsTab" class="tab-content">
       <div class="card">
-        <div class="card-title">Grant New Admin Access</div>
+        <div class="card-title" id="adminFormTitle">Grant New Admin Access</div>
+        <input type="hidden" id="a_id">
         <div class="grid-2">
           <div class="form-group"><label>Admin Name</label><input type="text" id="a_name"></div>
           <div class="form-group"><label>Email Address</label><input type="email" id="a_email"></div>
         </div>
         <div class="grid-2">
-          <div class="form-group"><label>Password</label><input type="password" id="a_password"></div>
+          <div class="form-group"><label>Password (Leave blank when editing to keep unchanged)</label><input type="password" id="a_password"></div>
           <div class="form-group">
             <label>Access Role</label>
             <select id="a_role"><option value="admin">Admin</option><option value="superadmin">Super Admin</option></select>
           </div>
         </div>
-        <button class="btn btn-success" onclick="createAdmin()">Create Admin Account</button>
+        <button class="btn btn-success" onclick="saveAdmin()">Save Admin User</button>
+        <button class="btn" style="background:#757575; display:none;" id="cancelAdminEditBtn" onclick="resetAdminForm()">Cancel Edit</button>
         <div id="adminStatus" style="margin-top:10px; font-weight:bold;"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Active Admin Directory</div>
+        <table id="adminsTable">
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
     </div>
 
@@ -198,14 +237,16 @@
   const API_URL = "https://steep-wind-e204.bhatandbhat.workers.dev";
   let globalCourses = [], globalSubjects = [];
 
-  // Initialize Session Check & Data Load
   window.onload = function() {
     const role = localStorage.getItem("userRole");
     const name = localStorage.getItem("userName");
     if(!role) { window.location.href = "index.html"; return; }
     
     document.getElementById("userBadge").innerText = `${name} (${role.toUpperCase()})`;
-    if(role === "superadmin") document.getElementById("adminTabNav").style.display = "block";
+    if(role === "superadmin") {
+      document.getElementById("adminTabNav").style.display = "block";
+      loadAdmins();
+    }
     
     loadStudents();
     loadCoursesAndSubjects();
@@ -221,7 +262,7 @@
 
   function logout() { localStorage.clear(); window.location.href = "index.html"; }
 
-  // 1. STUDENT FUNCTIONS
+  // 1. STUDENTS
   async function loadStudents() {
     const res = await fetch(`${API_URL}/api/students/list`);
     const data = await res.json();
@@ -229,8 +270,8 @@
     tbody.innerHTML = data.students.map(s => `
       <tr>
         <td><b>${s.srn}</b></td><td>${s.student_name}</td><td>${s.class_name}</td>
-        <td>${s.board_type}</td><td>${s.student_mobile}</td>
-        <td><button class="btn" style="padding:4px 8px; font-size:12px;" onclick="editStudent('${s.srn}','${s.student_name}','${s.dob}','${s.class_name}','${s.board_type}','${s.section}','${s.subjects_opted}','${s.student_mobile}')">Edit</button></td>
+        <td>${s.board_type}</td><td>${s.section || 'A'}</td><td>${s.batch_type || 'Regular'}</td><td>${s.student_mobile}</td>
+        <td><button class="btn" style="padding:4px 8px; font-size:12px;" onclick="editStudent('${s.srn}','${s.student_name}','${s.dob}','${s.class_name}','${s.board_type}','${s.section}','${s.batch_type}','${s.subjects_opted}','${s.student_mobile}')">Edit</button></td>
       </tr>
     `).join('');
   }
@@ -241,8 +282,9 @@
       student_name: document.getElementById('s_name').value.trim(),
       dob: document.getElementById('s_dob').value.trim(),
       class_name: document.getElementById('s_class').value.trim(),
-      board_type: document.getElementById('s_board').value.trim(),
-      section: document.getElementById('s_section').value.trim(),
+      board_type: document.getElementById('s_board').value,
+      section: document.getElementById('s_section').value,
+      batch_type: document.getElementById('s_batch').value,
       subjects_opted: document.getElementById('s_subjects').value.trim(),
       student_mobile: document.getElementById('s_mobile').value.trim()
     };
@@ -252,31 +294,30 @@
     loadStudents();
   }
 
-  function editStudent(srn, name, dob, className, board, section, subjects, mobile) {
+  function editStudent(srn, name, dob, className, board, section, batch, subjects, mobile) {
     document.getElementById('s_srn').value = srn;
     document.getElementById('s_name').value = name;
     document.getElementById('s_dob').value = dob;
     document.getElementById('s_class').value = className;
-    document.getElementById('s_board').value = board;
-    document.getElementById('s_section').value = section;
+    document.getElementById('s_board').value = board || 'CBSE';
+    document.getElementById('s_section').value = section || 'A';
+    document.getElementById('s_batch').value = batch || 'Regular';
     document.getElementById('s_subjects').value = subjects;
     document.getElementById('s_mobile').value = mobile;
   }
 
-  // 2. COURSES & SUBJECTS FUNCTIONS
+  // 2. COURSES & SUBJECTS
   async function loadCoursesAndSubjects() {
     const res = await fetch(`${API_URL}/api/courses/list`);
     const data = await res.json();
     globalCourses = data.courses; globalSubjects = data.subjects;
 
-    // Render Table
     const tbody = document.querySelector("#coursesTable tbody");
     tbody.innerHTML = globalCourses.map(c => {
       const subs = globalSubjects.filter(s => s.course_id === c.id).map(s => s.subject_name).join(', ');
       return `<tr><td><b>${c.class_name}</b></td><td>${subs || 'No subjects linked'}</td></tr>`;
     }).join('');
 
-    // Populate Notes Course Dropdown
     const courseSelect = document.getElementById("n_course");
     courseSelect.innerHTML = '<option value="">-- Select Class --</option>' + globalCourses.map(c => `<option value="${c.id}">${c.class_name}</option>`).join('');
   }
@@ -299,18 +340,48 @@
     subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>' + filtered.map(s => `<option value="${s.id}">${s.subject_name}</option>`).join('');
   }
 
-  // 3. NOTES FUNCTIONS
-  async function publishNotes() {
-    const payload = {
-      title: document.getElementById('n_title').value.trim(),
-      course_id: document.getElementById('n_course').value,
-      subject_id: document.getElementById('n_subject').value,
-      drive_file_id: document.getElementById('n_driveid').value.trim()
+  // 3. FILE UPLOADS (DIRECT BASE64)
+  async function publishNotesFile() {
+    const fileInput = document.getElementById('n_file');
+    const title = document.getElementById('n_title').value.trim();
+    const course_id = document.getElementById('n_course').value;
+    const subject_id = document.getElementById('n_subject').value;
+
+    if (!fileInput.files.length || !title || !course_id || !subject_id) {
+      alert("Please fill all fields and select a file to upload.");
+      return;
+    }
+
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    document.getElementById("notesStatus").innerText = "Uploading file... Please wait.";
+
+    reader.onload = async function() {
+      const payload = {
+        title: title,
+        course_id: course_id,
+        subject_id: subject_id,
+        file_name: file.name,
+        file_type: file.type,
+        file_data: reader.result
+      };
+
+      const res = await fetch(`${API_URL}/api/notes/upload`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      document.getElementById("notesStatus").innerText = data.message;
+      if (data.success) {
+        document.getElementById('n_title').value = '';
+        fileInput.value = '';
+        loadNotes();
+      }
     };
-    const res = await fetch(`${API_URL}/api/notes/add`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
-    const data = await res.json();
-    document.getElementById("notesStatus").innerText = data.message;
-    loadNotes();
+
+    reader.readAsDataURL(file);
   }
 
   async function loadNotes() {
@@ -318,21 +389,66 @@
     const data = await res.json();
     const tbody = document.querySelector("#notesTable tbody");
     tbody.innerHTML = data.notes.map(n => `
-      <tr><td><b>${n.title}</b></td><td>${n.class_name}</td><td>${n.subject_name}</td><td><code>${n.drive_file_id}</code></td></tr>
+      <tr>
+        <td><b>${n.title}</b></td>
+        <td>${n.class_name}</td>
+        <td>${n.subject_name}</td>
+        <td>
+          <a href="${n.file_data}" download="${n.file_name}" class="btn" style="padding:4px 8px; font-size:12px; text-decoration:none;">Download File</a>
+        </td>
+      </tr>
     `).join('');
   }
 
-  // 4. ADMIN USER FUNCTION
-  async function createAdmin() {
+  // 4. ADMIN USER CONTROL (WITH EDIT OPTION)
+  async function loadAdmins() {
+    const res = await fetch(`${API_URL}/api/admin/list`);
+    const data = await res.json();
+    const tbody = document.querySelector("#adminsTable tbody");
+    tbody.innerHTML = data.admins.map(a => `
+      <tr>
+        <td><b>#${a.id}</b></td>
+        <td>${a.name}</td>
+        <td>${a.email}</td>
+        <td><span style="background:#eef3f8; padding:3px 8px; border-radius:4px; font-weight:bold;">${a.role.toUpperCase()}</span></td>
+        <td><button class="btn" style="padding:4px 8px; font-size:12px;" onclick="editAdmin(${a.id}, '${a.name}', '${a.email}', '${a.role}')">Edit User</button></td>
+      </tr>
+    `).join('');
+  }
+
+  async function saveAdmin() {
     const payload = {
+      id: document.getElementById('a_id').value,
       name: document.getElementById('a_name').value.trim(),
       email: document.getElementById('a_email').value.trim(),
       password: document.getElementById('a_password').value.trim(),
       role: document.getElementById('a_role').value
     };
-    const res = await fetch(`${API_URL}/api/admin/add`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
+    const res = await fetch(`${API_URL}/api/admin/save`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
     const data = await res.json();
     document.getElementById("adminStatus").innerText = data.message;
+    resetAdminForm();
+    loadAdmins();
+  }
+
+  function editAdmin(id, name, email, role) {
+    document.getElementById('adminFormTitle').innerText = `Edit Admin User (#${id})`;
+    document.getElementById('a_id').value = id;
+    document.getElementById('a_name').value = name;
+    document.getElementById('a_email').value = email;
+    document.getElementById('a_password').value = "";
+    document.getElementById('a_role').value = role;
+    document.getElementById('cancelAdminEditBtn').style.display = "inline-block";
+  }
+
+  function resetAdminForm() {
+    document.getElementById('adminFormTitle').innerText = "Grant New Admin Access";
+    document.getElementById('a_id').value = "";
+    document.getElementById('a_name').value = "";
+    document.getElementById('a_email').value = "";
+    document.getElementById('a_password').value = "";
+    document.getElementById('a_role').value = "admin";
+    document.getElementById('cancelAdminEditBtn').style.display = "none";
   }
 </script>
 

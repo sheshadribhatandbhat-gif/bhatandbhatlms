@@ -3,179 +3,336 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bhat and Bhat Tutorials - Admin Dashboard</title>
+  <title>Admin LMS Dashboard - Bhat and Bhat Tutorials</title>
   <link rel="icon" href="logo.png">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:#eef3f8; color:#222; min-height:100vh; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background:#f4f7fa; color:#333; min-height:100vh; }
     
-    header { background:linear-gradient(135deg,#003366,#0059b3); color:#fff; padding:20px 30px; text-align:center; box-shadow:0 4px 18px rgba(0,0,0,.20); }
-    .logo { height:80px; margin-bottom:8px; }
-    header h1 { font-size:32px; font-weight:700; }
-    header p { font-size:16px; margin-top:4px; }
+    /* Top Header */
+    header { background:#003366; color:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+    .logo-container { display:flex; align-items:center; gap:15px; }
+    .logo-container img { height:45px; background:white; padding:4px; border-radius:6px; }
+    .logo-container h1 { font-size:20px; font-weight:700; }
+    .user-badge { background:rgba(255,255,255,0.15); padding:6px 14px; border-radius:20px; font-size:13px; font-weight:600; }
     
-    .container { width:95%; max-width:1000px; margin:25px auto; padding:10px; }
-    .card { background:#fff; padding:25px; border-radius:14px; box-shadow:0 6px 20px rgba(0,0,0,0.08); margin-bottom:25px; }
-    .header-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:2px solid #eef3f8; padding-bottom:10px; }
-    .nav-btn { background:#003366; color:#fff; text-decoration:none; padding:8px 14px; border-radius:6px; font-weight:bold; font-size:13px; cursor:pointer; border:none; }
+    /* Layout Container */
+    .dashboard-container { display:flex; min-height:calc(100vh - 75px); }
     
-    h2 { color:#003366; font-size:20px; margin-bottom:15px; }
-    .form-group { margin-bottom:14px; }
-    label { font-weight:bold; font-size:13px; display:block; margin-bottom:4px; color:#003366; }
-    input, select { width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-size:14px; }
-    .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    /* Navigation Sidebar */
+    .sidebar { width:250px; background:#ffffff; border-right:1px solid #e0e6ed; padding:20px 0; }
+    .nav-item { padding:14px 25px; display:block; color:#4a5568; font-weight:600; text-decoration:none; border-left:4px solid transparent; cursor:pointer; transition:0.2s; }
+    .nav-item:hover, .nav-item.active { background:#eeb00015; color:#003366; border-left-color:#003366; }
     
-    .submit-btn { background:#003366; color:white; border:none; padding:12px; font-size:15px; font-weight:bold; width:100%; cursor:pointer; border-radius:6px; margin-top:10px; }
-    .submit-btn:hover { background:#0059b3; }
+    /* Main Content Area */
+    .content-area { flex:1; padding:30px; overflow-y:auto; }
+    .tab-content { display:none; }
+    .tab-content.active { display:block; }
+
+    /* UI Components */
+    .card { background:white; padding:25px; border-radius:10px; border:1px solid #e2e8f0; box-shadow:0 4px 6px rgba(0,0,0,0.02); margin-bottom:25px; }
+    .card-title { font-size:18px; color:#003366; margin-bottom:15px; font-weight:700; display:flex; justify-content:space-between; align-items:center; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+    .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:15px; }
     
-    @media (max-width: 600px) {
-      .grid { grid-template-columns: 1fr; }
+    .form-group { margin-bottom:15px; }
+    label { display:block; font-size:12px; font-weight:700; color:#4a5568; margin-bottom:6px; text-transform:uppercase; }
+    input, select { width:100%; padding:10px 12px; border:1px solid #cbd5e0; border-radius:6px; font-size:14px; outline:none; }
+    input:focus, select:focus { border-color:#003366; box-shadow:0 0 0 3px rgba(0,51,102,0.1); }
+    
+    .btn { background:#003366; color:white; border:none; padding:10px 18px; font-weight:700; border-radius:6px; cursor:pointer; transition:0.2s; }
+    .btn:hover { background:#0059b3; }
+    .btn-success { background:#2e7d32; } .btn-danger { background:#c62828; }
+    
+    /* Data Tables */
+    table { width:100%; border-collapse:collapse; margin-top:15px; }
+    th, td { padding:12px 15px; text-align:left; border-bottom:1px solid #e2e8f0; font-size:14px; }
+    th { background:#f7fafc; color:#4a5568; font-weight:700; }
+    tr:hover { background:#f8fafc; }
+
+    @media(max-width:768px) {
+      .dashboard-container { flex-direction:column; }
+      .sidebar { width:100%; display:flex; overflow-x:auto; padding:10px; }
+      .nav-item { padding:10px 15px; border-left:none; border-bottom:3px solid transparent; whitespace:nowrap; }
+      .nav-item.active { border-left-color:transparent; border-bottom-color:#003366; }
+      .grid-2, .grid-3 { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
-  <h1>Bhat and Bhat Tutorials</h1>
-  <p><i>"Where Students Achieve Success"</i></p>
+  <div class="logo-container">
+    <img src="logo.png" alt="Logo">
+    <h1>Bhat and Bhat Tutorials LMS</h1>
+  </div>
+  <div style="display:flex; align-items:center; gap:15px;">
+    <span class="user-badge" id="userBadge">Authenticated</span>
+    <button onclick="logout()" class="btn btn-danger" style="padding:6px 12px; font-size:12px;">Logout</button>
+  </div>
 </header>
 
-<div class="container">
-  <div class="card">
-    <div class="header-bar">
-      <a href="index.html" class="nav-btn">← Main LMS Portal</a>
-      <span id="userInfo" style="font-weight:bold; color:#003366;"></span>
-      <button onclick="logout()" class="nav-btn" style="background:#c62828;">Logout</button>
-    </div>
-
-    <!-- 1. STUDENT RECORD DATABASE ENTRY (Both Roles) -->
-    <h2>📥 Student Database Entry</h2>
-    <div class="form-group"><label>SRN Number:</label><input type="text" id="srn" placeholder="SRN1024"></div>
-    <div class="form-group"><label>Student Name:</label><input type="text" id="student_name" placeholder="Full Name"></div>
-    <div class="form-group"><label>D.O.B (DD-MM-YYYY):</label><input type="text" id="dob" placeholder="DD-MM-YYYY"></div>
-    
-    <div class="form-group grid">
-      <div><label>Class:</label><input type="text" id="class_name" placeholder="10th"></div>
-      <div><label>Board Type:</label><input type="text" id="board_type" placeholder="CBSE"></div>
-    </div>
-    
-    <div class="form-group grid">
-      <div><label>Section:</label><input type="text" id="section" placeholder="A"></div>
-      <div><label>Batch Type:</label><input type="text" id="batch_type" placeholder="Regular"></div>
-    </div>
-    
-    <div class="form-group"><label>Subjects Opted:</label><input type="text" id="subjects_opted" placeholder="Physics, Chemistry"></div>
-    <div class="form-group"><label>Student Mobile:</label><input type="text" id="student_mobile" placeholder="Mobile Number"></div>
-    
-    <div class="form-group grid">
-      <div><label>Father Name:</label><input type="text" id="father_name" placeholder="Father Name"></div>
-      <div><label>Father Contact:</label><input type="text" id="father_contact" placeholder="Father Contact Number"></div>
-    </div>
-    
-    <button class="submit-btn" onclick="saveStudent()">Save / Sync Student Record</button>
-    <div id="studentMsg" style="margin-top:10px; font-weight:bold; text-align:center;"></div>
+<div class="dashboard-container">
+  <!-- Sidebar Navigation Tabs -->
+  <div class="sidebar">
+    <a class="nav-item active" onclick="switchTab('studentsTab', this)">🎓 Student Database</a>
+    <a class="nav-item" onclick="switchTab('coursesTab', this)">📚 Courses & Subjects</a>
+    <a class="nav-item" onclick="switchTab('notesTab', this)">📘 Study Notes Upload</a>
+    <a class="nav-item superadmin-only" id="adminTabNav" onclick="switchTab('adminsTab', this)" style="display:none;">🛡️ Admin User Control</a>
   </div>
 
-  <!-- SUPER ADMIN ONLY SECTION -->
-  <div id="superAdminSection" style="display:none;">
+  <!-- Main View Area -->
+  <div class="content-area">
     
-    <!-- 2. CREATE NEW ADMIN PANEL -->
-    <div class="card">
-      <h2>🛡️ Add New Admin User (Super Admin)</h2>
-      <div class="form-group"><label>Admin Name:</label><input type="text" id="newAdminName"></div>
-      <div class="form-group"><label>Admin Email:</label><input type="email" id="newAdminEmail"></div>
-      <div class="form-group"><label>Password:</label><input type="password" id="newAdminPassword"></div>
-      <div class="form-group">
-        <label>Role:</label>
-        <select id="newAdminRole">
-          <option value="admin">Admin</option>
-          <option value="superadmin">Super Admin</option>
-        </select>
+    <!-- TAB 1: STUDENT DATABASE MANAGEMENT -->
+    <div id="studentsTab" class="tab-content active">
+      <div class="card">
+        <div class="card-title">Register / Edit Student Record</div>
+        <div class="grid-3">
+          <div class="form-group"><label>SRN Number</label><input type="text" id="s_srn" placeholder="SRN1024"></div>
+          <div class="form-group"><label>Full Name</label><input type="text" id="s_name" placeholder="Student Name"></div>
+          <div class="form-group"><label>Date of Birth</label><input type="text" id="s_dob" placeholder="DD-MM-YYYY"></div>
+        </div>
+        <div class="grid-3">
+          <div class="form-group"><label>Class</label><input type="text" id="s_class" placeholder="10th"></div>
+          <div class="form-group"><label>Board</label><input type="text" id="s_board" placeholder="CBSE"></div>
+          <div class="form-group"><label>Section</label><input type="text" id="s_section" placeholder="A"></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Subjects Opted</label><input type="text" id="s_subjects" placeholder="Physics, Chemistry"></div>
+          <div class="form-group"><label>Student Contact</label><input type="text" id="s_mobile" placeholder="Mobile Number"></div>
+        </div>
+        <button class="btn" onclick="saveStudent()">Save Student Record</button>
+        <div id="studentStatus" style="margin-top:10px; font-weight:bold;"></div>
       </div>
-      <button class="submit-btn" onclick="addAdmin()" style="background:#2e7d32;">Create Admin User</button>
-      <div id="adminMsg" style="margin-top:10px; font-weight:bold; text-align:center;"></div>
+
+      <div class="card">
+        <div class="card-title">Enrolled Students Directory</div>
+        <table id="studentsTable">
+          <thead>
+            <tr><th>SRN</th><th>Name</th><th>Class</th><th>Board</th><th>Mobile</th><th>Actions</th></tr>
+          </thead>
+          <tbody><!-- Dynamically Rendered --></tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- 3. ADD SUBJECT & COURSE -->
-    <div class="card">
-      <h2>📚 Add Subject / Course Section</h2>
-      <div class="form-group"><label>Class / Course Name:</label><input type="text" id="courseClass" placeholder="e.g. Class 10 CBSE"></div>
-      <div class="form-group"><label>Subject Name:</label><input type="text" id="courseSubject" placeholder="e.g. Mathematics"></div>
-      <button class="submit-btn" onclick="addCourse()" style="background:#0277bd;">Add Subject to Course</button>
+    <!-- TAB 2: COURSES AND SUBJECTS MANAGEMENT -->
+    <div id="coursesTab" class="tab-content">
+      <div class="card">
+        <div class="card-title">Add Course / Subject Mapping</div>
+        <div class="grid-2">
+          <div class="form-group"><label>Class / Course Name</label><input type="text" id="c_classname" placeholder="e.g. Class 10 CBSE"></div>
+          <div class="form-group"><label>Subject Name</label><input type="text" id="c_subjectname" placeholder="e.g. Mathematics"></div>
+        </div>
+        <button class="btn" onclick="addCourseSubject()">Add Subject to Course</button>
+        <div id="courseStatus" style="margin-top:10px; font-weight:bold;"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Existing Course & Subject Structure</div>
+        <table id="coursesTable">
+          <thead>
+            <tr><th>Course / Class</th><th>Assigned Subjects</th></tr>
+          </thead>
+          <tbody><!-- Dynamically Rendered --></tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- 4. UPLOAD STUDY NOTES / PDF LINKS -->
-    <div class="card">
-      <h2>📘 Upload Study Material / Notes Link</h2>
-      <div class="form-group"><label>Material Title:</label><input type="text" placeholder="e.g. Physics Chapter 1 Notes"></div>
-      <div class="form-group"><label>Google Drive PDF File ID:</label><input type="text" placeholder="File ID from Drive Link"></div>
-      <button class="submit-btn" style="background:#ef6c00;">Publish Note to Main LMS</button>
+    <!-- TAB 3: NOTES UPLOAD MANAGEMENT -->
+    <div id="notesTab" class="tab-content">
+      <div class="card">
+        <div class="card-title">Publish Notes / Study Material</div>
+        <div class="form-group"><label>Material Title</label><input type="text" id="n_title" placeholder="e.g. Chapter 1 - Real Numbers Handout"></div>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Select Target Class/Course</label>
+            <select id="n_course" onchange="filterSubjectDropdown()"><option value="">-- Select Class --</option></select>
+          </div>
+          <div class="form-group">
+            <label>Select Subject</label>
+            <select id="n_subject"><option value="">-- Select Subject --</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label>Google Drive PDF File ID</label><input type="text" id="n_driveid" placeholder="e.g. 1BxiMVs0XRA5nFMdKbBdBnmg17B65Q1"></div>
+        <button class="btn btn-success" onclick="publishNotes()">Publish to LMS Main Page</button>
+        <div id="notesStatus" style="margin-top:10px; font-weight:bold;"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Published Material Directory</div>
+        <table id="notesTable">
+          <thead>
+            <tr><th>Title</th><th>Course</th><th>Subject</th><th>Drive ID</th></tr>
+          </thead>
+          <tbody><!-- Dynamically Rendered --></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 4: SUPER ADMIN USER MANAGEMENT -->
+    <div id="adminsTab" class="tab-content">
+      <div class="card">
+        <div class="card-title">Grant New Admin Access</div>
+        <div class="grid-2">
+          <div class="form-group"><label>Admin Name</label><input type="text" id="a_name"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="a_email"></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Password</label><input type="password" id="a_password"></div>
+          <div class="form-group">
+            <label>Access Role</label>
+            <select id="a_role"><option value="admin">Admin</option><option value="superadmin">Super Admin</option></select>
+          </div>
+        </div>
+        <button class="btn btn-success" onclick="createAdmin()">Create Admin Account</button>
+        <div id="adminStatus" style="margin-top:10px; font-weight:bold;"></div>
+      </div>
     </div>
 
   </div>
 </div>
 
 <script>
-  const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev";
-  const role = localStorage.getItem("userRole");
-  const userName = localStorage.getItem("userName");
+  const API_URL = "https://steep-wind-e204.bhatandbhat.workers.dev";
+  let globalCourses = [], globalSubjects = [];
 
-  // Protect Dashboard Access
-  if (!role) {
-    alert("Unauthorized access! Please login first.");
-    window.location.href = "index.html";
-  } else {
-    document.getElementById("userInfo").innerHTML = `${userName} (${role.toUpperCase()})`;
-    if (role === "superadmin") {
-      document.getElementById("superAdminSection").style.display = "block";
-    }
+  // Initialize Session Check & Data Load
+  window.onload = function() {
+    const role = localStorage.getItem("userRole");
+    const name = localStorage.getItem("userName");
+    if(!role) { window.location.href = "index.html"; return; }
+    
+    document.getElementById("userBadge").innerText = `${name} (${role.toUpperCase()})`;
+    if(role === "superadmin") document.getElementById("adminTabNav").style.display = "block";
+    
+    loadStudents();
+    loadCoursesAndSubjects();
+    loadNotes();
+  };
+
+  function switchTab(tabId, el) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    el.classList.add('active');
   }
 
-  function logout() {
-    localStorage.clear();
-    window.location.href = "index.html";
+  function logout() { localStorage.clear(); window.location.href = "index.html"; }
+
+  // 1. STUDENT FUNCTIONS
+  async function loadStudents() {
+    const res = await fetch(`${API_URL}/api/students/list`);
+    const data = await res.json();
+    const tbody = document.querySelector("#studentsTable tbody");
+    tbody.innerHTML = data.students.map(s => `
+      <tr>
+        <td><b>${s.srn}</b></td><td>${s.student_name}</td><td>${s.class_name}</td>
+        <td>${s.board_type}</td><td>${s.student_mobile}</td>
+        <td><button class="btn" style="padding:4px 8px; font-size:12px;" onclick="editStudent('${s.srn}','${s.student_name}','${s.dob}','${s.class_name}','${s.board_type}','${s.section}','${s.subjects_opted}','${s.student_mobile}')">Edit</button></td>
+      </tr>
+    `).join('');
   }
 
   async function saveStudent() {
     const payload = {
-      srn: document.getElementById('srn').value.trim(),
-      student_name: document.getElementById('student_name').value.trim(),
-      dob: document.getElementById('dob').value.trim(),
-      class_name: document.getElementById('class_name').value.trim(),
-      board_type: document.getElementById('board_type').value.trim(),
-      section: document.getElementById('section').value.trim(),
-      batch_type: document.getElementById('batch_type').value.trim(),
-      subjects_opted: document.getElementById('subjects_opted').value.trim(),
-      student_mobile: document.getElementById('student_mobile').value.trim(),
-      father_name: document.getElementById('father_name').value.trim(),
-      father_contact: document.getElementById('father_contact').value.trim()
+      srn: document.getElementById('s_srn').value.trim(),
+      student_name: document.getElementById('s_name').value.trim(),
+      dob: document.getElementById('s_dob').value.trim(),
+      class_name: document.getElementById('s_class').value.trim(),
+      board_type: document.getElementById('s_board').value.trim(),
+      section: document.getElementById('s_section').value.trim(),
+      subjects_opted: document.getElementById('s_subjects').value.trim(),
+      student_mobile: document.getElementById('s_mobile').value.trim()
     };
-
-    const res = await fetch(`${WORKER_URL}/api/students/save`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+    const res = await fetch(`${API_URL}/api/students/save`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
     const data = await res.json();
-    document.getElementById("studentMsg").innerHTML = data.success ? "✅ Saved!" : "❌ Error";
+    document.getElementById("studentStatus").innerText = data.message;
+    loadStudents();
   }
 
-  async function addAdmin() {
-    const payload = {
-      name: document.getElementById('newAdminName').value.trim(),
-      email: document.getElementById('newAdminEmail').value.trim(),
-      password: document.getElementById('newAdminPassword').value.trim(),
-      role: document.getElementById('newAdminRole').value
-    };
+  function editStudent(srn, name, dob, className, board, section, subjects, mobile) {
+    document.getElementById('s_srn').value = srn;
+    document.getElementById('s_name').value = name;
+    document.getElementById('s_dob').value = dob;
+    document.getElementById('s_class').value = className;
+    document.getElementById('s_board').value = board;
+    document.getElementById('s_section').value = section;
+    document.getElementById('s_subjects').value = subjects;
+    document.getElementById('s_mobile').value = mobile;
+  }
 
-    const res = await fetch(`${WORKER_URL}/api/admin/add`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+  // 2. COURSES & SUBJECTS FUNCTIONS
+  async function loadCoursesAndSubjects() {
+    const res = await fetch(`${API_URL}/api/courses/list`);
     const data = await res.json();
-    document.getElementById("adminMsg").innerHTML = data.success ? "✅ Admin Created!" : "❌ " + data.message;
+    globalCourses = data.courses; globalSubjects = data.subjects;
+
+    // Render Table
+    const tbody = document.querySelector("#coursesTable tbody");
+    tbody.innerHTML = globalCourses.map(c => {
+      const subs = globalSubjects.filter(s => s.course_id === c.id).map(s => s.subject_name).join(', ');
+      return `<tr><td><b>${c.class_name}</b></td><td>${subs || 'No subjects linked'}</td></tr>`;
+    }).join('');
+
+    // Populate Notes Course Dropdown
+    const courseSelect = document.getElementById("n_course");
+    courseSelect.innerHTML = '<option value="">-- Select Class --</option>' + globalCourses.map(c => `<option value="${c.id}">${c.class_name}</option>`).join('');
+  }
+
+  async function addCourseSubject() {
+    const payload = {
+      class_name: document.getElementById('c_classname').value.trim(),
+      subject_name: document.getElementById('c_subjectname').value.trim()
+    };
+    const res = await fetch(`${API_URL}/api/courses/add`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
+    const data = await res.json();
+    document.getElementById("courseStatus").innerText = data.message;
+    loadCoursesAndSubjects();
+  }
+
+  function filterSubjectDropdown() {
+    const courseId = parseInt(document.getElementById("n_course").value);
+    const subjectSelect = document.getElementById("n_subject");
+    const filtered = globalSubjects.filter(s => s.course_id === courseId);
+    subjectSelect.innerHTML = '<option value="">-- Select Subject --</option>' + filtered.map(s => `<option value="${s.id}">${s.subject_name}</option>`).join('');
+  }
+
+  // 3. NOTES FUNCTIONS
+  async function publishNotes() {
+    const payload = {
+      title: document.getElementById('n_title').value.trim(),
+      course_id: document.getElementById('n_course').value,
+      subject_id: document.getElementById('n_subject').value,
+      drive_file_id: document.getElementById('n_driveid').value.trim()
+    };
+    const res = await fetch(`${API_URL}/api/notes/add`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
+    const data = await res.json();
+    document.getElementById("notesStatus").innerText = data.message;
+    loadNotes();
+  }
+
+  async function loadNotes() {
+    const res = await fetch(`${API_URL}/api/notes/list`);
+    const data = await res.json();
+    const tbody = document.querySelector("#notesTable tbody");
+    tbody.innerHTML = data.notes.map(n => `
+      <tr><td><b>${n.title}</b></td><td>${n.class_name}</td><td>${n.subject_name}</td><td><code>${n.drive_file_id}</code></td></tr>
+    `).join('');
+  }
+
+  // 4. ADMIN USER FUNCTION
+  async function createAdmin() {
+    const payload = {
+      name: document.getElementById('a_name').value.trim(),
+      email: document.getElementById('a_email').value.trim(),
+      password: document.getElementById('a_password').value.trim(),
+      role: document.getElementById('a_role').value
+    };
+    const res = await fetch(`${API_URL}/api/admin/add`, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) });
+    const data = await res.json();
+    document.getElementById("adminStatus").innerText = data.message;
   }
 </script>
 

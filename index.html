@@ -455,6 +455,50 @@ z-index:9999;
 
 }
 
+/* Topbar Layout & Button Styling */
+.topbar-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.admin-login-btn {
+    display: inline-block;
+    background: #ffffff;
+    color: #003366 !important;
+    border: 2px solid #ffffff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: all 0.25s ease;
+}
+
+.admin-login-btn:hover {
+    background: #ff9800;
+    color: #ffffff !important;
+    border-color: #ff9800;
+    transform: translateY(-1px);
+}
+
+/* Mobile Alignment Fix */
+@media (max-width: 768px) {
+    .topbar-container {
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .admin-login-btn {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+}
+
 </style>
 </head>
 

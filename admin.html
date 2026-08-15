@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhat and Bhat Admin - Student Management</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #eef3f8; color: #222; }
+    .card { background: white; padding: 25px; border-radius: 12px; max-width: 650px; margin: 20px auto; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+    h2 { color: #003366; margin-bottom: 20px; text-align: center; }
+    .form-group { margin-bottom: 14px; }
+    label { font-weight: bold; font-size: 13px; display: block; margin-bottom: 4px; color: #003366; }
+    input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    button { background: #003366; color: white; border: none; padding: 12px; font-size: 16px; font-weight: bold; width: 100%; cursor: pointer; border-radius: 6px; margin-top: 15px; transition: 0.25s; }
+    button:hover { background: #0059b3; }
+    #msg { margin-top: 15px; font-weight: bold; text-align: center; font-size: 14px; }
+  </style>
+</head>
+<body>
 
+<div class="card">
+  <h2>📥 Student Database Entry</h2>
+  
+  <div class="form-group">
+    <label>SRN (Unique Student ID):</label>
+    <input type="text" id="srn" placeholder="e.g. SRN1024">
+  </div>
+  
+  <div class="form-group">
+    <label>Name of the Student:</label>
+    <input type="text" id="student_name" placeholder="Full Name">
+  </div>
+
+  <div class="form-group">
+    <label>D.O.B (DD-MM-YYYY):</label>
+    <input type="text" id="dob" placeholder="DD-MM-YYYY">
+  </div>
+
+  <div class="form-group grid">
+    <div>
+      <label>Class:</label>
+      <input type="text" id="class_name" placeholder="e.g. 09th / 10th">
+    </div>
+    <div>
+      <label>Board / Class Type:</label>
+      <input type="text" id="board_type" placeholder="e.g. CBSE / ICSE">
+    </div>
+  </div>
+
+  <div class="form-group grid">
+    <div>
+      <label>Section:</label>
+      <input type="text" id="section" placeholder="e.g. A">
+    </div>
+    <div>
+      <label>Batch Type:</label>
+      <input type="text" id="batch_type" placeholder="e.g. Regular">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Subjects Opted (Comma-separated):</label>
+    <input type="text" id="subjects_opted" placeholder="Physics, Chemistry, Mathematics">
+  </div>
+
+  <div class="form-group">
+    <label>Student Mobile:</label>
+    <input type="text" id="student_mobile" placeholder="Mobile Number">
+  </div>
+
+  <div class="form-group grid">
+    <div>
+      <label>Father Name:</label>
+      <input type="text" id="father_name" placeholder="Father Name">
+    </div>
+    <div>
+      <label>Father Contact:</label>
+      <input type="text" id="father_contact" placeholder="Father Contact Number">
+    </div>
+  </div>
+
+  <button onclick="saveStudent()">Save / Sync Record</button>
+  <div id="msg"></div>
+</div>
+
+<script>
+  // Live API Worker URL
+  const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev";
+
+  async function saveStudent() {
+    const msg = document.getElementById('msg');
+    msg.style.color = "#003366";
+    msg.innerHTML = "Saving record...";
+
+    const payload = {
+      srn: document.getElementById('srn').value.trim(),
+      student_name: document.getElementById('student_name').value.trim(),
+      dob: document.getElementById('dob').value.trim(),
+      class_name: document.getElementById('class_name').value.trim(),
+      board_type: document.getElementById('board_type').value.trim(),
+      section: document.getElementById('section').value.trim(),
+      batch_type: document.getElementById('batch_type').value.trim(),
+      subjects_opted: document.getElementById('subjects_opted').value.trim(),
+      student_mobile: document.getElementById('student_mobile').value.trim(),
+      father_name: document.getElementById('father_name').value.trim(),
+      father_contact: document.getElementById('father_contact').value.trim()
+    };
+
+    if (!payload.srn || !payload.student_name || !payload.dob) {
+      msg.style.color = "red";
+      msg.innerHTML = "❌ SRN, Student Name, and D.O.B are required.";
+      return;
+    }
+
+    try {
+      const res = await fetch(`${WORKER_URL}/api/students/save`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      
+      const data = await res.json();
+      if (data.success) {
+        msg.style.color = "green";
+        msg.innerHTML = "✅ " + data.message;
+      } else {
+        msg.style.color = "red";
+        msg.innerHTML = "❌ Error saving record.";
+      }
+    } catch (err) {
+      msg.style.color = "red";
+      msg.innerHTML = "❌ Failed to connect to server.";
+    }
+  }
+</script>
+
+</body>
+</html>
+</html>

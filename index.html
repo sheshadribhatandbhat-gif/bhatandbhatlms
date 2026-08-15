@@ -872,6 +872,9 @@ const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev/";
 </script>
 
 <script>
+  // Re-use the existing WORKER_URL or fallback if undefined
+  var API_URL = typeof WORKER_URL !== "undefined" ? WORKER_URL : "https://steep-wind-e204.bhatandbhat.workers.dev";
+
   window.openLoginModal = function() {
     const modal = document.getElementById("loginModal");
     if (modal) {
@@ -905,7 +908,7 @@ const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev/";
     msg.innerHTML = "Authenticating...";
 
     try {
-      const res = await fetch("https://steep-wind-e204.bhatandbhat.workers.dev/api/auth/login", {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })

@@ -355,7 +355,7 @@ background:#0057b8;
 }
 
 /*==========================
-FOOTER
+FOOTER & RESOURCE CARDS
 ==========================*/
 
 footer{
@@ -369,6 +369,28 @@ font-size:13px;
 
 footer h2 { font-size: 22px; margin-bottom: 4px; }
 footer h3 { font-size: 15px; margin-bottom: 8px; }
+
+.footer-resources-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 15px;
+margin-bottom: 15px;
+text-align: left;
+}
+
+.resource-card {
+background: rgba(255, 255, 255, 0.08);
+border: 1px solid rgba(255, 255, 255, 0.15);
+padding: 12px 14px;
+border-radius: 6px;
+}
+
+.resource-card h3 {
+color: #FFD54F;
+margin-bottom: 6px;
+border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+padding-bottom: 4px;
+}
 
 /*==========================
 BACK TO TOP BUTTON
@@ -398,7 +420,7 @@ transform:translateY(-2px);
 }
 
 /*==========================
-MOBILE RESPONSIVE COMPACT RULES
+MOBILE RESPONSIVE RULES
 ==========================*/
 
 @media(max-width:768px){
@@ -540,33 +562,39 @@ FOOTER
 <footer>
 <div style="max-width:1100px;margin:auto;">
 <h2>Bhat and Bhat Tutorials</h2>
-<p style="margin-bottom:10px;"><i>"Where Students Achieve Success"</i></p>
+<p style="margin-bottom:15px;"><i>"Where Students Achieve Success"</i></p>
 
-<hr style="opacity:.2; margin:15px 0;">
+<!-- SEPARATED RESOURCE CARDS -->
+<div class="footer-resources-grid">
+  
+  <div class="resource-card">
+    <h3>Quick Links</h3>
+    <p>🌐 <a href="https://www.bhatandbhat.in" target="_blank" style="color:white;">Official Website</a></p>
+    <p>📷 <a href="https://www.instagram.com/bhatandbhat_tutorials/?hl=en" target="_blank" style="color:white;">Instagram</a></p>
+    <p>🔗 <a href="https://www.facebook.com/BhatandBhatTutorials/" target="_blank" style="color:white;">Facebook</a></p>
+  </div>
 
-<div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; text-align:left;">
+  <div class="resource-card">
+    <h3>📚 Study Materials</h3>
+    <p>➤ Detailed Chapter Notes</p>
+    <p>➤ Quick Revision Summaries</p>
+    <p>➤ Formula Sheets & Concepts</p>
+  </div>
 
-<div>
-<h3>Quick Links</h3>
-<p>🌐 <a href="https://www.bhatandbhat.in" target="_blank" style="color:white;">Official Website</a></p>
-<p>📷 <a href="https://www.instagram.com/bhatandbhat_tutorials/?hl=en" target="_blank" style="color:white;">Instagram</a></p>
-<p>🔗 <a href="https://www.facebook.com/BhatandBhatTutorials/" target="_blank" style="color:white;">Facebook</a></p>
-</div>
+  <div class="resource-card">
+    <h3>📝 Question Papers & Banks</h3>
+    <p>➤ Previous Year Question Papers</p>
+    <p>➤ Practice Question Banks</p>
+    <p>➤ Model Answer Keys</p>
+  </div>
 
-<div>
-<h3>Learning Resources</h3>
-<p>➤ Study Materials</p>
-<p>➤ Detailed & Short Notes</p>
-<p>➤ Question Papers</p>
-<p>➤ Question Banks</p>
-</div>
+  <div class="resource-card">
+    <h3>Contact Us</h3>
+    <p>☎ +918310615947 | +917338543585</p>
+    <p>📍 Vignan Nagar, Bengaluru</p>
+    <p>🌐 www.bhatandbhat.in</p>
+  </div>
 
-<div>
-<h3>Contact</h3>
-<p>☎ +918310615947 | +917338543585</p>
-<p>📍 Vignan Nagar, Bengaluru</p>
-<p>🌐 www.bhatandbhat.in</p>
-</div>
 </div>
 
 <hr style="opacity:.2; margin:15px 0;">

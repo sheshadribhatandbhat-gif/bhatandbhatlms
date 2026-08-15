@@ -505,14 +505,17 @@ z-index:9999;
 <body>
 <header>
 
+<!-- Topbar Header Update -->
 <div class="topbar">
-    <a href="admin.html" style="display: inline-block; background: #003366; color: #ffffff; border: 1.5px solid #ffffff; padding: 6px 14px; border-radius: 6px; font-weight: 600; font-size: 13px; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: 0.2s; margin-right: 15px;">
-        🔒 Admin Login
-    </a>
-    Explore Admissions, Courses & Achievers' Wall of Fame :
-    <a href="https://www.bhatandbhat.in" target="_blank">
-        www.bhatandbhat.in
-    </a>
+    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <button onclick="openLoginModal()" style="background:#ffffff; color:#003366; border:2px solid #ffffff; padding:5px 12px; border-radius:6px; font-weight:700; cursor:pointer;">
+            🔒 Admin Login
+        </button>
+        <span>
+            Explore Admissions, Courses & Achievers' Wall of Fame :
+            <a href="https://www.bhatandbhat.in" target="_blank">www.bhatandbhat.in</a>
+        </span>
+    </div>
 </div>
 
     <img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
@@ -866,6 +869,75 @@ e.target.style.transform="scale(1)";
 
 const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev/";
 
+</script>
+
+<div id="loginModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6); align-items:center; justify-content:center;">
+  <div style="background:#fff; padding:30px; border-radius:12px; width:90%; max-width:400px; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+    <span onclick="closeLoginModal()" style="position:absolute; right:15px; top:10px; font-size:24px; cursor:pointer; font-weight:bold; color:#666;">&times;</span>
+    <h3 style="color:#003366; margin-bottom:15px; text-align:center;">🔒 Management Portal Login</h3>
+    
+    <div style="margin-bottom:12px;">
+      <label style="font-weight:bold; font-size:13px; display:block; margin-bottom:5px;">Email ID:</label>
+      <input type="email" id="loginEmail" placeholder="admin@bhatandbhat.in" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
+    </div>
+    
+    <div style="margin-bottom:18px;">
+      <label style="font-weight:bold; font-size:13px; display:block; margin-bottom:5px;">Password:</label>
+      <input type="password" id="loginPassword" placeholder="••••••••" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;">
+    </div>
+    
+    <button onclick="submitLogin()" style="width:100%; background:#003366; color:white; border:none; padding:12px; font-weight:bold; font-size:15px; border-radius:6px; cursor:pointer;">Login</button>
+    <div id="loginMsg" style="margin-top:15px; font-weight:bold; text-align:center; font-size:13px;"></div>
+  </div>
+</div>
+
+<script>
+  const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev";
+
+  function openLoginModal() {
+    document.getElementById("loginModal").style.display = "flex";
+  }
+
+  function closeLoginModal() {
+    document.getElementById("loginModal").style.display = "none";
+    document.getElementById("loginMsg").innerHTML = "";
+  }
+
+  async function submitLogin() {
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+    const msg = document.getElementById("loginMsg");
+
+    if (!email || !password) {
+      msg.style.color = "red";
+      msg.innerHTML = "Please enter both Email and Password.";
+      return;
+    }
+
+    msg.style.color = "#003366";
+    msg.innerHTML = "Authenticating...";
+
+    try {
+      const res = await fetch(`${WORKER_URL}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        localStorage.setItem("userRole", data.user.role);
+        localStorage.setItem("userName", data.user.name);
+        window.location.href = "admin.html";
+      } else {
+        msg.style.color = "red";
+        msg.innerHTML = "❌ " + data.message;
+      }
+    } catch (err) {
+      msg.style.color = "red";
+      msg.innerHTML = "❌ Server error during login.";
+    }
+  }
 </script>
 
 </body>

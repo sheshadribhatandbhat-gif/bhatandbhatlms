@@ -914,41 +914,44 @@ const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev/";
     }
   };
 
-  window.submitLogin = async function() {
-    const email = document.getElementById("loginEmail").value.trim();
-    const password = document.getElementById("loginPassword").value.trim();
-    const msg = document.getElementById("loginMsg");
+window.submitLogin = async function() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+  const msg = document.getElementById("loginMsg");
 
-    if (!email || !password) {
+  if (!email || !password) {
+    msg.style.color = "red";
+    msg.innerHTML = "Please enter both Email and Password.";
+    return;
+  }
+
+  msg.style.color = "#003366";
+  msg.innerHTML = "Authenticating...";
+
+  // Ensure Base URL has no trailing slash to prevent '//' routing errors
+  const baseUrl = (typeof WORKER_URL !== "undefined" ? WORKER_URL : "https://steep-wind-e204.bhatandbhat.workers.dev").replace(/\/+$/, "");
+
+  try {
+    const res = await fetch(`${baseUrl}/api/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      localStorage.setItem("userRole", data.user.role);
+      localStorage.setItem("userName", data.user.name);
+      window.location.href = "admin.html";
+    } else {
       msg.style.color = "red";
-      msg.innerHTML = "Please enter both Email and Password.";
-      return;
+      msg.innerHTML = "❌ " + data.message;
     }
-
-    msg.style.color = "#003366";
-    msg.innerHTML = "Authenticating...";
-
-    try {
-      const res = await fetch(`${API_URL}/api/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        localStorage.setItem("userRole", data.user.role);
-        localStorage.setItem("userName", data.user.name);
-        window.location.href = "admin.html";
-      } else {
-        msg.style.color = "red";
-        msg.innerHTML = "❌ " + data.message;
-      }
-    } catch (err) {
-      msg.style.color = "red";
-      msg.innerHTML = "❌ Server error during login.";
-    }
-  };
+  } catch (err) {
+    msg.style.color = "red";
+    msg.innerHTML = "❌ Server error during login.";
+  }
+};
 </script>
 
 </body>

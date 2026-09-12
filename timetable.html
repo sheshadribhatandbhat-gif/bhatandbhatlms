@@ -2,34 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Examination Timetable | Bhat and Bhat Tutorials</title>
 
-    <title>
-        Exam Timetable | Bhat and Bhat Tutorials
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="timetable/css/timetable.css"
-    >
+    <link rel="stylesheet" href="timetable/css/timetable.css">
 </head>
 
 <body>
 
-    <!-- Common Header -->
-    <div id="common-header"></div>
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a href="index.html" class="brand">
+
+                <img
+                    src="logo.png"
+                    alt="Bhat and Bhat Tutorials"
+                    class="site-logo"
+                >
+
+                <div class="brand-text">
+                    <div class="site-title">
+                        Bhat and Bhat Tutorials
+                    </div>
+
+                    <div class="site-tagline">
+                        <i>"Where Students Achieve Success"</i>
+                    </div>
+                </div>
+
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
 
     <main class="timetable-container">
 
-        <a
-            href="index.html"
-            class="back-link"
-        >
+        <a href="index.html" class="back-link">
             ← Back to Home
         </a>
 
@@ -37,7 +56,7 @@
         <section class="timetable-heading">
 
             <div class="timetable-eyebrow">
-                Bhat &amp; Bhat Tutorials
+                BHAT &amp; BHAT TUTORIALS
             </div>
 
             <h1>
@@ -45,68 +64,63 @@
             </h1>
 
             <p>
-                View examination timetables for the
-                academic year.
+                View examination timetables for the academic year.
             </p>
 
         </section>
 
 
-        <!-- Academic Year -->
+        <!-- =====================================
+             ACADEMIC YEARS
+        ====================================== -->
 
-        <section class="year-section">
+        <section class="year-grid">
 
-            <div class="year-header">
+            <!-- 2026–27 -->
 
-                <div>
-                    <div class="year-label">
-                        Academic Year
-                    </div>
+            <a
+                href="timetable/2026-27/index.html"
+                class="year-card"
+            >
 
-                    <h2>
-                        2026–27
-                    </h2>
+                <h2>
+                    Academic Year
+                </h2>
 
-                    <p>
-                        Examination schedules conducted by
-                        Bhat &amp; Bhat Tutorials.
-                    </p>
+                <div class="year-title">
+                    2026–27
                 </div>
 
-                <a
-                    href="timetable/2026-27/index.html"
-                    class="timetable-button"
-                >
-                    View Timetables
-                </a>
+                <p>
+                    Examination schedules conducted by
+                    Bhat &amp; Bhat Tutorials.
+                </p>
 
-            </div>
+                <span class="year-link">
+                    View Timetables →
+                </span>
 
-        </section>
+            </a>
 
 
-        <!-- Future Years -->
+            <!-- 2025–26 -->
 
-        <section class="year-section disabled-year">
+            <div class="year-card disabled">
 
-            <div class="year-header">
+                <h2>
+                    Academic Year
+                </h2>
 
-                <div>
-                    <div class="year-label">
-                        Academic Year
-                    </div>
-
-                    <h2>
-                        2025–26
-                    </h2>
-
-                    <p>
-                        Timetable archive will be available
-                        when published.
-                    </p>
+                <div class="year-title">
+                    2025–26
                 </div>
 
-                <span class="disabled-button">
+                <p>
+                    Timetable archive will be available
+                    when published.
+                </p>
+
+                <span class="coming-soon">
                     Coming Soon
                 </span>
 
@@ -117,13 +131,51 @@
     </main>
 
 
-    <!-- Common Footer -->
-    <div id="common-footer"></div>
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <strong>
+                    Bhat and Bhat Tutorials
+                </strong>
+
+                <span>
+                    Where Students Achieve Success
+                </span>
+
+            </div>
 
 
-    <script
-        src="timetable/common/timetable-common.js"
-    ></script>
+            <div class="footer-info">
+
+                <a
+                    href="https://www.bhatandbhat.in"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    🌐 www.bhatandbhat.in
+                </a>
+
+                <span>
+                   📍Vignan Nagar, Bengaluru
+                </span>
+
+                <span>
+                    ☎ +91 83106 15947 &nbsp;|&nbsp;
+                    ☎ +91 73385 43585
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>

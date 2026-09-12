@@ -1,0 +1,552 @@
+/* =========================================
+   BHAT & BHAT TUTORIALS
+   EXAM TIMETABLE STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(11, 99, 182, 0.07), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(242, 177, 52, 0.07), transparent 28%),
+        linear-gradient(135deg, #f3f8fb, #edf4f7, #e7f1f6);
+    color: #17324d;
+    min-height: 100vh;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    background: linear-gradient(135deg, #052f59, #073b6f);
+    border-bottom: 3px solid #f2b134;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px 20px 18px;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none !important;
+    color: #fff !important;
+}
+
+.site-logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.brand-text {
+    text-align: center;
+}
+
+.site-title {
+    color: #fff !important;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.site-tagline {
+    color: #e8f2fb !important;
+    font-size: 14px;
+    margin-top: 5px;
+    letter-spacing: 0.3px;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.timetable-container {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 34px 0 55px;
+}
+
+/* =========================================
+   BACK LINK
+========================================= */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    color: #075da8;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   PAGE HEADING
+========================================= */
+
+.timetable-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.timetable-eyebrow {
+    color: #0b63b6;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+
+.timetable-heading h1 {
+    color: #073b6f;
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.timetable-heading p {
+    color: #60778d;
+    font-size: 15px;
+}
+
+/* =========================================
+   YEAR / EXAM CARDS
+========================================= */
+
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.year-card {
+    display: block;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #d8e5ed;
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 5px 18px rgba(24, 67, 99, 0.07);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.year-card:hover {
+    transform: translateY(-3px);
+    border-color: #9fc5df;
+    box-shadow: 0 9px 24px rgba(24, 67, 99, 0.12);
+}
+
+.year-card h2 {
+    color: #073b6f;
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.year-card p {
+    color: #60778d;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.year-card.disabled {
+    opacity: 0.58;
+    cursor: default;
+}
+
+.year-card.disabled:hover {
+    transform: none;
+    border-color: #d8e5ed;
+    box-shadow: 0 5px 18px rgba(24, 67, 99, 0.07);
+}
+
+.coming-soon {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 5px 9px;
+    border-radius: 6px;
+    background: #eef3f6;
+    color: #667b8c;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* =========================================
+   EXAM LIST
+========================================= */
+
+.exam-list {
+    display: grid;
+    gap: 18px;
+}
+
+.exam-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #d8e5ed;
+    border-radius: 14px;
+    padding: 21px 23px;
+    box-shadow: 0 5px 18px rgba(24, 67, 99, 0.07);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.exam-card:hover {
+    border-color: #aac9de;
+    box-shadow: 0 8px 23px rgba(24, 67, 99, 0.10);
+}
+
+.exam-card h2 {
+    color: #073b6f;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.exam-card p {
+    color: #65798a;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 17px;
+}
+
+.exam-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.exam-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 9px 17px;
+    border-radius: 7px;
+    border: 1px solid #0b63b6;
+    background: #0b63b6;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.exam-button:hover {
+    background: #084f91;
+    transform: translateY(-1px);
+}
+
+.exam-button.secondary {
+    background: #fff;
+    color: #075da8 !important;
+}
+
+.exam-button.secondary:hover {
+    background: #f0f7fb;
+}
+
+/* =========================================
+   INFO BOX
+========================================= */
+
+.info-box {
+    margin-bottom: 25px;
+    padding: 16px 18px;
+    border-left: 4px solid #f2b134;
+    background: rgba(255, 255, 255, 0.82);
+    border-radius: 8px;
+    color: #526b7f;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    background: #052f59;
+    border-top: 3px solid #f2b134;
+    color: #dbe9f4;
+}
+
+.footer-inner {
+    width: min(1100px, calc(100% - 40px));
+    margin: auto;
+    padding: 22px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer-brand strong {
+    color: #fff;
+    font-size: 15px;
+}
+
+.footer-brand span {
+    font-size: 12px;
+    color: #c5d8e7;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 12px;
+    color: #c5d8e7;
+}
+
+.footer-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   PDF MODAL
+========================================= */
+
+body.pdf-open {
+    overflow: hidden;
+}
+
+.pdf-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 24, 43, 0.78);
+}
+
+.pdf-modal.active {
+    display: flex;
+}
+
+.pdf-window {
+    width: min(1100px, 96vw);
+    height: min(88vh, 850px);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-header {
+    min-height: 55px;
+    padding: 10px 15px 10px 18px;
+    background: #052f59;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.pdf-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.pdf-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.pdf-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    background: #f2b134;
+    color: #17324d !important;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.pdf-close {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.13);
+    color: #fff;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pdf-body {
+    flex: 1;
+    min-height: 0;
+    background: #e9eef2;
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .header-inner {
+        padding: 16px 15px 15px;
+    }
+
+    .site-logo {
+        width: 64px;
+        height: 64px;
+    }
+
+    .site-title {
+        font-size: 23px;
+    }
+
+    .site-tagline {
+        font-size: 12px;
+    }
+
+    .timetable-container {
+        width: min(100% - 28px, 1100px);
+        padding: 25px 0 40px;
+    }
+
+    .timetable-heading {
+        margin-bottom: 23px;
+    }
+
+    .timetable-heading h1 {
+        font-size: 24px;
+    }
+
+    .timetable-heading p {
+        font-size: 13px;
+    }
+
+    .year-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .year-card {
+        padding: 19px;
+    }
+
+    .year-card h2 {
+        font-size: 18px;
+    }
+
+    .exam-card {
+        padding: 18px;
+    }
+
+    .exam-card h2 {
+        font-size: 17px;
+    }
+
+    .exam-actions {
+        flex-direction: column;
+    }
+
+    .exam-button {
+        width: 100%;
+    }
+
+    .footer-inner {
+        width: min(100% - 28px, 1100px);
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-info {
+        align-items: center;
+    }
+
+    .pdf-modal {
+        padding: 8px;
+    }
+
+    .pdf-window {
+        width: 100%;
+        height: 94vh;
+        border-radius: 8px;
+    }
+
+    .pdf-header {
+        padding: 8px 9px 8px 12px;
+    }
+
+    .pdf-title {
+        font-size: 13px;
+    }
+
+    .pdf-download {
+        font-size: 11px;
+        padding: 6px 9px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .site-title {
+        font-size: 21px;
+    }
+
+    .timetable-heading h1 {
+        font-size: 22px;
+    }
+
+    .pdf-download {
+        display: none;
+    }
+}

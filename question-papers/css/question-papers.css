@@ -1,0 +1,761 @@
+/* =========================================================
+   BHAT AND BHAT TUTORIALS LMS
+   QUESTION PAPERS
+   Common CSS
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(11, 99, 182, 0.07),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(242, 177, 52, 0.06),
+            transparent 35%
+        ),
+        #f3f8fb;
+
+    color: #183247;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   COMMON HEADER
+   Same visual style as Study Materials
+========================================================= */
+
+.site-header {
+    background: linear-gradient(
+        135deg,
+        #052f59,
+        #073b6f,
+        #0b63b6
+    );
+
+    color: white;
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.site-logo {
+    width: 68px;
+    height: 68px;
+
+    object-fit: contain;
+
+    margin-bottom: 8px;
+}
+
+.brand-text {
+    text-align: center;
+}
+
+.site-title {
+    color: #ffffff !important;
+
+    font-size: 27px;
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+.site-tagline {
+    color: #e8f2fb !important;
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   MAIN PAGE CONTAINER
+========================================================= */
+
+.page-container {
+    width: min(1100px, calc(100% - 32px));
+
+    margin: 0 auto;
+
+    padding: 28px 0 60px;
+}
+
+
+/* =========================================================
+   BACK LINK
+========================================================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: #075aa6;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    color: #073b6f;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.page-header p {
+    color: #607789;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ACADEMIC YEAR / CLASS CARDS
+========================================================= */
+
+.year-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(280px, 1fr));
+
+    gap: 20px;
+}
+
+.year-card {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe8f0;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+    color: inherit;
+
+    box-shadow:
+        0 5px 18px rgba(22, 67, 100, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.year-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #9fc4df;
+
+    box-shadow:
+        0 10px 25px rgba(22, 67, 100, 0.12);
+}
+
+.year-icon {
+    width: 62px;
+    height: 62px;
+
+    flex: 0 0 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #e8f2fa;
+
+    color: #075aa6;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.year-content h2 {
+    color: #073b6f;
+
+    font-size: 20px;
+
+    margin-bottom: 4px;
+}
+
+.year-content p {
+    color: #667b8b;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.open-link {
+    color: #0b63b6;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DISABLED CARD
+========================================================= */
+
+.year-card.disabled {
+    opacity: 0.55;
+
+    cursor: default;
+}
+
+.year-card.disabled:hover {
+    transform: none;
+
+    border-color: #dbe8f0;
+
+    box-shadow:
+        0 5px 18px rgba(22, 67, 100, 0.07);
+}
+
+
+/* =========================================================
+   EXAM / CLASS PAGE
+========================================================= */
+
+.exam-page {
+    width: min(1050px, calc(100% - 32px));
+
+    margin: 0 auto;
+
+    padding: 28px 0 60px;
+}
+
+.exam-page-header {
+    margin-bottom: 25px;
+}
+
+.exam-page-header h1 {
+    color: #073b6f;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.exam-page-header p {
+    color: #657b8c;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EXAM SECTIONS
+========================================================= */
+
+.exam-section {
+    background: #ffffff;
+
+    border: 1px solid #dbe8f0;
+
+    border-radius: 14px;
+
+    margin-bottom: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 14px rgba(22, 67, 100, 0.06);
+}
+
+.exam-section summary {
+    list-style: none;
+
+    position: relative;
+
+    cursor: pointer;
+
+    padding: 18px 48px 18px 20px;
+
+    background: #f7fafc;
+
+    color: #073b6f;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.exam-section summary::-webkit-details-marker {
+    display: none;
+}
+
+.exam-section summary::after {
+    content: "+";
+
+    position: absolute;
+
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #0b63b6;
+
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.exam-section[open] summary::after {
+    content: "−";
+}
+
+.exam-section summary:hover {
+    background: #f0f6fa;
+}
+
+
+/* =========================================================
+   QUESTION PAPER LIST
+========================================================= */
+
+.paper-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(250px, 1fr));
+
+    gap: 10px;
+
+    padding: 16px 20px 20px;
+}
+
+.paper-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 13px 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #d6e4ed;
+
+    border-radius: 9px;
+
+    color: #17435f;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.paper-button:hover {
+    background: #f4f9fc;
+
+    border-color: #7daed0;
+
+    transform: translateY(-1px);
+}
+
+.paper-name {
+    font-weight: 600;
+}
+
+.paper-action {
+    color: #0b63b6;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   PDF VIEWER
+========================================================= */
+
+body.pdf-open {
+    overflow: hidden;
+}
+
+.pdf-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(3, 22, 40, 0.78);
+}
+
+.pdf-modal.active {
+    display: flex;
+}
+
+.pdf-window {
+    width: min(1100px, 100%);
+
+    height: min(90vh, 850px);
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-header {
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 10px 15px;
+
+    background: #052f59;
+
+    color: #ffffff;
+}
+
+.pdf-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pdf-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.pdf-download {
+    padding: 8px 12px;
+
+    background: #f2b134;
+
+    color: #102d45;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.pdf-download:hover {
+    background: #e7a629;
+}
+
+.pdf-close {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.pdf-close:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.pdf-body {
+    flex: 1;
+
+    background: #e8eef2;
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    background: #052f59;
+
+    color: #ffffff;
+
+    margin-top: auto;
+}
+
+.footer-inner {
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    padding: 24px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.footer-brand strong {
+    font-size: 15px;
+}
+
+.footer-brand span {
+    color: #dceaf5;
+
+    font-size: 12px;
+}
+
+.footer-info {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 8px 18px;
+
+    color: #dceaf5;
+
+    font-size: 12px;
+}
+
+.footer-info a {
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .header-inner {
+        padding: 16px;
+    }
+
+    .site-logo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .site-title {
+        font-size: 22px;
+    }
+
+    .site-tagline {
+        font-size: 12px;
+    }
+
+
+    .page-container {
+        width: calc(100% - 24px);
+
+        padding-top: 22px;
+    }
+
+    .page-header h1 {
+        font-size: 25px;
+    }
+
+
+    .year-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .year-card {
+        padding: 19px;
+    }
+
+
+    .exam-page {
+        width: calc(100% - 24px);
+
+        padding-top: 22px;
+    }
+
+    .exam-page-header h1 {
+        font-size: 25px;
+    }
+
+
+    .paper-list {
+        grid-template-columns: 1fr;
+
+        padding: 14px;
+    }
+
+    .exam-section summary {
+        padding: 16px 45px 16px 16px;
+
+        font-size: 15px;
+    }
+
+
+    .pdf-modal {
+        padding: 8px;
+    }
+
+    .pdf-window {
+        height: 94vh;
+
+        border-radius: 8px;
+    }
+
+    .pdf-header {
+        min-height: 52px;
+
+        padding: 8px 10px;
+    }
+
+    .pdf-title {
+        font-size: 13px;
+    }
+
+    .pdf-download {
+        padding: 7px 9px;
+
+        font-size: 11px;
+    }
+
+
+    .qp-footer-inner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-info {
+        justify-content: flex-start;
+    }
+}

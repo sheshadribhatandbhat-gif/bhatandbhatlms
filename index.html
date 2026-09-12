@@ -1,814 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bhat and Bhat Tutorials LMS</title>
 <meta name="theme-color" content="#003366">
-<meta name="description" content="Bhat and Bhat Tutorials Learning Management System">
+<meta name="description" content="Bhat and Bhat Tutorials LMS - Academic resources, question papers and examination updates.">
 <link rel="icon" href="logo.png">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root{
+  --blue:#003366;
+  --blue2:#0059b3;
+  --light:#f3f7fb;
+  --border:#dbe5ef;
+  --text:#243447;
+  --muted:#64748b;
+  --white:#fff;
+  --shadow:0 6px 20px rgba(0,51,102,.08);
 }
-
-html{
-scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-background:#eef3f8;
-color:#222;
-line-height:1.5;
-font-size:13px;
+  font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+  background:var(--light);
+  color:var(--text);
+  line-height:1.5;
 }
-
-/*==========================
-HEADER & STICKY NAVIGATION
-==========================*/
-
+a{text-decoration:none}
 header{
-background:linear-gradient(135deg,#003366,#0059b3);
-color:#fff;
-padding:12px 20px;
-text-align:center;
-box-shadow:0 3px 12px rgba(0,0,0,.18);
-position:sticky;
-top:0;
-z-index:9999;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff;
+  box-shadow:0 3px 14px rgba(0,0,0,.18);
 }
-
-.topbar{
-margin-bottom:8px;
+.header-inner{
+  width:min(1200px,94%);
+  margin:auto;
+  min-height:118px;
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
-
-.topbar-container {
-display: flex;
-justify-content: flex-end;
-align-items: center;
-gap: 10px;
-flex-wrap: wrap;
-font-size: 12px;
-}
-
-.topbar a{
-color:#fff;
-text-decoration:none;
-font-weight:600;
-}
-
-.topbar a:hover{
-text-decoration:underline;
-}
-
-.admin-login-btn {
-display: inline-block;
-background: #ffffff;
-color: #003366 !important;
-border: 1px solid #ffffff;
-padding: 4px 10px;
-border-radius: 4px;
-font-weight: 700;
-font-size: 11px;
-text-decoration: none !important;
-box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-cursor: pointer;
-transition: all 0.2s ease;
-}
-
-.admin-login-btn:hover {
-background: #ff9800;
-color: #ffffff !important;
-border-color: #ff9800;
-transform: translateY(-1px);
-}
-
 .logo{
-height:65px;
-margin-bottom:4px;
-transition:.25s;
+  width:72px;height:72px;object-fit:contain;background:#fff;
+  border-radius:4px;padding:3px;flex:none;
 }
-
-.logo:hover{
-transform:scale(1.03);
+.brand h1{font-size:30px;line-height:1.15}
+.brand .tagline{font-style:italic;margin-top:5px}
+.brand .lms{font-weight:700;margin-top:5px;font-size:14px}
+.container{width:min(1200px,94%);margin:22px auto}
+.announcement{
+  background:#fff;border-left:6px solid #f59e0b;border-radius:10px;
+  padding:16px 20px;box-shadow:var(--shadow);margin-bottom:22px;
 }
-
-header h1{
-font-size:28px;
-font-weight:700;
-letter-spacing:.4px;
-}
-
-header p{
-font-size:14px;
-margin-top:2px;
-}
-
-/*==========================
-MAIN CONTAINER & SECTIONS
-==========================*/
-
-.container{
-width:98%;
-max-width:1250px;
-margin:auto;
-padding:14px 10px;
-}
-
-/*==========================
-BANNER & ANNOUNCEMENTS
-==========================*/
-
-.announcement-box {
-max-width:1250px;
-margin:14px auto 8px;
-padding:12px 16px;
-background:#ffffff;
-border-left:6px solid #ff9800;
-border-radius:8px;
-box-shadow:0 3px 10px rgba(0,0,0,.06);
-}
-
-.announcement-box h3 {
-color:#003366;
-margin-bottom:4px;
-font-size:15px;
-}
-
-.announcement-box p {
-font-size:13px;
-color:#444;
-line-height:1.5;
-}
-
-.bannerTitle{
-text-align:center;
-font-size:22px;
-font-weight:700;
-color:#003366;
-margin:16px 0 10px;
-}
-
-.myBanner{
-width:100%;
-max-width:1250px;
-margin:auto;
-background:#fff;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 6px 18px rgba(0,0,0,.10);
-transition:.3s;
-}
-
-.myBanner:hover{
-transform:translateY(-2px);
-}
-
-.myBanner img{
-width:100%;
-display:block;
-}
-
-.bannerText{
-text-align:center;
-font-size:12px;
-color:#666;
-margin:8px 0 16px;
-}
-
-/*==========================
-TICKER SYLLABUS
-==========================*/
-
-.ticker-wrap{
-width:100%;
-overflow:hidden;
-background:#FFD54F;
-border-top:2px solid #003366;
-border-bottom:2px solid #003366;
-padding:6px 0;
-}
-
-.ticker{
-display:inline-flex;
-align-items:center;
-white-space:nowrap;
-width:max-content;
-animation:ticker 40s linear infinite;
-}
-
-.ticker:hover{
-animation-play-state:paused;
-}
-
-.ticker a{
-color:#003366;
-text-decoration:none;
-font-weight:bold;
-font-size:13px;
-margin-right:30px;
-}
-
-.ticker a:hover{
-color:red;
-text-decoration:underline;
-}
-
-@keyframes ticker{
-from{ transform:translateX(0); }
-to{ transform:translateX(-50%); }
-}
-
-/*==========================
-ACCORDIONS & CARDS
-==========================*/
-
+.announcement h2{font-size:18px;color:var(--blue);margin-bottom:5px}
 .section{
-background:#fff;
-padding:14px;
-border-radius:8px;
-margin-bottom:14px;
-box-shadow:0 3px 8px rgba(0,0,0,.05);
-transition:.2s;
+  background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:22px;margin-bottom:22px;box-shadow:var(--shadow);
+}
+.section-head{
+  display:flex;justify-content:space-between;gap:16px;align-items:flex-end;
+  margin-bottom:18px;
+}
+.section-head h2{color:var(--blue);font-size:23px}
+.section-head p{color:var(--muted);font-size:13px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  border:0;border-radius:8px;padding:9px 13px;cursor:pointer;
+  font-weight:700;font-size:13px;
+}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-light{background:#eaf2fb;color:var(--blue)}
+.btn:hover{opacity:.9}
+.quick-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.quick-card{
+  border:1px solid var(--border);border-radius:11px;padding:18px;
+  background:#f8fbff;
+}
+.quick-card strong{display:block;color:var(--blue);font-size:16px;margin-bottom:5px}
+.quick-card span{display:block;color:var(--muted);font-size:12px;margin-bottom:12px}
+
+.timetable-layout{
+  display:grid;grid-template-columns:330px 1fr;gap:18px;align-items:stretch;
+}
+.timetable-info{
+  background:#f8fbff;border:1px solid var(--border);border-radius:11px;padding:18px;
+}
+.timetable-info h3{color:var(--blue);margin-bottom:8px}
+.timetable-info p{font-size:13px;color:var(--muted);margin-bottom:14px}
+select,input{
+  width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px;
+  background:#fff;font:inherit;color:var(--text);
+}
+.pdf-box{
+  border:1px solid var(--border);border-radius:11px;overflow:hidden;background:#eef3f8;
+}
+.pdf-box iframe{display:block;width:100%;height:560px;border:0;background:#fff}
+.pdf-actions{padding:10px;text-align:center;background:#f8fbff}
+
+.filters{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:10px;margin-bottom:18px;
+}
+.class-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+}
+.class-card{
+  border:1px solid var(--border);border-radius:11px;padding:16px;
+  background:#fff;transition:.15s;cursor:pointer;
+}
+.class-card:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,51,102,.09)}
+.class-card .class-name{font-weight:800;color:var(--blue);font-size:16px}
+.class-card .board{font-size:11px;color:var(--muted);margin:3px 0 12px}
+.class-card .open{font-size:12px;color:var(--blue2);font-weight:700}
+.no-results{
+  text-align:center;padding:20px;color:var(--muted);display:none;
 }
 
-.section:hover{
-transform:translateY(-1px);
+.qp-filters{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:15px;
 }
-
-.section h2{
-color:#003366;
-margin-bottom:12px;
-font-size:20px;
+.resource-list{display:grid;gap:10px}
+.resource{
+  border:1px solid var(--border);border-radius:10px;padding:14px;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+  background:#fbfdff;
 }
+.resource-title{font-weight:800;color:var(--blue)}
+.resource-meta{font-size:11px;color:var(--muted);margin-top:3px}
+.resource-actions{display:flex;gap:8px;flex-wrap:wrap}
 
-details{
-background:#fafafa;
-border:1px solid #e0e0e0;
-border-radius:6px;
-margin-bottom:8px;
-overflow:hidden;
+.mentor-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
 }
-
-summary{
-list-style:none;
-cursor:pointer;
-padding:10px 14px;
-font-size:15px;
-font-weight:600;
-color:#003366;
-user-select:none;
+.mentor{
+  background:#f8fbff;border:1px solid var(--border);border-radius:10px;padding:16px;
 }
+.mentor strong{color:var(--blue);display:block;font-size:16px}
+.mentor span{font-size:12px;color:var(--muted)}
 
-summary::-webkit-details-marker{
-display:none;
+.viewer{
+  display:none;position:fixed;inset:0;background:rgba(0,20,40,.72);
+  z-index:1000;padding:30px;
 }
-
-summary::before{
-content:"+";
-font-size:18px;
-font-weight:bold;
-margin-right:8px;
+.viewer-card{
+  width:min(1100px,100%);height:min(92vh,850px);margin:auto;background:#fff;
+  border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
 }
-
-details[open]>summary::before{
-content:"−";
+.viewer-head{
+  padding:12px 16px;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;background:var(--blue);color:#fff;
 }
-
-details[open]{
-background:#fff;
+.viewer-head h3{font-size:16px}
+.viewer-close{
+  border:0;background:rgba(255,255,255,.15);color:#fff;border-radius:7px;
+  width:34px;height:34px;cursor:pointer;font-size:18px;
 }
-
-.icse-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:10px;
-}
-
-/*==========================
-CHAPTER BUTTONS & PDF VIEWER
-==========================*/
-
-.chapter-btn{
-display:inline-block;
-margin:4px;
-padding:7px 12px;
-background:#003366;
-color:#fff;
-border:none;
-border-radius:5px;
-cursor:pointer;
-font-size:12px;
-font-weight:600;
-transition:.2s;
-}
-
-.chapter-btn:hover{
-background:#0057b8;
-transform:translateY(-1px);
-}
-
-#viewerSection{
-display:none;
-background:#fff;
-padding:16px;
-border-radius:10px;
-margin:20px auto;
-max-width:1250px;
-box-shadow:0 6px 16px rgba(0,0,0,.08);
-}
-
-#chapterTitle{
-color:#003366;
-font-size:20px;
-margin-bottom:12px;
-}
-
-iframe{
-width:100%;
-height:600px;
-border:none;
-border-radius:6px;
-}
-
-.download-btn{
-display:inline-block;
-margin-top:12px;
-background:#003366;
-color:#fff;
-padding:8px 16px;
-text-decoration:none;
-border-radius:5px;
-font-weight:600;
-font-size:12px;
-transition:.2s;
-}
-
-.download-btn:hover{
-background:#0057b8;
-}
-
-/*==========================
-FOOTER & RESOURCE CARDS
-==========================*/
+.viewer-card iframe{flex:1;width:100%;border:0;background:#eef3f8}
+.viewer-foot{padding:10px;text-align:center;background:#f8fbff}
 
 footer{
-margin-top:30px;
-padding:20px 15px;
-text-align:center;
-background:#003366;
-color:#fff;
-font-size:13px;
+  background:var(--blue);color:#fff;margin-top:28px;padding:30px 0;
 }
-
-footer h2 { font-size: 22px; margin-bottom: 4px; }
-footer h3 { font-size: 15px; margin-bottom: 8px; }
-
-.footer-resources-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 15px;
-margin-bottom: 15px;
-text-align: left;
+.footer-inner{width:min(1200px,94%);margin:auto}
+.footer-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:20px 0;
 }
-
-.resource-card {
-background: rgba(255, 255, 255, 0.08);
-border: 1px solid rgba(255, 255, 255, 0.15);
-padding: 12px 14px;
-border-radius: 6px;
-}
-
-.resource-card h3 {
-color: #FFD54F;
-margin-bottom: 6px;
-border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-padding-bottom: 4px;
-}
-
-/*==========================
-BACK TO TOP BUTTON
-==========================*/
-
-#topBtn{
-position:fixed;
-bottom:20px;
-right:20px;
-width:42px;
-height:42px;
-border:none;
-border-radius:50%;
-background:#003366;
-color:white;
-font-size:18px;
-cursor:pointer;
-display:none;
-box-shadow:0 4px 12px rgba(0,0,0,.25);
-transition:.25s;
-z-index:999;
-}
-
-#topBtn:hover{
-background:#0059b3;
-transform:translateY(-2px);
-}
-
-/*==========================
-MOBILE RESPONSIVE RULES
-==========================*/
-
-@media(max-width:768px){
-header{ padding:10px; }
-.topbar-container { justify-content: center; text-align: center; gap: 6px; }
-.logo{ height:50px; }
-header h1{ font-size:22px; }
-header p{ font-size:12px; }
-
-.bannerTitle{ font-size:18px; margin:12px 0 8px; }
-.bannerText{ font-size:11px; padding:0 6px; }
-
-.container{ padding:8px 4px; }
-.section{ padding:10px; margin-bottom:10px; }
-summary{ font-size:13px; padding:8px 10px; }
-
-.chapter-btn{
-width:100%;
-margin:4px 0;
-padding:8px;
-text-align:center;
-}
-
-iframe{ height:400px; }
-
-.icse-header{
-flex-direction:column;
-align-items:flex-start;
-gap:8px;
-}
-}
-
-/* ===========================
-   MODERN RESPONSIVE LMS
-   =========================== */
-body{background:#f5f8fc;color:#1e293b;font-size:14px}
-header{position:relative;padding:18px 24px;background:linear-gradient(135deg,#003366,#0059b3);text-align:left}
-.header-brand{max-width:1250px;margin:auto;display:flex;align-items:center;gap:16px}
-.header-brand .logo{height:62px;margin:0}
-.header-brand h1{font-size:27px;line-height:1.2}
-.header-brand p{font-size:13px}
-.header-brand .lms-label{font-size:12px;font-weight:600;margin-top:4px}
-.topbar{display:none}
-.container{width:min(1250px,94%);padding:0;margin:20px auto}
-.announcement-box{margin:16px auto;max-width:1250px}
-.bannerTitle,.myBanner,.bannerText{display:none}
-.feature-section{background:#fff;border:1px solid #e4ebf3;border-radius:14px;padding:22px;margin-bottom:20px;box-shadow:0 5px 18px rgba(0,51,102,.06)}
-.section-heading{display:flex;align-items:center;gap:13px;margin-bottom:18px}
-.section-heading h2{color:#003366;font-size:22px;margin:0}
-.section-heading p{color:#64748b;margin-top:2px}
-.section-icon{font-size:27px}
-.timetable-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px;align-items:stretch}
-.resource-info{background:#f6f9fd;border:1px solid #e1e9f2;border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:center}
-.resource-info label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px}
-.resource-info h3{font-size:18px;color:#003366;margin:20px 0 6px}
-.resource-info p{color:#64748b;font-size:13px;margin-bottom:15px}
-.filter-control{width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:10px 12px;font:inherit;color:#1e293b;outline:none}
-.filter-control:focus{border-color:#0059b3;box-shadow:0 0 0 3px rgba(0,89,179,.1)}
-.primary-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#003366;color:#fff;border:0;border-radius:8px;padding:10px 15px;text-decoration:none;font-weight:700;font-size:13px;cursor:pointer}
-.primary-btn:hover{background:#0059b3}
-.pdf-preview-wrap{background:#eef3f8;border-radius:12px;padding:10px;min-width:0}
-.pdf-label{text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.7px;color:#64748b;padding:5px 8px}
-.pdf-preview-wrap iframe{height:600px;background:#fff}
-.material-filters,.qp-filter-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;margin-bottom:20px}
-.qp-filter-grid{grid-template-columns:repeat(4,1fr)}
-.search-control{min-width:0}
-.class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.class-card{appearance:none;text-align:left;display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid #dbe5ef;border-radius:12px;padding:17px;cursor:pointer;min-height:125px;transition:.2s}
-.class-card:hover{border-color:#0059b3;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,51,102,.1)}
-.class-card span{font-size:23px;font-weight:800;color:#003366}
-.class-card small{font-size:12px;color:#64748b}
-.class-card b{margin-top:auto;font-size:12px;color:#0059b3}
-.empty-state{text-align:center;color:#64748b;padding:25px}
-.resource-actions{display:flex;justify-content:flex-end}
-.mentor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.mentor-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;text-align:left;color:#003366;font-weight:700;cursor:pointer}
-.mentor-card span{display:block;color:#0059b3;font-size:12px;margin-top:5px}
-.announcement-list{display:grid;gap:10px}
-.announcement-item{display:flex;gap:15px;padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc}
-.announcement-date{font-size:11px;font-weight:800;color:#0059b3;min-width:70px}
-.viewer-section{display:none;width:min(1250px,94%);margin:20px auto;background:#fff;border:1px solid #dbe5ef;border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(0,51,102,.08)}
-.viewer-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.viewer-kicker{font-size:10px;letter-spacing:1px;font-weight:800;color:#0059b3}
-.viewer-header h2{color:#003366;font-size:20px;margin:2px 0}
-.close-viewer{border:0;background:#edf2f7;color:#475569;width:34px;height:34px;border-radius:50%;cursor:pointer}
-.pdf-viewer-container{background:#eef3f8;padding:8px;border-radius:10px}
-.pdf-viewer-container iframe{width:100%;height:650px;border:0;border-radius:6px;background:#fff}
-.viewer-actions{text-align:center;margin-top:12px}
-footer{margin-top:30px}
-footer .footer-resources-grid{display:none}
+.footer-grid div{padding:12px 0}
+.footer-grid h3{font-size:15px;margin-bottom:7px}
+.footer-grid p,.footer-grid a{font-size:12px;color:#e7eef7}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.2);padding-top:15px;text-align:center;font-size:12px}
 
 @media(max-width:900px){
- .class-grid{grid-template-columns:repeat(3,1fr)}
- .mentor-grid{grid-template-columns:repeat(3,1fr)}
- .timetable-layout{grid-template-columns:1fr}
- .material-filters,.qp-filter-grid{grid-template-columns:repeat(2,1fr)}
+  .class-grid{grid-template-columns:repeat(3,1fr)}
+  .mentor-grid{grid-template-columns:repeat(3,1fr)}
+  .timetable-layout{grid-template-columns:1fr}
+  .filters{grid-template-columns:repeat(2,1fr)}
+  .qp-filters{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
- body{font-size:13px}
- header{padding:12px 14px}
- .header-brand{gap:10px}
- .header-brand .logo{height:48px}
- .header-brand h1{font-size:20px}
- .header-brand p{font-size:11px}
- .header-brand .lms-label{font-size:10px}
- .container{width:94%;margin:12px auto}
- .feature-section{padding:14px;border-radius:11px;margin-bottom:12px}
- .section-heading{align-items:flex-start;margin-bottom:13px}
- .section-heading h2{font-size:18px}
- .section-heading p{font-size:11px}
- .section-icon{font-size:23px}
- .material-filters,.qp-filter-grid{grid-template-columns:1fr;gap:8px}
- .class-grid{grid-template-columns:repeat(2,1fr);gap:8px}
- .class-card{min-height:105px;padding:13px}
- .class-card span{font-size:19px}
- .mentor-grid{grid-template-columns:repeat(2,1fr);gap:8px}
- .mentor-card{padding:12px;font-size:12px}
- .pdf-preview-wrap iframe{height:480px}
- .viewer-section{width:94%;padding:12px}
- .pdf-viewer-container iframe{height:480px}
- .resource-actions{justify-content:stretch}
- .resource-actions .primary-btn{width:100%}
- .announcement-item{gap:9px}
- .announcement-date{min-width:52px;font-size:9px}
- footer{padding:18px 10px}
+  .header-inner{min-height:94px;gap:10px}
+  .logo{width:56px;height:56px}
+  .brand h1{font-size:21px}
+  .brand .tagline{font-size:11px}
+  .brand .lms{font-size:10px}
+  .container{width:94%;margin:13px auto}
+  .section{padding:14px;margin-bottom:13px}
+  .section-head{display:block}
+  .section-head h2{font-size:19px;margin-bottom:3px}
+  .quick-grid{grid-template-columns:1fr}
+  .class-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .class-card{padding:13px;min-height:100px}
+  .filters,.qp-filters{grid-template-columns:1fr}
+  .resource{display:block}
+  .resource-actions{margin-top:10px}
+  .resource-actions .btn{width:100%}
+  .mentor-grid{grid-template-columns:repeat(2,1fr)}
+  .pdf-box iframe{height:460px}
+  .viewer{padding:10px}
+  .viewer-card{height:95vh}
+  .viewer-card iframe{min-height:0}
+  .footer-grid{grid-template-columns:1fr}
 }
-
 </style>
 </head>
 
 <body>
 <header>
+  <div class="header-inner">
+    <img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
+    <div class="brand">
+      <h1>Bhat and Bhat Tutorials</h1>
+      <div class="tagline">"Where Students Achieve Success"</div>
+      <div class="lms">Learning Management System (LMS)</div>
+    </div>
+  </div>
+</header>
 
-<!-- Clean Header -->
-    <div class="header-brand">
-        <img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
-        <div>
-            <h1>Bhat and Bhat Tutorials</h1>
-            <p><i>"Where Students Achieve Success"</i></p>
-            <p class="lms-label">Learning Management System (LMS)</p>
-        </div>
+<main class="container">
+
+  <div class="announcement">
+    <h2>📢 Latest Announcements</h2>
+    <div>✅ Mid-Term Examination &amp; August Month Mini Examination Syllabus Published &amp; Schedule Released.</div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>Welcome to Bhat &amp; Bhat Tutorials LMS</h2>
+        <p>Access study materials, question papers and examination updates in one place.</p>
+      </div>
+    </div>
+    <div class="quick-grid">
+      <div class="quick-card">
+        <strong>📚 Study Materials</strong>
+        <span>Class-wise notes and academic resources.</span>
+        <a class="btn btn-blue" href="#study-material">Open Study Materials</a>
+      </div>
+      <div class="quick-card">
+        <strong>📝 Question Papers</strong>
+        <span>Mini exams, mid-terms, practice papers and answer keys.</span>
+        <a class="btn btn-blue" href="#question-papers">View Question Papers</a>
+      </div>
+      <div class="quick-card">
+        <strong>📅 Exam Timetable</strong>
+        <span>Preview the latest examination timetable and download the PDF.</span>
+        <a class="btn btn-blue" href="#timetable">View Timetable</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="timetable">
+    <div class="section-head">
+      <div>
+        <h2>📅 Examination Timetable</h2>
+        <p>Select the academic year and preview the timetable PDF.</p>
+      </div>
     </div>
 
-    </header>
+    <div class="timetable-layout">
+      <div class="timetable-info">
+        <h3>2026 Examination Timetable</h3>
+        <p>The latest timetable can be previewed here. Use the download button below the preview to save the PDF.</p>
+        <label for="yearSelect"><strong>Academic Year</strong></label>
+        <select id="yearSelect" onchange="changeTimetable()">
+          <option value="2026">2026</option>
+        </select>
+        <div style="margin-top:12px">
+          <button class="btn btn-blue" style="width:100%" onclick="openPDF('2026 Examination Timetable', timetableFiles['2026'])">👁 Preview PDF</button>
+        </div>
+      </div>
 
-<!-- ===========================
-LATEST ANNOUNCEMENT CARD
-============================ -->
+      <div class="pdf-box">
+        <iframe id="timetableFrame" title="Examination Timetable PDF"></iframe>
+        <div class="pdf-actions">
+          <a id="timetableDownload" class="btn btn-blue" href="#" target="_blank" rel="noopener">⬇ Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="announcement-box">
-<h3 style="color:#003366;">
-📢 Latest Announcements
-</h3>
-<p>
-✅ Mid-Term Examination & August Month Mini Examination Syllabus Published & Schedule Released.
-</p>
+  <section class="section" id="study-material">
+    <div class="section-head">
+      <div>
+        <h2>📚 Study Materials</h2>
+        <p>Choose a class. You can also search by class, subject or chapter name.</p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <input id="materialSearch" type="search" placeholder="Search class, subject or chapter..." oninput="filterMaterials()">
+      <select id="materialClass" onchange="filterMaterials()">
+        <option value="">All Classes</option>
+      </select>
+      <select id="materialSubject" onchange="filterMaterials()">
+        <option value="">All Subjects</option>
+      </select>
+      <input id="materialChapter" type="search" placeholder="Chapter name..." oninput="filterMaterials()">
+    </div>
+
+    <div class="class-grid" id="classGrid"></div>
+    <div class="no-results" id="materialEmpty">No matching class/resource found.</div>
+  </section>
+
+  <section class="section" id="question-papers">
+    <div class="section-head">
+      <div>
+        <h2>📝 Question Papers</h2>
+        <p>Filter question papers by class, subject, examination and year.</p>
+      </div>
+    </div>
+
+    <div class="qp-filters">
+      <select id="qpClass" onchange="filterQPs()"><option value="">All Classes</option></select>
+      <select id="qpSubject" onchange="filterQPs()"><option value="">All Subjects</option></select>
+      <select id="qpExam" onchange="filterQPs()"><option value="">All Examinations</option></select>
+      <select id="qpYear" onchange="filterQPs()"><option value="">All Years</option><option>2026</option></select>
+    </div>
+
+    <div class="resource-list" id="qpList"></div>
+    <div class="no-results" id="qpEmpty">No question papers match the selected filters.</div>
+  </section>
+
+  <section class="section" id="mentors">
+    <div class="section-head">
+      <div>
+        <h2>👨‍🏫 Class Mentors</h2>
+        <p>Class-wise mentor information.</p>
+      </div>
+    </div>
+    <div class="mentor-grid" id="mentorGrid"></div>
+  </section>
+
+</main>
+
+<div class="viewer" id="pdfViewerModal" aria-hidden="true">
+  <div class="viewer-card">
+    <div class="viewer-head">
+      <h3 id="viewerTitle">PDF Preview</h3>
+      <button class="viewer-close" onclick="closePDF()" aria-label="Close">×</button>
+    </div>
+    <iframe id="viewerFrame" title="PDF Preview"></iframe>
+    <div class="viewer-foot">
+      <a id="viewerDownload" class="btn btn-blue" href="#" target="_blank" rel="noopener">⬇ Download PDF</a>
+    </div>
+  </div>
 </div>
-
-<!-- ===========================
-TIMETABLE TITLE & BANNER
-============================ -->
-
-<h2 class="bannerTitle">
-📅 August 2026 Examination Timetable
-</h2>
-
-<div class="myBanner">
-<a href="images/mtx-me-timetable-august.jpg" target="_blank">
-<img src="images/mtx-me-timetable-august.jpg" alt="August Examination Timetable">
-</a>
-</div>
-
-<p class="bannerText">
-Click on the timetable image to view the full-size examination schedule.
-</p>
-
-<!-- TICKER SECTION -->
-
-
-<!-- ===========================
-MAIN DYNAMIC LMS CONTENT
-============================ -->
-
-<div class="container">
-    
-<div id="section-08cbse"></div>
-<div id="section-08icse"></div>
-<div id="section-09cbse"></div>
-<div id="section-09icse"></div>
-<div id="section-10cbse"></div>
-<div id="section-10state"></div>
-<div id="section-10icse"></div>
-<div id="section-11science"></div>
-<div id="section-12science"></div>
-
-</div>
-
-<!-- ===========================
-PDF VIEWER
-=========================== -->
-
-<section id="viewerSection">
-<h2 id="chapterTitle"></h2>
-<div style="background:#f8fbff; padding:10px; border-radius:8px; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,.05);">
-  <iframe id="pdfViewer"></iframe>
-</div>
-
-<div style="text-align:center;">
-<a id="downloadLink" class="download-btn" target="_self">
-📥 Download PDF
-</a>
-</div>
-</section>
-
-<!-- ===========================
-BACK TO TOP BUTTON
-=========================== -->
-
-<button id="topBtn">⬆</button>
-
-<!-- ===========================
-FOOTER
-=========================== -->
 
 <footer>
-<div style="max-width:1100px;margin:auto;">
-<h2>Bhat and Bhat Tutorials</h2>
-<p style="margin-bottom:15px;"><i>"Where Students Achieve Success"</i></p>
-
-<!-- SEPARATED RESOURCE CARDS -->
-<div class="footer-resources-grid">
-  
-  <div class="resource-card">
-    <h3>Quick Links</h3>
-    <p>🌐 <a href="https://www.bhatandbhat.in" target="_blank" style="color:white;">Official Website</a></p>
-    <p>📷 <a href="https://www.instagram.com/bhatandbhat_tutorials/?hl=en" target="_blank" style="color:white;">Instagram</a></p>
-    <p>🔗 <a href="https://www.facebook.com/BhatandBhatTutorials/" target="_blank" style="color:white;">Facebook</a></p>
+  <div class="footer-inner">
+    <h2>Bhat and Bhat Tutorials</h2>
+    <p><i>"Where Students Achieve Success"</i></p>
+    <div class="footer-grid">
+      <div>
+        <h3>Official Links</h3>
+        <p><a href="https://www.bhatandbhat.in" target="_blank" rel="noopener">🌐 www.bhatandbhat.in</a></p>
+        <p><a href="https://www.instagram.com/bhatandbhat_tutorials/?hl=en" target="_blank" rel="noopener">📷 Instagram</a></p>
+        <p><a href="https://www.facebook.com/BhatandBhatTutorials/" target="_blank" rel="noopener">🔗 Facebook</a></p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>☎ +91 83106 15947</p>
+        <p>☎ +91 73385 43585</p>
+        <p>📍 Vignan Nagar, Bengaluru</p>
+      </div>
+      <div>
+        <h3>Academic Resources</h3>
+        <p>Study Materials</p>
+        <p>Question Papers</p>
+        <p>Examination Timetables</p>
+        <p>Class Mentors</p>
+      </div>
+    </div>
+    <div class="footer-bottom">Copyright © 2026 Bhat and Bhat Tutorials. All Rights Reserved.</div>
   </div>
-
-  <div class="resource-card">
-    <h3>📚 Study Materials</h3>
-    <p>➤ Detailed Chapter Notes</p>
-    <p>➤ Quick Revision Summaries</p>
-    <p>➤ Formula Sheets & Concepts</p>
-  </div>
-
-  <div class="resource-card">
-    <h3>📝 Question Papers & Banks</h3>
-    <p>➤ Previous Year Question Papers</p>
-    <p>➤ Practice Question Banks</p>
-    <p>➤ Model Answer Keys</p>
-  </div>
-
-  <div class="resource-card">
-    <h3>Contact Us</h3>
-    <p>☎ +918310615947 | +917338543585</p>
-    <p>📍 Vignan Nagar, Bengaluru</p>
-    <p>🌐 www.bhatandbhat.in</p>
-  </div>
-
-</div>
-
-<hr style="opacity:.2; margin:15px 0;">
-<p style="text-align:center; font-size:12px;">
-Copyright © 2026 Bhat and Bhat Tutorials. All Rights Reserved.
-</p>
-</div>
 </footer>
 
 <script>
-const MATERIAL_DATA = [
-    { className: "07th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
-    { className: "08th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
-    { className: "08th ICSE", subjects: ["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"] },
-    { className: "09th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
-    { className: "09th ICSE", subjects: ["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"] },
-    { className: "10th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
-    { className: "10th ICSE", subjects: ["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"] },
-    { className: "10th State", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
-    { className: "11th Science", subjects: ["Physics","Chemistry","Mathematics","Biology","English"] },
-    { className: "11th Commerce", subjects: ["Accountancy","Business Studies","Economics","Statistics","English"] },
-    { className: "12th Science", subjects: ["Physics","Chemistry","Mathematics","Biology","English","Kannada"] },
-    { className: "12th Commerce", subjects: ["Accountancy","Business Studies","Economics","Statistics","English","Kannada"] },
-    { className: "KCET", subjects: ["Physics","Chemistry","Mathematics","Biology"] },
-    { className: "NEET", subjects: ["Physics","Chemistry","Biology"] }
+/* Replace/add PDF URLs here as your files are uploaded. */
+const timetableFiles = {
+  "2026": "images/mtx-me-timetable-august.pdf"
+};
+
+const classes = [
+  ["07th CBSE","CBSE"],["08th CBSE","CBSE"],["08th ICSE","ICSE"],
+  ["09th CBSE","CBSE"],["09th ICSE","ICSE"],["10th CBSE","CBSE"],
+  ["10th ICSE","ICSE"],["10th State","Karnataka State Board"],
+  ["11th Science","PUC Science"],["11th Commerce","PUC Commerce"],
+  ["12th Science","PUC Science"],["12th Commerce","PUC Commerce"],
+  ["KCET","Entrance"],["NEET","Entrance"]
 ];
 
-function loadPDF(title, fileUrl) {
-    const viewer = document.getElementById("viewerSection");
-    document.getElementById("chapterTitle").textContent = title;
-    document.getElementById("pdfViewer").src = fileUrl;
-    document.getElementById("downloadLink").href = fileUrl;
-    viewer.style.display = "block";
-    viewer.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+const classSubjects = {
+  "07th CBSE":["Mathematics","Science","English","Social Science","Kannada"],
+  "08th CBSE":["Mathematics","Science","English","Social Science","Kannada"],
+  "08th ICSE":["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"],
+  "09th CBSE":["Mathematics","Science","English","Social Science","Kannada"],
+  "09th ICSE":["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"],
+  "10th CBSE":["Mathematics","Science","English","Social Science","Kannada"],
+  "10th ICSE":["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"],
+  "10th State":["Mathematics","Science","English","Social Science","Kannada"],
+  "11th Science":["Physics","Chemistry","Mathematics","Biology","English"],
+  "11th Commerce":["Accountancy","Business Studies","Economics","Statistics","English"],
+  "12th Science":["Physics","Chemistry","Mathematics","Biology","English","Kannada"],
+  "12th Commerce":["Accountancy","Business Studies","Economics","Statistics","English","Kannada"],
+  "KCET":["Physics","Chemistry","Mathematics","Biology"],
+  "NEET":["Physics","Chemistry","Biology"]
+};
 
-function closePDFViewer() {
-    document.getElementById("viewerSection").style.display = "none";
-    document.getElementById("pdfViewer").src = "";
-}
+/* Add actual resource entries here when PDF files are available. */
+const questionPapers = [
+  {title:"2026 Mid-Term Examination – 12th Science", className:"12th Science", subject:"", exam:"Mid-Term Examination", year:"2026", url:""},
+  {title:"2026 Mid-Term Examination – 12th Commerce", className:"12th Commerce", subject:"", exam:"Mid-Term Examination", year:"2026", url:""},
+  {title:"2026 Mid-Term Examination – 10th CBSE", className:"10th CBSE", subject:"", exam:"Mid-Term Examination", year:"2026", url:""}
+];
 
-function populateSubjects() {
-    const classValue = document.getElementById("materialClass").value;
-    const subjectSelect = document.getElementById("materialSubject");
-    subjectSelect.innerHTML = '<option value="">All Subjects</option>';
+const mentors = [
+  ["07th","Class Mentor"],["08th","Class Mentor"],["09th","Class Mentor"],
+  ["10th","Class Mentor"],["11th Science","Class Mentor"],["11th Commerce","Class Mentor"],
+  ["12th Science","Class Mentor"],["12th Commerce","Class Mentor"],
+  ["KCET","Class Mentor"],["NEET","Class Mentor"]
+];
 
-    const record = MATERIAL_DATA.find(x => x.className === classValue);
-    (record ? record.subjects : [...new Set(MATERIAL_DATA.flatMap(x => x.subjects))].sort())
-        .forEach(subject => {
-            const option = document.createElement("option");
-            option.value = subject;
-            option.textContent = subject;
-            subjectSelect.appendChild(option);
-        });
-}
-
-function updateMaterialCards() {
-    const search = document.getElementById("materialSearch").value.toLowerCase().trim();
-    const cls = document.getElementById("materialClass").value;
-    const cards = document.querySelectorAll(".class-card");
-    let visible = 0;
-
-    cards.forEach(card => {
-        const text = card.dataset.class.toLowerCase();
-        const matches = (!cls || card.dataset.class === cls) && (!search || text.includes(search));
-        card.style.display = matches ? "" : "flex";
-        if (matches) visible++;
+function buildFilters(){
+  const classSelects=["materialClass","qpClass"];
+  classSelects.forEach(id=>{
+    const el=document.getElementById(id);
+    classes.forEach(([name])=>{
+      const o=document.createElement("option");o.value=name;o.textContent=name;el.appendChild(o);
     });
+  });
 
-    document.getElementById("materialEmpty").hidden = visible !== 0;
+  const subjectSet=[...new Set(Object.values(classSubjects).flat())].sort();
+  const qpSubject=document.getElementById("qpSubject");
+  subjectSet.forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;qpSubject.appendChild(o)});
+
+  const exams=[...new Set(questionPapers.map(x=>x.exam))].filter(Boolean);
+  const qpExam=document.getElementById("qpExam");
+  exams.forEach(s=>{const o=document.createElement("option");o.value=s;o.textContent=s;qpExam.appendChild(o)});
 }
 
-document.getElementById("materialClass").addEventListener("change", () => {
-    populateSubjects();
-    updateMaterialCards();
-});
-
-["materialSearch","materialSubject","materialChapter"].forEach(id => {
-    document.getElementById(id).addEventListener("input", updateMaterialCards);
-    document.getElementById(id).addEventListener("change", updateMaterialCards);
-});
-
-document.querySelectorAll(".class-card").forEach(card => {
-    card.addEventListener("click", () => {
-        document.getElementById("materialClass").value = card.dataset.class;
-        populateSubjects();
-        updateMaterialCards();
-        document.getElementById("materialSearch").focus();
-    });
-});
-
-function showQuestionPaperPreview() {
-    const cls = document.getElementById("qpClass").value || "Question Paper";
-    const subject = document.getElementById("qpSubject").value || "";
-    const exam = document.getElementById("qpExam").value || "";
-    const year = document.getElementById("qpYear").value || "2026";
-
-    // Replace this placeholder with the actual PDF path when the QP file is selected.
-    loadPDF(`${cls}${subject ? " – " + subject : ""}${exam ? " – " + exam : ""} – ${year}`, "about:blank");
+function renderMaterials(){
+  const grid=document.getElementById("classGrid");
+  grid.innerHTML="";
+  classes.forEach(([name,board])=>{
+    const subjects=(classSubjects[name]||[]).join(" • ");
+    const card=document.createElement("div");
+    card.className="class-card";
+    card.dataset.class=name;
+    card.dataset.subjects=subjects.toLowerCase();
+    card.innerHTML=`<div class="class-name">${name}</div>
+      <div class="board">${board}</div>
+      <div style="font-size:11px;color:#64748b;margin-bottom:10px">${subjects}</div>
+      <div class="open">Open class resources →</div>`;
+    card.onclick=()=>openClassResources(name);
+    grid.appendChild(card);
+  });
 }
 
-document.getElementById("qpClass").addEventListener("change", function() {
-    const classValue = this.value;
-    const subject = MATERIAL_DATA.find(x => x.className === classValue);
-    const select = document.getElementById("qpSubject");
-    select.innerHTML = '<option value="">Select Subject</option>';
-    (subject ? subject.subjects : []).forEach(s => {
-        const o = document.createElement("option");
-        o.textContent = s;
-        o.value = s;
-        select.appendChild(o);
-    });
-});
+function filterMaterials(){
+  const q=document.getElementById("materialSearch").value.toLowerCase().trim();
+  const cls=document.getElementById("materialClass").value;
+  const subject=document.getElementById("materialSubject").value.toLowerCase();
+  const chapter=document.getElementById("materialChapter").value.toLowerCase().trim();
+  let count=0;
+  document.querySelectorAll(".class-card").forEach(card=>{
+    const name=card.dataset.class.toLowerCase();
+    const subs=card.dataset.subjects;
+    const okClass=!cls || card.dataset.class===cls;
+    const okQ=!q || name.includes(q) || subs.includes(q);
+    const okSubject=!subject || subs.includes(subject);
+    /* Chapter names will be matched once actual chapter metadata is added. */
+    const okChapter=!chapter || subs.includes(chapter) || name.includes(chapter);
+    const show=okClass&&okQ&&okSubject&&okChapter;
+    card.style.display=show?"block":"none";
+    if(show) count++;
+  });
+  document.getElementById("materialEmpty").style.display=count?"none":"block";
+}
 
-populateSubjects();
+function openClassResources(className){
+  const map={
+    "08th CBSE":"sections/08-cbse.html",
+    "08th ICSE":"sections/08-icse.html",
+    "09th CBSE":"sections/09-cbse.html",
+    "09th ICSE":"sections/09-icse.html",
+    "10th CBSE":"sections/10-cbse.html",
+    "10th State":"sections/10-state.html",
+    "10th ICSE":"sections/10-icse.html",
+    "11th Science":"sections/11-science.html",
+    "12th Science":"sections/12-science.html"
+  };
+  if(map[className]){
+    window.location.href=map[className];
+    return;
+  }
+  alert(className+" resources can be linked here as PDFs are added.");
+}
 
-document.querySelectorAll(".mentor-card").forEach(card => {
-    card.addEventListener("click", () => {
-        alert("Mentor details for " + card.firstChild.textContent.trim() + " can be added here.");
-    });
-});
+function renderQPs(){
+  const list=document.getElementById("qpList");
+  list.innerHTML="";
+  questionPapers.forEach((r,i)=>{
+    const row=document.createElement("div");
+    row.className="resource";
+    row.dataset.class=r.className;
+    row.dataset.subject=r.subject||"";
+    row.dataset.exam=r.exam;
+    row.dataset.year=r.year;
+    row.innerHTML=`<div>
+      <div class="resource-title">${r.title}</div>
+      <div class="resource-meta">${r.className} ${r.subject?"• "+r.subject:""} • ${r.exam} • ${r.year}</div>
+    </div>
+    <div class="resource-actions">
+      <button class="btn btn-light" onclick="previewResource(${i})">👁 Preview PDF</button>
+      <a class="btn btn-blue" href="${r.url||"#"}" ${r.url?'target="_blank" rel="noopener"':''} onclick="${r.url?'':'return false'}">⬇ Download PDF</a>
+    </div>`;
+    list.appendChild(row);
+  });
+}
 
-const topBtn = document.getElementById("topBtn");
-window.addEventListener("scroll", () => {
-    topBtn.style.display = window.scrollY > 250 ? "block" : "none";
+function filterQPs(){
+  const c=document.getElementById("qpClass").value;
+  const s=document.getElementById("qpSubject").value;
+  const e=document.getElementById("qpExam").value;
+  const y=document.getElementById("qpYear").value;
+  let count=0;
+  document.querySelectorAll("#qpList .resource").forEach(row=>{
+    const show=(!c||row.dataset.class===c)&&(!s||row.dataset.subject===s)&&(!e||row.dataset.exam===e)&&(!y||row.dataset.year===y);
+    row.style.display=show?"flex":"none";
+    if(show)count++;
+  });
+  document.getElementById("qpEmpty").style.display=count?"none":"block";
+}
+
+function changeTimetable(){
+  const url=timetableFiles[document.getElementById("yearSelect").value];
+  const frame=document.getElementById("timetableFrame");
+  const download=document.getElementById("timetableDownload");
+  frame.src=url||"";
+  download.href=url||"#";
+}
+
+function openPDF(title,url){
+  if(!url){
+    alert("The PDF file has not been linked yet.");
+    return;
+  }
+  document.getElementById("viewerTitle").textContent=title;
+  document.getElementById("viewerFrame").src=url;
+  document.getElementById("viewerDownload").href=url;
+  document.getElementById("pdfViewerModal").style.display="block";
+  document.getElementById("pdfViewerModal").setAttribute("aria-hidden","false");
+}
+function closePDF(){
+  document.getElementById("viewerFrame").src="";
+  document.getElementById("pdfViewerModal").style.display="none";
+  document.getElementById("pdfViewerModal").setAttribute("aria-hidden","true");
+}
+function previewResource(i){
+  const r=questionPapers[i];
+  if(r.url) openPDF(r.title,r.url);
+  else alert("The PDF file has not been linked yet.");
+}
+
+function renderMentors(){
+  const grid=document.getElementById("mentorGrid");
+  mentors.forEach(([cls,label])=>{
+    const d=document.createElement("div");
+    d.className="mentor";
+    d.innerHTML=`<strong>${cls}</strong><span>${label}</span>`;
+    grid.appendChild(d);
+  });
+}
+
+buildFilters();
+renderMaterials();
+renderQPs();
+renderMentors();
+changeTimetable();
+
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closePDF()});
+document.getElementById("pdfViewerModal").addEventListener("click",e=>{
+  if(e.target.id==="pdfViewerModal")closePDF();
 });
-topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 </script>
-
 </body>
 </html>

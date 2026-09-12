@@ -452,33 +452,119 @@ align-items:flex-start;
 gap:8px;
 }
 }
+
+/* ===========================
+   MODERN RESPONSIVE LMS
+   =========================== */
+body{background:#f5f8fc;color:#1e293b;font-size:14px}
+header{position:relative;padding:18px 24px;background:linear-gradient(135deg,#003366,#0059b3);text-align:left}
+.header-brand{max-width:1250px;margin:auto;display:flex;align-items:center;gap:16px}
+.header-brand .logo{height:62px;margin:0}
+.header-brand h1{font-size:27px;line-height:1.2}
+.header-brand p{font-size:13px}
+.header-brand .lms-label{font-size:12px;font-weight:600;margin-top:4px}
+.topbar{display:none}
+.container{width:min(1250px,94%);padding:0;margin:20px auto}
+.announcement-box{margin:16px auto;max-width:1250px}
+.bannerTitle,.myBanner,.bannerText{display:none}
+.feature-section{background:#fff;border:1px solid #e4ebf3;border-radius:14px;padding:22px;margin-bottom:20px;box-shadow:0 5px 18px rgba(0,51,102,.06)}
+.section-heading{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.section-heading h2{color:#003366;font-size:22px;margin:0}
+.section-heading p{color:#64748b;margin-top:2px}
+.section-icon{font-size:27px}
+.timetable-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px;align-items:stretch}
+.resource-info{background:#f6f9fd;border:1px solid #e1e9f2;border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:center}
+.resource-info label{font-size:12px;font-weight:700;color:#475569;margin-bottom:6px}
+.resource-info h3{font-size:18px;color:#003366;margin:20px 0 6px}
+.resource-info p{color:#64748b;font-size:13px;margin-bottom:15px}
+.filter-control{width:100%;border:1px solid #cbd5e1;background:#fff;border-radius:8px;padding:10px 12px;font:inherit;color:#1e293b;outline:none}
+.filter-control:focus{border-color:#0059b3;box-shadow:0 0 0 3px rgba(0,89,179,.1)}
+.primary-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#003366;color:#fff;border:0;border-radius:8px;padding:10px 15px;text-decoration:none;font-weight:700;font-size:13px;cursor:pointer}
+.primary-btn:hover{background:#0059b3}
+.pdf-preview-wrap{background:#eef3f8;border-radius:12px;padding:10px;min-width:0}
+.pdf-label{text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.7px;color:#64748b;padding:5px 8px}
+.pdf-preview-wrap iframe{height:600px;background:#fff}
+.material-filters,.qp-filter-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;margin-bottom:20px}
+.qp-filter-grid{grid-template-columns:repeat(4,1fr)}
+.search-control{min-width:0}
+.class-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.class-card{appearance:none;text-align:left;display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid #dbe5ef;border-radius:12px;padding:17px;cursor:pointer;min-height:125px;transition:.2s}
+.class-card:hover{border-color:#0059b3;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,51,102,.1)}
+.class-card span{font-size:23px;font-weight:800;color:#003366}
+.class-card small{font-size:12px;color:#64748b}
+.class-card b{margin-top:auto;font-size:12px;color:#0059b3}
+.empty-state{text-align:center;color:#64748b;padding:25px}
+.resource-actions{display:flex;justify-content:flex-end}
+.mentor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mentor-card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;text-align:left;color:#003366;font-weight:700;cursor:pointer}
+.mentor-card span{display:block;color:#0059b3;font-size:12px;margin-top:5px}
+.announcement-list{display:grid;gap:10px}
+.announcement-item{display:flex;gap:15px;padding:14px;border:1px solid #e2e8f0;border-radius:10px;background:#f8fafc}
+.announcement-date{font-size:11px;font-weight:800;color:#0059b3;min-width:70px}
+.viewer-section{display:none;width:min(1250px,94%);margin:20px auto;background:#fff;border:1px solid #dbe5ef;border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(0,51,102,.08)}
+.viewer-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.viewer-kicker{font-size:10px;letter-spacing:1px;font-weight:800;color:#0059b3}
+.viewer-header h2{color:#003366;font-size:20px;margin:2px 0}
+.close-viewer{border:0;background:#edf2f7;color:#475569;width:34px;height:34px;border-radius:50%;cursor:pointer}
+.pdf-viewer-container{background:#eef3f8;padding:8px;border-radius:10px}
+.pdf-viewer-container iframe{width:100%;height:650px;border:0;border-radius:6px;background:#fff}
+.viewer-actions{text-align:center;margin-top:12px}
+footer{margin-top:30px}
+footer .footer-resources-grid{display:none}
+
+@media(max-width:900px){
+ .class-grid{grid-template-columns:repeat(3,1fr)}
+ .mentor-grid{grid-template-columns:repeat(3,1fr)}
+ .timetable-layout{grid-template-columns:1fr}
+ .material-filters,.qp-filter-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+ body{font-size:13px}
+ header{padding:12px 14px}
+ .header-brand{gap:10px}
+ .header-brand .logo{height:48px}
+ .header-brand h1{font-size:20px}
+ .header-brand p{font-size:11px}
+ .header-brand .lms-label{font-size:10px}
+ .container{width:94%;margin:12px auto}
+ .feature-section{padding:14px;border-radius:11px;margin-bottom:12px}
+ .section-heading{align-items:flex-start;margin-bottom:13px}
+ .section-heading h2{font-size:18px}
+ .section-heading p{font-size:11px}
+ .section-icon{font-size:23px}
+ .material-filters,.qp-filter-grid{grid-template-columns:1fr;gap:8px}
+ .class-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+ .class-card{min-height:105px;padding:13px}
+ .class-card span{font-size:19px}
+ .mentor-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+ .mentor-card{padding:12px;font-size:12px}
+ .pdf-preview-wrap iframe{height:480px}
+ .viewer-section{width:94%;padding:12px}
+ .pdf-viewer-container iframe{height:480px}
+ .resource-actions{justify-content:stretch}
+ .resource-actions .primary-btn{width:100%}
+ .announcement-item{gap:9px}
+ .announcement-date{min-width:52px;font-size:9px}
+ footer{padding:18px 10px}
+}
+
 </style>
 </head>
 
 <body>
 <header>
 
-<!-- Topbar Header -->
-<div class="topbar">
-    <div class="topbar-container">
-        <button class="admin-login-btn" onclick="openLoginModal()">
-            🔒 Admin Login
-        </button>
-        <span>
-            Explore Admissions & Wall of Fame:
-            <a href="https://www.bhatandbhat.in" target="_blank">www.bhatandbhat.in</a>
-        </span>
+<!-- Clean Header -->
+    <div class="header-brand">
+        <img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
+        <div>
+            <h1>Bhat and Bhat Tutorials</h1>
+            <p><i>"Where Students Achieve Success"</i></p>
+            <p class="lms-label">Learning Management System (LMS)</p>
+        </div>
     </div>
-</div>
 
-    <img src="logo.png" class="logo" alt="Bhat and Bhat Tutorials Logo">
-    <h1>Bhat and Bhat Tutorials</h1>
-    <p><i>"Where Students Achieve Success"</i></p>
-    <p style="margin-top:4px;font-size:13px;font-weight:500;">
-        Learning Management System (LMS)
-    </p>
-
-</header>
+    </header>
 
 <!-- ===========================
 LATEST ANNOUNCEMENT CARD
@@ -512,7 +598,7 @@ Click on the timetable image to view the full-size examination schedule.
 </p>
 
 <!-- TICKER SECTION -->
-<div id="tickerSection"></div>
+
 
 <!-- ===========================
 MAIN DYNAMIC LMS CONTENT
@@ -604,174 +690,124 @@ Copyright © 2026 Bhat and Bhat Tutorials. All Rights Reserved.
 </div>
 </footer>
 
-<!-- Modal Login Popup Markup -->
-<div id="loginModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6); align-items:center; justify-content:center;">
-  <div style="background:#fff; padding:20px; border-radius:10px; width:90%; max-width:360px; position:relative; box-shadow:0 8px 20px rgba(0,0,0,0.25);">
-    <span onclick="closeLoginModal()" style="position:absolute; right:12px; top:8px; font-size:22px; cursor:pointer; font-weight:bold; color:#666;">&times;</span>
-    <h3 style="color:#003366; margin-bottom:12px; text-align:center; font-size:16px;">🔒 Portal Admin Login</h3>
-    
-    <div style="margin-bottom:10px;">
-      <label style="font-weight:bold; font-size:11px; display:block; margin-bottom:4px; text-transform:uppercase;">Email ID:</label>
-      <input type="email" id="loginEmail" placeholder="admin@bhatandbhat.in" style="width:100%; padding:8px 10px; border:1px solid #ccc; border-radius:5px; font-size:13px; outline:none;">
-    </div>
-    
-    <div style="margin-bottom:14px;">
-      <label style="font-weight:bold; font-size:11px; display:block; margin-bottom:4px; text-transform:uppercase;">Password:</label>
-      <input type="password" id="loginPassword" placeholder="••••••••" style="width:100%; padding:8px 10px; border:1px solid #ccc; border-radius:5px; font-size:13px; outline:none;">
-    </div>
-    
-    <button onclick="submitLogin()" style="width:100%; background:#003366; color:white; border:none; padding:10px; font-weight:bold; font-size:13px; border-radius:5px; cursor:pointer;">Login</button>
-    <div id="loginMsg" style="margin-top:10px; font-weight:bold; text-align:center; font-size:12px;"></div>
-  </div>
-</div>
-
 <script>
-const WORKER_URL = "https://steep-wind-e204.bhatandbhat.workers.dev";
+const MATERIAL_DATA = [
+    { className: "07th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
+    { className: "08th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
+    { className: "08th ICSE", subjects: ["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"] },
+    { className: "09th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
+    { className: "09th ICSE", subjects: ["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"] },
+    { className: "10th CBSE", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
+    { className: "10th ICSE", subjects: ["Mathematics","Physics","Chemistry","Biology","English","History & Civics","Geography","Kannada"] },
+    { className: "10th State", subjects: ["Mathematics","Science","English","Social Science","Kannada"] },
+    { className: "11th Science", subjects: ["Physics","Chemistry","Mathematics","Biology","English"] },
+    { className: "11th Commerce", subjects: ["Accountancy","Business Studies","Economics","Statistics","English"] },
+    { className: "12th Science", subjects: ["Physics","Chemistry","Mathematics","Biology","English","Kannada"] },
+    { className: "12th Commerce", subjects: ["Accountancy","Business Studies","Economics","Statistics","English","Kannada"] },
+    { className: "KCET", subjects: ["Physics","Chemistry","Mathematics","Biology"] },
+    { className: "NEET", subjects: ["Physics","Chemistry","Biology"] }
+];
 
-// ==============================
-// PDF VIEWER HANDLER
-// ==============================
-function loadPDF(title, fileId) {
-  document.getElementById("viewerSection").style.display = "block";
-  document.getElementById("chapterTitle").innerHTML = "📘 " + title;
-  document.getElementById("pdfViewer").src = "https://drive.google.com/file/d/" + fileId + "/preview";
-  document.getElementById("downloadLink").href = "https://drive.usercontent.google.com/download?id=" + fileId + "&export=download";
-  document.getElementById("viewerSection").scrollIntoView({ behavior: "smooth" });
+function loadPDF(title, fileUrl) {
+    const viewer = document.getElementById("viewerSection");
+    document.getElementById("chapterTitle").textContent = title;
+    document.getElementById("pdfViewer").src = fileUrl;
+    document.getElementById("downloadLink").href = fileUrl;
+    viewer.style.display = "block";
+    viewer.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-// ==============================
-// LOAD HTML SECTIONS DYNAMICALLY
-// ==============================
-async function loadSection(id, file) {
-  try {
-    const response = await fetch(file);
-    const html = await response.text();
-    document.getElementById(id).innerHTML = html;
-  } catch(error) {
-    console.log("Unable to load " + file);
-  }
+function closePDFViewer() {
+    document.getElementById("viewerSection").style.display = "none";
+    document.getElementById("pdfViewer").src = "";
 }
 
-// ==============================
-// LOAD TICKER
-// ==============================
-async function loadTicker() {
-  try {
-    const response = await fetch("ticker.html");
-    const html = await response.text();
-    document.getElementById("tickerSection").innerHTML = html;
-  } catch(e) {
-    console.log("Ticker missing or unreadable.");
-  }
+function populateSubjects() {
+    const classValue = document.getElementById("materialClass").value;
+    const subjectSelect = document.getElementById("materialSubject");
+    subjectSelect.innerHTML = '<option value="">All Subjects</option>';
+
+    const record = MATERIAL_DATA.find(x => x.className === classValue);
+    (record ? record.subjects : [...new Set(MATERIAL_DATA.flatMap(x => x.subjects))].sort())
+        .forEach(subject => {
+            const option = document.createElement("option");
+            option.value = subject;
+            option.textContent = subject;
+            subjectSelect.appendChild(option);
+        });
 }
 
-loadTicker();
-loadSection("section-08cbse","sections/08-cbse.html");
-loadSection("section-08icse","sections/08-icse.html");
-loadSection("section-09cbse","sections/09-cbse.html");
-loadSection("section-09icse","sections/09-icse.html");
-loadSection("section-10cbse","sections/10-cbse.html");
-loadSection("section-10state","sections/10-state.html");
-loadSection("section-10icse","sections/10-icse.html");
-loadSection("section-11science","sections/11-science..html");
-loadSection("section-12science","sections/12-science.html");
+function updateMaterialCards() {
+    const search = document.getElementById("materialSearch").value.toLowerCase().trim();
+    const cls = document.getElementById("materialClass").value;
+    const cards = document.querySelectorAll(".class-card");
+    let visible = 0;
 
-// ==============================
-// BACK TO TOP BUTTON LOGIC
-// ==============================
-const topBtn = document.getElementById("topBtn");
-window.onscroll = function() {
-  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-    topBtn.style.display = "block";
-  } else {
-    topBtn.style.display = "none";
-  }
-};
-
-topBtn.onclick = function() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-// ==============================
-// IMAGE FADE EFFECT
-// ==============================
-window.addEventListener("load", function() {
-  const banner = document.querySelector(".myBanner");
-  if (banner) {
-    banner.style.opacity = "0";
-    banner.style.transition = "0.6s";
-    setTimeout(function() {
-      banner.style.opacity = "1";
-    }, 150);
-  }
-});
-
-// ==============================
-// BUTTON RIPPLE EFFECT
-// ==============================
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("chapter-btn")) {
-    e.target.style.transform = "scale(.97)";
-    setTimeout(function() {
-      e.target.style.transform = "scale(1)";
-    }, 120);
-  }
-});
-
-// ==============================
-// AUTHENTICATION MODAL LOGIC
-// ==============================
-window.openLoginModal = function() {
-  const modal = document.getElementById("loginModal");
-  if (modal) modal.style.display = "flex";
-};
-
-window.closeLoginModal = function() {
-  const modal = document.getElementById("loginModal");
-  if (modal) {
-    modal.style.display = "none";
-    const msg = document.getElementById("loginMsg");
-    if (msg) msg.innerHTML = "";
-  }
-};
-
-window.submitLogin = async function() {
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value.trim();
-  const msg = document.getElementById("loginMsg");
-
-  if (!email || !password) {
-    msg.style.color = "red";
-    msg.innerHTML = "Please enter both Email and Password.";
-    return;
-  }
-
-  msg.style.color = "#003366";
-  msg.innerHTML = "Authenticating...";
-
-  const baseUrl = WORKER_URL.replace(/\/+$/, "");
-
-  try {
-    const res = await fetch(`${baseUrl}/api/auth/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
+    cards.forEach(card => {
+        const text = card.dataset.class.toLowerCase();
+        const matches = (!cls || card.dataset.class === cls) && (!search || text.includes(search));
+        card.style.display = matches ? "" : "flex";
+        if (matches) visible++;
     });
 
-    const data = await res.json();
-    if (data.success) {
-      localStorage.setItem("userRole", data.user.role);
-      localStorage.setItem("userName", data.user.name);
-      window.location.href = "admin.html";
-    } else {
-      msg.style.color = "red";
-      msg.innerHTML = "❌ " + data.message;
-    }
-  } catch (err) {
-    msg.style.color = "red";
-    msg.innerHTML = "❌ Server error during login.";
-  }
-};
+    document.getElementById("materialEmpty").hidden = visible !== 0;
+}
+
+document.getElementById("materialClass").addEventListener("change", () => {
+    populateSubjects();
+    updateMaterialCards();
+});
+
+["materialSearch","materialSubject","materialChapter"].forEach(id => {
+    document.getElementById(id).addEventListener("input", updateMaterialCards);
+    document.getElementById(id).addEventListener("change", updateMaterialCards);
+});
+
+document.querySelectorAll(".class-card").forEach(card => {
+    card.addEventListener("click", () => {
+        document.getElementById("materialClass").value = card.dataset.class;
+        populateSubjects();
+        updateMaterialCards();
+        document.getElementById("materialSearch").focus();
+    });
+});
+
+function showQuestionPaperPreview() {
+    const cls = document.getElementById("qpClass").value || "Question Paper";
+    const subject = document.getElementById("qpSubject").value || "";
+    const exam = document.getElementById("qpExam").value || "";
+    const year = document.getElementById("qpYear").value || "2026";
+
+    // Replace this placeholder with the actual PDF path when the QP file is selected.
+    loadPDF(`${cls}${subject ? " – " + subject : ""}${exam ? " – " + exam : ""} – ${year}`, "about:blank");
+}
+
+document.getElementById("qpClass").addEventListener("change", function() {
+    const classValue = this.value;
+    const subject = MATERIAL_DATA.find(x => x.className === classValue);
+    const select = document.getElementById("qpSubject");
+    select.innerHTML = '<option value="">Select Subject</option>';
+    (subject ? subject.subjects : []).forEach(s => {
+        const o = document.createElement("option");
+        o.textContent = s;
+        o.value = s;
+        select.appendChild(o);
+    });
+});
+
+populateSubjects();
+
+document.querySelectorAll(".mentor-card").forEach(card => {
+    card.addEventListener("click", () => {
+        alert("Mentor details for " + card.firstChild.textContent.trim() + " can be added here.");
+    });
+});
+
+const topBtn = document.getElementById("topBtn");
+window.addEventListener("scroll", () => {
+    topBtn.style.display = window.scrollY > 250 ? "block" : "none";
+});
+topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 </script>
 
 </body>

@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
 
-    /*
-     * ================================
-     * LOAD COMMON HEADER
-     * ================================
-     */
+    /* ================================
+       LOAD HEADER
+    ================================= */
 
     const headerContainer =
         document.getElementById("common-header");
@@ -25,21 +23,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         } catch (error) {
 
-            console.error(
-                "Header loading error:",
-                error
-            );
+            console.error("Header loading error:", error);
 
         }
 
     }
 
 
-    /*
-     * ================================
-     * LOAD COMMON FOOTER
-     * ================================
-     */
+    /* ================================
+       LOAD FOOTER
+    ================================= */
 
     const footerContainer =
         document.getElementById("common-footer");
@@ -60,21 +53,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         } catch (error) {
 
-            console.error(
-                "Footer loading error:",
-                error
-            );
+            console.error("Footer loading error:", error);
 
         }
 
     }
 
 
-    /*
-     * ================================
-     * LOAD PDF VIEWER
-     * ================================
-     */
+    /* ================================
+       LOAD PDF VIEWER
+    ================================= */
 
     const pdfContainer =
         document.getElementById("pdf-viewer");
@@ -107,17 +95,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 
-/*
- * ==========================================
- * OPEN PDF
- * ==========================================
- */
+/* ==========================================
+   OPEN PDF
+========================================== */
 
 function loadPDF(title, fileId) {
-
-    /*
-     * Prevent placeholder links from opening
-     */
 
     if (
         !fileId ||
@@ -146,20 +128,12 @@ function loadPDF(title, fileId) {
         document.getElementById("pdfDownload");
 
 
-    /*
-     * Check whether PDF viewer loaded
-     */
-
     if (
         !modal ||
         !titleElement ||
         !frame ||
         !download
     ) {
-
-        console.error(
-            "PDF viewer has not loaded yet."
-        );
 
         alert(
             "PDF viewer is still loading. Please try again."
@@ -169,52 +143,44 @@ function loadPDF(title, fileId) {
     }
 
 
-    /*
-     * Google Drive preview
-     */
+    /* Google Drive Preview */
 
     const previewURL =
-        "https://drive.google.com/file/" +
+        "https://drive.google.com/file/d/" +
         fileId +
         "/preview";
 
 
-    /*
-     * Google Drive download
-     */
+    /* Google Drive Download */
 
     const downloadURL =
         "https://drive.google.com/uc?export=download&id=" +
-        fileId;
+        encodeURIComponent(fileId);
 
-
-    /*
-     * Set PDF information
-     */
 
     titleElement.textContent = title;
 
-    frame.src = previewURL;
-
     download.href = downloadURL;
 
+    download.setAttribute(
+        "download",
+        ""
+    );
 
-    /*
-     * Show modal
-     */
+
+    /* Open preview */
+
+    frame.src = previewURL;
 
     modal.classList.add("active");
 
     document.body.classList.add("pdf-open");
-
 }
 
 
-/*
- * ==========================================
- * CLOSE PDF
- * ==========================================
- */
+/* ==========================================
+   CLOSE PDF
+========================================== */
 
 function closePDF() {
 
@@ -236,15 +202,12 @@ function closePDF() {
 
 
     document.body.classList.remove("pdf-open");
-
 }
 
 
-/*
- * ==========================================
- * CLOSE WHEN CLICKING OUTSIDE
- * ==========================================
- */
+/* ==========================================
+   CLOSE OUTSIDE MODAL
+========================================== */
 
 document.addEventListener(
     "click",
@@ -257,18 +220,18 @@ document.addEventListener(
             modal &&
             event.target === modal
         ) {
+
             closePDF();
+
         }
 
     }
 );
 
 
-/*
- * ==========================================
- * ESC KEY
- * ==========================================
- */
+/* ==========================================
+   ESC KEY
+========================================== */
 
 document.addEventListener(
     "keydown",

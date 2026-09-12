@@ -1,0 +1,679 @@
+/* =========================================
+   COMMON SECTION PAGE DESIGN
+   Used by all class section pages
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #17324d;
+    background:
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(11, 99, 182, 0.09),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 18%,
+            rgba(0, 150, 136, 0.07),
+            transparent 28%
+        ),
+        #f3f8fb;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    background:
+        linear-gradient(
+            135deg,
+            #052f59,
+            #073b6f,
+            #0b63b6
+        );
+
+    color: #fff;
+
+    text-align: center;
+
+    padding: 24px 20px;
+
+    box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.14);
+}
+
+.site-logo {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+}
+
+.site-title {
+    margin-top: 7px;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.site-tagline {
+    margin-top: 4px;
+
+    font-size: 14px;
+
+    opacity: 0.88;
+}
+
+.site-label {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 5px 14px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.section-container {
+    width:
+        min(1050px, calc(100% - 32px));
+
+    margin: auto;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-link {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: #07599e;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   CLASS PAGE HEADER
+========================================= */
+
+.section-page {
+    padding-bottom: 40px;
+}
+
+.page-header {
+    text-align: center;
+
+    padding:
+        28px 10px
+        25px;
+}
+
+.page-header h1 {
+    color: #063a6d;
+
+    font-size: 31px;
+
+    font-weight: 700;
+}
+
+.page-header p {
+    margin-top: 7px;
+
+    color: #647789;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SUBJECT CARD
+========================================= */
+
+.subject-card {
+    background: rgba(255, 255, 255, 0.96);
+
+    border:
+        1px solid #d8e6ed;
+
+    border-radius: 14px;
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 6px 18px
+        rgba(20, 70, 100, 0.06);
+}
+
+
+/* =========================================
+   SUBJECT TITLE
+========================================= */
+
+.subject-card summary {
+    cursor: pointer;
+
+    list-style: none;
+
+    padding:
+        18px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f7fbfd,
+            #eef6fa
+        );
+
+    color: #17486d;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.subject-card summary::-webkit-details-marker {
+    display: none;
+}
+
+
+/* PLUS / MINUS */
+
+.subject-card summary::after {
+    content: "+";
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #e5f0f6;
+
+    color: #07599e;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.subject-card[open] summary::after {
+    content: "−";
+}
+
+
+/* =========================================
+   CHAPTER AREA
+========================================= */
+
+.chapter-list {
+    padding:
+        8px 18px
+        18px;
+}
+
+
+/* =========================================
+   CHAPTER BUTTON
+========================================= */
+
+.chapter-btn {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    text-align: left;
+
+    margin-top: 8px;
+
+    padding:
+        13px 15px;
+
+    border:
+        1px solid #dce8ee;
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: #234b68;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.18s ease;
+}
+
+.chapter-btn::after {
+    content: "View";
+
+    flex-shrink: 0;
+
+    margin-left: 15px;
+
+    color: #0b63b6;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.chapter-btn:hover {
+    background: #f5faff;
+
+    border-color: #a9cee5;
+
+    transform: translateX(2px);
+}
+
+
+/* =========================================
+   EXAM / QUESTION PAPER SECTION
+========================================= */
+
+.exam-section {
+    margin-top: 30px;
+}
+
+.exam-title {
+    margin-bottom: 12px;
+
+    color: #063a6d;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+.exam-card {
+    background: #fff;
+
+    border:
+        1px solid #d8e6ed;
+
+    border-radius: 14px;
+
+    padding: 8px 16px 16px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(20, 70, 100, 0.05);
+}
+
+
+/* =========================================
+   PDF PREVIEW MODAL
+========================================= */
+
+.pdf-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    padding: 25px;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(5, 30, 50, 0.78);
+}
+
+.pdf-modal.active {
+    display: flex;
+}
+
+.pdf-window {
+    width:
+        min(1100px, 100%);
+
+    height:
+        min(90vh, 850px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   PDF HEADER
+========================================= */
+
+.pdf-header {
+    min-height: 60px;
+
+    padding:
+        12px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #052f59,
+            #0b63b6
+        );
+}
+
+.pdf-title {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+.pdf-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.pdf-download {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        8px 12px;
+
+    border-radius: 7px;
+
+    background: #fff;
+
+    color: #07599e;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.pdf-close {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    color: #fff;
+
+    font-size: 21px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   PDF FRAME
+========================================= */
+
+.pdf-frame {
+    width: 100%;
+
+    flex: 1;
+
+    border: none;
+
+    background: #eef3f6;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    margin-top: 45px;
+
+    padding:
+        28px 20px;
+
+    background: #052f59;
+
+    color: #fff;
+
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.footer-tagline {
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+}
+
+.footer-contact {
+    margin-top: 13px;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    opacity: 0.8;
+}
+
+.footer-copy {
+    margin-top: 17px;
+
+    padding-top: 14px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    font-size: 11px;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 20px 15px;
+    }
+
+    .site-logo {
+        width: 58px;
+        height: 58px;
+    }
+
+    .site-title {
+        font-size: 23px;
+    }
+
+    .site-tagline {
+        font-size: 12px;
+    }
+
+    .section-container {
+        width:
+            calc(100% - 22px);
+    }
+
+    .back-link {
+        margin-top: 18px;
+    }
+
+    .page-header {
+        padding:
+            24px 5px
+            20px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .page-header p {
+        font-size: 13px;
+
+        line-height: 1.5;
+    }
+
+    .subject-card {
+        border-radius: 12px;
+
+        margin-bottom: 10px;
+    }
+
+    .subject-card summary {
+        padding:
+            15px 14px;
+
+        font-size: 15px;
+    }
+
+    .chapter-list {
+        padding:
+            6px 10px
+            12px;
+    }
+
+    .chapter-btn {
+        padding:
+            12px 11px;
+
+        font-size: 13px;
+
+        line-height: 1.4;
+    }
+
+    .chapter-btn::after {
+        margin-left: 8px;
+
+        font-size: 11px;
+    }
+
+    .exam-title {
+        font-size: 18px;
+    }
+
+    .pdf-modal {
+        padding: 8px;
+    }
+
+    .pdf-window {
+        height: 94vh;
+
+        border-radius: 10px;
+    }
+
+    .pdf-header {
+        min-height: 55px;
+
+        padding:
+            9px 10px;
+    }
+
+    .pdf-title {
+        font-size: 13px;
+    }
+
+    .pdf-download {
+        padding:
+            7px 9px;
+
+        font-size: 11px;
+    }
+
+    .pdf-close {
+        width: 29px;
+        height: 29px;
+
+        font-size: 18px;
+    }
+}

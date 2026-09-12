@@ -1,123 +1,161 @@
 /* =========================================
-   COMMON SECTION PAGE DESIGN
-   Used by all class section pages
+   RESET
 ========================================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    color: #17324d;
     background:
         radial-gradient(
-            circle at 8% 8%,
-            rgba(11, 99, 182, 0.09),
-            transparent 30%
+            circle at 15% 20%,
+            rgba(11, 99, 182, 0.08),
+            transparent 35%
         ),
         radial-gradient(
-            circle at 92% 18%,
-            rgba(0, 150, 136, 0.07),
-            transparent 28%
+            circle at 85% 30%,
+            rgba(0, 150, 170, 0.07),
+            transparent 35%
         ),
         #f3f8fb;
 
-    min-height: 100vh;
+    color: #18344d;
+    line-height: 1.5;
 }
 
 
 /* =========================================
-   HEADER
+   COMMON HEADER
 ========================================= */
 
 .site-header {
-    background:
-        linear-gradient(
-            135deg,
-            #052f59,
-            #073b6f,
-            #0b63b6
-        );
+    width: 100%;
+    background: linear-gradient(
+        110deg,
+        #052f59,
+        #073b6f,
+        #0b63b6
+    );
 
-    color: #fff;
-
-    text-align: center;
-
-    padding: 24px 20px;
+    padding: 30px 20px 32px;
 
     box-shadow:
-        0 4px 18px rgba(0, 0, 0, 0.14);
+        0 4px 15px rgba(0, 0, 0, 0.12);
 }
+
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Remove default link styling */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-decoration: none !important;
+    color: white !important;
+
+    cursor: pointer;
+}
+
+
+.brand:hover {
+    text-decoration: none !important;
+    color: white !important;
+}
+
 
 .site-logo {
-    width: 68px;
-    height: 68px;
+    width: 86px;
+    height: 86px;
+
     object-fit: contain;
+
+    background: white;
+
+    padding: 7px;
+
+    margin-bottom: 14px;
 }
+
+
+.brand-text {
+    text-align: center;
+}
+
 
 .site-title {
-    margin-top: 7px;
-
     font-size: 30px;
     font-weight: 700;
+
+    color: #ffffff !important;
+
+    line-height: 1.2;
 }
+
 
 .site-tagline {
-    margin-top: 4px;
+    margin-top: 7px;
 
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 400;
 
-    opacity: 0.88;
-}
+    color: #e8f2fb !important;
 
-.site-label {
-    display: inline-block;
-
-    margin-top: 10px;
-
-    padding: 5px 14px;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.25);
-
-    border-radius: 20px;
-
-    font-size: 12px;
+    letter-spacing: 0.3px;
 }
 
 
 /* =========================================
-   PAGE CONTAINER
+   MAIN CONTAINER
 ========================================= */
 
 .section-container {
-    width:
-        min(1050px, calc(100% - 32px));
+    width: 100%;
+    max-width: 1100px;
 
-    margin: auto;
+    margin: 0 auto;
+
+    padding: 32px 22px 55px;
 }
 
 
 /* =========================================
-   BACK BUTTON
+   BACK LINK
 ========================================= */
 
 .back-link {
     display: inline-block;
 
-    margin-top: 25px;
+    margin-bottom: 34px;
 
-    color: #07599e;
+    color: #005fae;
+
+    font-size: 16px;
+    font-weight: 600;
 
     text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 600;
 }
+
 
 .back-link:hover {
     text-decoration: underline;
@@ -125,278 +163,249 @@ body {
 
 
 /* =========================================
-   CLASS PAGE HEADER
+   PAGE HEADER
 ========================================= */
 
 .section-page {
-    padding-bottom: 40px;
+    width: 100%;
 }
+
 
 .page-header {
     text-align: center;
 
-    padding:
-        28px 10px
-        25px;
+    margin-bottom: 32px;
 }
+
 
 .page-header h1 {
-    color: #063a6d;
+    color: #073b6f;
 
-    font-size: 31px;
-
+    font-size: 34px;
     font-weight: 700;
+
+    margin-bottom: 5px;
 }
 
+
 .page-header p {
-    margin-top: 7px;
+    color: #60788c;
 
-    color: #647789;
-
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
 /* =========================================
-   SUBJECT CARD
+   SUBJECT ACCORDION
 ========================================= */
 
 .subject-card {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.92);
 
-    border:
-        1px solid #d8e6ed;
+    border: 1px solid #d7e5ee;
 
     border-radius: 14px;
 
-    margin-bottom: 14px;
+    margin-bottom: 18px;
 
     overflow: hidden;
 
     box-shadow:
-        0 6px 18px
-        rgba(20, 70, 100, 0.06);
+        0 4px 14px rgba(5, 47, 89, 0.06);
 }
 
-
-/* =========================================
-   SUBJECT TITLE
-========================================= */
 
 .subject-card summary {
-    cursor: pointer;
-
     list-style: none;
 
-    padding:
-        18px 20px;
+    cursor: pointer;
 
-    display: flex;
+    padding: 18px 22px;
 
-    align-items: center;
+    background: #ffffff;
 
-    justify-content: space-between;
+    color: #073b6f;
 
-    background:
-        linear-gradient(
-            90deg,
-            #f7fbfd,
-            #eef6fa
-        );
-
-    color: #17486d;
-
-    font-size: 18px;
-
+    font-size: 19px;
     font-weight: 700;
+
+    position: relative;
 }
+
 
 .subject-card summary::-webkit-details-marker {
     display: none;
 }
 
 
-/* PLUS / MINUS */
-
 .subject-card summary::after {
     content: "+";
 
-    width: 30px;
-    height: 30px;
+    position: absolute;
 
-    display: flex;
+    right: 22px;
+    top: 50%;
 
-    align-items: center;
-    justify-content: center;
+    transform: translateY(-50%);
 
-    border-radius: 8px;
+    font-size: 24px;
 
-    background: #e5f0f6;
+    font-weight: 400;
 
-    color: #07599e;
-
-    font-size: 18px;
-
-    font-weight: 600;
+    color: #0b63b6;
 }
+
 
 .subject-card[open] summary::after {
     content: "−";
 }
 
 
-/* =========================================
-   CHAPTER AREA
-========================================= */
-
-.chapter-list {
-    padding:
-        8px 18px
-        18px;
+.subject-card summary:hover {
+    background: #f6faff;
 }
 
 
 /* =========================================
-   CHAPTER BUTTON
+   CHAPTER LIST
 ========================================= */
+
+.chapter-list {
+    padding: 6px 18px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
 
 .chapter-btn {
     width: 100%;
 
-    display: flex;
+    border: 1px solid #d9e5ed;
 
-    align-items: center;
+    background: #f8fbfd;
 
-    justify-content: space-between;
+    color: #21445f;
 
-    text-align: left;
+    padding: 13px 15px;
 
-    margin-top: 8px;
-
-    padding:
-        13px 15px;
-
-    border:
-        1px solid #dce8ee;
-
-    border-radius: 9px;
-
-    background: #fff;
-
-    color: #234b68;
+    border-radius: 8px;
 
     font-family: inherit;
 
-    font-size: 14px;
+    font-size: 15px;
+
+    text-align: left;
 
     cursor: pointer;
 
-    transition: 0.18s ease;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
 }
 
-.chapter-btn::after {
-    content: "View";
-
-    flex-shrink: 0;
-
-    margin-left: 15px;
-
-    color: #0b63b6;
-
-    font-size: 12px;
-
-    font-weight: 600;
-}
 
 .chapter-btn:hover {
-    background: #f5faff;
+    background: #edf6fc;
 
-    border-color: #a9cee5;
+    border-color: #8ebbdc;
 
     transform: translateX(2px);
 }
 
 
+.chapter-btn:active {
+    transform: translateX(0);
+}
+
+
 /* =========================================
-   EXAM / QUESTION PAPER SECTION
+   EXAM SECTION
 ========================================= */
 
 .exam-section {
     margin-top: 30px;
-}
 
-.exam-title {
-    margin-bottom: 12px;
+    background: #ffffff;
 
-    color: #063a6d;
-
-    font-size: 21px;
-
-    font-weight: 700;
-}
-
-.exam-card {
-    background: #fff;
-
-    border:
-        1px solid #d8e6ed;
+    border: 1px solid #d7e5ee;
 
     border-radius: 14px;
 
-    padding: 8px 16px 16px;
+    padding: 22px;
 
     box-shadow:
-        0 6px 18px
-        rgba(20, 70, 100, 0.05);
+        0 4px 14px rgba(5, 47, 89, 0.06);
+}
+
+
+.exam-title {
+    color: #073b6f;
+
+    font-size: 21px;
+
+    margin-bottom: 16px;
+}
+
+
+.exam-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
 }
 
 
 /* =========================================
-   PDF PREVIEW MODAL
+   PDF MODAL
 ========================================= */
 
 .pdf-modal {
-    display: none;
-
     position: fixed;
 
     inset: 0;
 
-    z-index: 1000;
+    width: 100%;
+    height: 100%;
 
-    padding: 25px;
+    background: rgba(4, 23, 42, 0.78);
+
+    display: none;
 
     align-items: center;
     justify-content: center;
 
-    background:
-        rgba(5, 30, 50, 0.78);
+    padding: 20px;
+
+    z-index: 99999;
 }
+
 
 .pdf-modal.active {
     display: flex;
 }
 
+
 .pdf-window {
-    width:
-        min(1100px, 100%);
+    width: min(1100px, 100%);
 
-    height:
-        min(90vh, 850px);
+    height: min(88vh, 850px);
 
-    display: flex;
+    background: #ffffff;
 
-    flex-direction: column;
+    border-radius: 12px;
 
     overflow: hidden;
 
-    background: #fff;
-
-    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
 
     box-shadow:
-        0 20px 60px
-        rgba(0, 0, 0, 0.3);
+        0 15px 50px rgba(0, 0, 0, 0.35);
 }
 
 
@@ -405,10 +414,13 @@ body {
 ========================================= */
 
 .pdf-header {
-    min-height: 60px;
+    min-height: 58px;
 
-    padding:
-        12px 18px;
+    padding: 10px 14px 10px 18px;
+
+    background: #073b6f;
+
+    color: white;
 
     display: flex;
 
@@ -417,32 +429,30 @@ body {
     justify-content: space-between;
 
     gap: 15px;
-
-    color: #fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #052f59,
-            #0b63b6
-        );
 }
+
 
 .pdf-title {
     font-size: 16px;
 
     font-weight: 600;
 
-    line-height: 1.3;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
 }
+
 
 .pdf-actions {
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 10px;
 }
+
 
 .pdf-download {
     display: inline-flex;
@@ -450,53 +460,87 @@ body {
     align-items: center;
     justify-content: center;
 
-    padding:
-        8px 12px;
+    padding: 8px 13px;
 
-    border-radius: 7px;
+    background: #f2b134;
 
-    background: #fff;
+    color: #17324a !important;
 
-    color: #07599e;
+    border-radius: 6px;
 
-    text-decoration: none;
+    font-size: 13px;
 
-    font-size: 12px;
+    font-weight: 700;
 
-    font-weight: 600;
+    text-decoration: none !important;
+
+    white-space: nowrap;
 }
 
+
+.pdf-download:hover {
+    background: #ffc34d;
+
+    text-decoration: none !important;
+}
+
+
 .pdf-close {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
 
-    border: none;
+    border: 0;
 
-    border-radius: 7px;
+    border-radius: 6px;
 
-    background:
-        rgba(255, 255, 255, 0.14);
+    background: rgba(255,255,255,0.12);
 
-    color: #fff;
+    color: white;
 
-    font-size: 21px;
+    font-size: 26px;
+
+    line-height: 1;
 
     cursor: pointer;
 }
 
 
+.pdf-close:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+
 /* =========================================
-   PDF FRAME
+   PDF BODY
 ========================================= */
+
+.pdf-body {
+    flex: 1;
+
+    min-height: 0;
+
+    background: #eef2f5;
+}
+
 
 .pdf-frame {
     width: 100%;
+    height: 100%;
 
-    flex: 1;
+    display: block;
 
-    border: none;
+    border: 0;
 
-    background: #eef3f6;
+    background: white;
+}
+
+
+/* =========================================
+   BODY LOCK WHEN PDF OPEN
+========================================= */
+
+body.pdf-open {
+    overflow: hidden;
 }
 
 
@@ -505,54 +549,82 @@ body {
 ========================================= */
 
 .site-footer {
-    margin-top: 45px;
-
-    padding:
-        28px 20px;
+    width: 100%;
 
     background: #052f59;
 
-    color: #fff;
+    color: white;
 
-    text-align: center;
+    padding: 30px 20px;
 }
 
-.footer-title {
-    font-size: 18px;
 
-    font-weight: 700;
+.footer-inner {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
 }
 
-.footer-tagline {
-    margin-top: 5px;
+
+.footer-brand {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.footer-brand strong {
+    font-size: 17px;
+
+    color: white;
+}
+
+
+.footer-brand span {
+    font-size: 13px;
+
+    color: #d8e7f3;
+}
+
+
+.footer-info {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 8px 18px;
 
     font-size: 13px;
 
-    opacity: 0.8;
+    color: #d8e7f3;
 }
 
-.footer-contact {
-    margin-top: 13px;
 
-    font-size: 13px;
+.footer-info a {
+    color: #ffffff !important;
 
-    line-height: 1.6;
+    text-decoration: none !important;
 
-    opacity: 0.8;
+    font-weight: 600;
 }
 
-.footer-copy {
-    margin-top: 17px;
 
-    padding-top: 14px;
-
-    border-top:
-        1px solid
-        rgba(255, 255, 255, 0.15);
-
-    font-size: 11px;
-
-    opacity: 0.6;
+.footer-info a:hover {
+    text-decoration: underline !important;
 }
 
 
@@ -560,120 +632,154 @@ body {
    MOBILE
 ========================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .site-header {
-        padding: 20px 15px;
+        padding: 22px 15px 25px;
     }
 
+
     .site-logo {
-        width: 58px;
-        height: 58px;
+        width: 70px;
+        height: 70px;
+
+        margin-bottom: 11px;
     }
+
 
     .site-title {
         font-size: 23px;
     }
 
+
     .site-tagline {
-        font-size: 12px;
+        font-size: 13px;
     }
+
 
     .section-container {
-        width:
-            calc(100% - 22px);
+        padding: 24px 14px 40px;
     }
+
 
     .back-link {
-        margin-top: 18px;
+        font-size: 14px;
+
+        margin-bottom: 25px;
     }
+
 
     .page-header {
-        padding:
-            24px 5px
-            20px;
+        margin-bottom: 24px;
     }
+
 
     .page-header h1 {
-        font-size: 26px;
+        font-size: 27px;
     }
+
 
     .page-header p {
-        font-size: 13px;
-
-        line-height: 1.5;
+        font-size: 14px;
     }
+
 
     .subject-card {
-        border-radius: 12px;
-
-        margin-bottom: 10px;
+        border-radius: 11px;
     }
+
 
     .subject-card summary {
-        padding:
-            15px 14px;
+        padding: 16px;
 
-        font-size: 15px;
+        font-size: 17px;
     }
+
+
+    .subject-card summary::after {
+        right: 17px;
+    }
+
 
     .chapter-list {
-        padding:
-            6px 10px
-            12px;
+        padding: 5px 12px 13px;
+
+        gap: 8px;
     }
+
 
     .chapter-btn {
-        padding:
-            12px 11px;
+        padding: 12px;
 
-        font-size: 13px;
-
-        line-height: 1.4;
+        font-size: 14px;
     }
 
-    .chapter-btn::after {
-        margin-left: 8px;
 
-        font-size: 11px;
+    .exam-section {
+        padding: 16px;
+
+        border-radius: 11px;
     }
+
 
     .exam-title {
         font-size: 18px;
     }
 
+
     .pdf-modal {
-        padding: 8px;
+        padding: 0;
     }
+
 
     .pdf-window {
-        height: 94vh;
+        width: 100%;
+        height: 100%;
 
-        border-radius: 10px;
+        border-radius: 0;
     }
+
 
     .pdf-header {
-        min-height: 55px;
+        min-height: 56px;
 
-        padding:
-            9px 10px;
+        padding: 9px 10px 9px 13px;
     }
+
 
     .pdf-title {
-        font-size: 13px;
+        font-size: 14px;
     }
+
 
     .pdf-download {
-        padding:
-            7px 9px;
+        padding: 7px 9px;
 
-        font-size: 11px;
+        font-size: 12px;
     }
+
 
     .pdf-close {
-        width: 29px;
-        height: 29px;
+        width: 34px;
+        height: 34px;
 
-        font-size: 18px;
+        font-size: 24px;
     }
+
+
+    .footer-inner {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .footer-info {
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
 }

@@ -1,0 +1,884 @@
+/* =========================================
+   BOARD NOTIFICATIONS
+   Bhat and Bhat Tutorials LMS
+========================================= */
+
+
+/* -----------------------------------------
+   RESET
+----------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+
+    color: #17324d;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(11, 99, 182, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(242, 177, 52, 0.07),
+            transparent 28%
+        ),
+        #f3f8fb;
+
+    line-height: 1.6;
+}
+
+
+body.pdf-open {
+    overflow: hidden;
+}
+
+
+a {
+    color: inherit;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* -----------------------------------------
+   HEADER
+----------------------------------------- */
+
+.site-header {
+    width: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #052f59,
+            #073b6f
+        );
+
+    border-bottom: 4px solid #f2b134;
+
+    box-shadow:
+        0 3px 14px rgba(0, 0, 0, 0.12);
+}
+
+
+.header-inner {
+    width: min(1180px, calc(100% - 40px));
+
+    min-height: 145px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.brand {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none !important;
+
+    color: #ffffff !important;
+}
+
+
+.brand:hover {
+    text-decoration: none !important;
+
+    color: #ffffff !important;
+}
+
+
+.site-logo {
+    width: 72px;
+
+    height: 72px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.brand-text {
+    text-align: center;
+}
+
+
+.site-title {
+    color: #ffffff !important;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+
+.site-tagline {
+    margin-top: 5px;
+
+    color: #e8f2fb !important;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* -----------------------------------------
+   MAIN CONTAINER
+----------------------------------------- */
+
+.qp-container {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 34px 0 55px;
+}
+
+
+/* -----------------------------------------
+   BACK LINK
+----------------------------------------- */
+
+.back-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-bottom: 24px;
+
+    color: #0b63b6;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.back-link:hover {
+    text-decoration: underline;
+
+    color: #052f59;
+}
+
+
+/* -----------------------------------------
+   PAGE HEADING
+----------------------------------------- */
+
+.qp-heading {
+    margin-bottom: 32px;
+}
+
+
+.qp-eyebrow {
+    margin-bottom: 7px;
+
+    color: #0b63b6;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.9px;
+}
+
+
+.qp-heading h1 {
+    margin-bottom: 8px;
+
+    color: #052f59;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+.qp-heading p {
+    max-width: 760px;
+
+    color: #607487;
+
+    font-size: 15px;
+
+    line-height: 1.65;
+}
+
+
+/* -----------------------------------------
+   RESOURCE SECTION
+----------------------------------------- */
+
+.exam-section {
+    margin-bottom: 24px;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce7ee;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 14px rgba(5, 47, 89, 0.06);
+}
+
+
+.exam-section-header {
+    margin-bottom: 18px;
+}
+
+
+.exam-section-header h2 {
+    margin-bottom: 5px;
+
+    color: #052f59;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+.exam-section-header p {
+    color: #687b8d;
+
+    font-size: 14px;
+}
+
+
+/* -----------------------------------------
+   RESOURCE CARD
+----------------------------------------- */
+
+.paper-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbfd,
+            #f1f7fa
+        );
+
+    border: 1px solid #dce7ee;
+
+    border-radius: 11px;
+}
+
+
+.paper-item h3 {
+    margin-bottom: 5px;
+
+    color: #17324d;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.paper-item p {
+    color: #687b8d;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+}
+
+
+/* -----------------------------------------
+   BUTTON AREA
+----------------------------------------- */
+
+.paper-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.paper-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 9px 17px;
+
+    border: 1px solid #0b63b6;
+
+    border-radius: 7px;
+
+    background: #0b63b6;
+
+    color: #ffffff !important;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    text-decoration: none !important;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.paper-button:hover {
+    background: #052f59;
+
+    border-color: #052f59;
+
+    transform: translateY(-1px);
+}
+
+
+.paper-button:active {
+    transform: translateY(0);
+}
+
+
+/* -----------------------------------------
+   FOOTER
+----------------------------------------- */
+
+.site-footer {
+    margin-top: auto;
+
+    background: #052f59;
+
+    color: #ffffff;
+}
+
+
+.footer-inner {
+    width: min(1100px, calc(100% - 40px));
+
+    min-height: 125px;
+
+    margin: 0 auto;
+
+    padding: 25px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.footer-brand {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.footer-brand strong {
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.footer-brand span {
+    color: #d8e6f2;
+
+    font-size: 13px;
+}
+
+
+.footer-info {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 3px;
+
+    color: #d8e6f2;
+
+    font-size: 13px;
+
+    text-align: right;
+}
+
+
+.footer-info a {
+    color: #ffffff;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.footer-info a:hover {
+    color: #f2b134;
+
+    text-decoration: underline;
+}
+
+
+/* -----------------------------------------
+   PDF MODAL
+----------------------------------------- */
+
+.pdf-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(3, 22, 40, 0.78);
+}
+
+
+.pdf-modal.active {
+    display: flex;
+}
+
+
+.pdf-window {
+    width: min(1100px, 100%);
+
+    height: min(90vh, 850px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+.pdf-header {
+    min-height: 58px;
+
+    padding: 10px 15px 10px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    background: #052f59;
+
+    color: #ffffff;
+}
+
+
+.pdf-title {
+    overflow: hidden;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.pdf-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.pdf-download {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 36px;
+
+    padding: 7px 13px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    border-radius: 6px;
+
+    color: #ffffff !important;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-decoration: none !important;
+}
+
+
+.pdf-download:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+
+.pdf-close {
+    width: 36px;
+
+    height: 36px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.pdf-close:hover {
+    color: #f2b134;
+}
+
+
+.pdf-body {
+    flex: 1;
+
+    min-height: 0;
+
+    background: #e9eef2;
+}
+
+
+.pdf-frame {
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    display: block;
+}
+
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .header-inner {
+        width: calc(100% - 28px);
+
+        min-height: 125px;
+    }
+
+
+    .site-logo {
+        width: 62px;
+
+        height: 62px;
+    }
+
+
+    .site-title {
+        font-size: 22px;
+    }
+
+
+    .site-tagline {
+        font-size: 12px;
+    }
+
+
+    .qp-container {
+        width: calc(100% - 28px);
+
+        padding: 25px 0 40px;
+    }
+
+
+    .back-link {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+    }
+
+
+    .qp-heading {
+        margin-bottom: 25px;
+    }
+
+
+    .qp-eyebrow {
+        font-size: 11px;
+    }
+
+
+    .qp-heading h1 {
+        font-size: 24px;
+    }
+
+
+    .qp-heading p {
+        font-size: 14px;
+    }
+
+
+    .exam-section {
+        padding: 18px;
+
+        margin-bottom: 18px;
+
+        border-radius: 11px;
+    }
+
+
+    .exam-section-header h2 {
+        font-size: 18px;
+    }
+
+
+    .exam-section-header p {
+        font-size: 13px;
+    }
+
+
+    .paper-item {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+
+        padding: 16px;
+    }
+
+
+    .paper-item h3 {
+        font-size: 16px;
+    }
+
+
+    .paper-item p {
+        font-size: 13px;
+    }
+
+
+    .paper-actions {
+        width: 100%;
+
+        justify-content: stretch;
+    }
+
+
+    .paper-button {
+        width: 100%;
+
+        min-height: 42px;
+    }
+
+
+    .footer-inner {
+        width: calc(100% - 28px);
+
+        padding: 22px 0;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .footer-info {
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .pdf-modal {
+        padding: 0;
+    }
+
+
+    .pdf-window {
+        width: 100%;
+
+        height: 100%;
+
+        border-radius: 0;
+    }
+
+
+    .pdf-header {
+        min-height: 55px;
+
+        padding: 8px 10px 8px 14px;
+    }
+
+
+    .pdf-title {
+        font-size: 13px;
+    }
+
+
+    .pdf-download {
+        min-height: 34px;
+
+        padding: 6px 9px;
+
+        font-size: 11px;
+    }
+
+
+    .pdf-close {
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 24px;
+    }
+
+}
+
+
+/* -----------------------------------------
+   SMALL PHONES
+----------------------------------------- */
+
+@media (max-width: 400px) {
+
+    .site-title {
+        font-size: 20px;
+    }
+
+
+    .site-tagline {
+        font-size: 11px;
+    }
+
+
+    .qp-heading h1 {
+        font-size: 22px;
+    }
+
+
+    .paper-item {
+        padding: 14px;
+    }
+
+}

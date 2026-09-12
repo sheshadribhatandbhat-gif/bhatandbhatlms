@@ -1,0 +1,41 @@
+<div class="pdf-modal" id="pdfModal">
+    <div class="pdf-window">
+
+        <div class="pdf-header">
+            <div class="pdf-title" id="pdfTitle">
+                PDF Preview
+            </div>
+
+            <div class="pdf-actions">
+                <a
+                    id="pdfDownload"
+                    class="pdf-download"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Download PDF
+                </a>
+
+                <button
+                    type="button"
+                    class="pdf-close"
+                    onclick="closePDF()"
+                    aria-label="Close PDF"
+                >
+                    ×
+                </button>
+            </div>
+        </div>
+
+        <div class="pdf-body">
+            <iframe
+                id="pdfFrame"
+                class="pdf-frame"
+                title="PDF Preview"
+                allow="autoplay"
+            ></iframe>
+        </div>
+
+    </div>
+</div>

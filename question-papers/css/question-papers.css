@@ -759,3 +759,103 @@ body.pdf-open {
         justify-content: flex-start;
     }
 }
+
+.exam-section {
+    background: #ffffff;
+    border: 1px solid #dbe7ef;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 51, 102, 0.05);
+}
+
+.exam-heading {
+    padding: 18px 20px;
+    background: #f3f8fb;
+    border-bottom: 1px solid #dbe7ef;
+}
+
+.exam-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #0b63b6;
+    margin-bottom: 4px;
+}
+
+.exam-heading h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #052f59;
+}
+
+.paper-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.paper-item {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #e5edf2;
+    background: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.paper-item:last-child {
+    border-bottom: 0;
+}
+
+.paper-item:hover {
+    background: #f5f9fc;
+}
+
+.paper-subject {
+    font-size: 15px;
+    font-weight: 600;
+    color: #183b56;
+}
+
+.paper-action {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0b63b6;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+
+    .exam-section {
+        margin-bottom: 16px;
+        border-radius: 11px;
+    }
+
+    .exam-heading {
+        padding: 15px 16px;
+    }
+
+    .exam-heading h2 {
+        font-size: 18px;
+    }
+
+    .paper-item {
+        padding: 14px 16px;
+    }
+
+    .paper-subject {
+        font-size: 14px;
+    }
+
+    .paper-action {
+        font-size: 12px;
+    }
+}

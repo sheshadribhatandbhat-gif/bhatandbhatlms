@@ -1,424 +1,1329 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Bhat and Bhat Tutorials LMS</title>
-
-<meta name="theme-color" content="#073b6f">
-<meta name="description"
-      content="Bhat and Bhat Tutorials LMS - Academic resources, question papers and examination updates.">
-
-<link rel="icon" href="logo.png">
-
-<style>
-:root {
-    --navy: #073b6f;
-    --blue: #0b63b6;
-    --light-blue: #eaf4ff;
-    --gold: #f2b134;
-    --bg: #f4f8fc;
-    --white: #ffffff;
-    --text: #243447;
-    --muted: #64748b;
-    --border: #d8e4ef;
-    --shadow: 0 6px 20px rgba(7,59,111,0.08);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.5;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.site-header {
-    background: linear-gradient(
-        135deg,
-        var(--navy),
-        var(--blue)
-    );
-
-    color: white;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,0.16);
-}
-
-.header-inner {
-    width: min(1180px, 94%);
-    min-height: 120px;
-    margin: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 18px;
-}
-
-.logo {
-    width: 76px;
-    height: 76px;
 
-    object-fit: contain;
+    <meta charset="UTF-8">
 
-    background: white;
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    border-radius: 6px;
+    <title>
+        Bhat and Bhat Tutorials LMS
+    </title>
 
-    padding: 3px;
-}
+    <meta
+        name="description"
+        content="Bhat and Bhat Tutorials LMS - Study Materials, Question Papers, Examination Timetables and Academic Updates."
+    >
 
-.brand {
-    text-align: left;
-}
+    <meta
+        name="theme-color"
+        content="#073b6f"
+    >
 
-.brand h1 {
-    font-size: 30px;
-    font-weight: 800;
-}
+    <link
+        rel="icon"
+        href="logo.png"
+    >
 
-.tagline {
-    font-style: italic;
-    margin-top: 4px;
-}
 
-.lms {
-    font-size: 14px;
-    font-weight: 700;
-    margin-top: 5px;
-}
+    <style>
 
-/* =========================
-   MAIN
-========================= */
+        /* =====================================================
+           ROOT
+        ===================================================== */
 
-.container {
-    width: min(1180px, 94%);
-    margin: auto;
-}
+        :root {
 
-main {
-    padding: 24px 0;
-}
+            --navy: #073b6f;
+            --blue: #0b63b6;
+            --blue-dark: #052f59;
 
-/* =========================
-   CARDS
-========================= */
+            --sky: #e9f4fb;
+            --cyan: #dff3f4;
 
-.card {
-    background: var(--white);
+            --gold: #f1b64a;
 
-    border: 1px solid var(--border);
+            --bg: #edf4f7;
 
-    border-radius: 14px;
+            --white: #ffffff;
 
-    box-shadow: var(--shadow);
+            --text: #243447;
+            --muted: #64748b;
 
-    padding: 24px;
+            --border: #d8e4eb;
 
-    margin-bottom: 20px;
-}
+            --shadow:
+                0 8px 25px
+                rgba(7, 59, 111, 0.08);
 
-/* =========================
-   HERO
-========================= */
+            --shadow-hover:
+                0 14px 32px
+                rgba(7, 59, 111, 0.13);
 
-.hero {
-    text-align: center;
-    padding: 32px 24px;
-}
+        }
 
-.hero h2 {
-    color: var(--navy);
-    font-size: 29px;
-    margin-bottom: 7px;
-}
 
-.hero p {
-    color: var(--muted);
-    margin-bottom: 25px;
-}
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-/* =========================
-   QUICK LINKS
-========================= */
+        * {
 
-.quick-grid {
-    display: grid;
+            box-sizing: border-box;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+            margin: 0;
 
-    gap: 14px;
-}
+            padding: 0;
 
-.quick-card {
-    background: #f9fcff;
+        }
 
-    border: 1px solid var(--border);
 
-    border-radius: 12px;
+        html {
 
-    padding: 20px;
+            scroll-behavior: smooth;
 
-    transition: 0.2s;
-}
+        }
 
-.quick-card:hover {
-    transform: translateY(-3px);
 
-    box-shadow:
-        0 8px 20px rgba(7,59,111,0.12);
-}
+        body {
 
-.quick-card h3 {
-    color: var(--navy);
+            font-family:
+                "Segoe UI",
+                Arial,
+                sans-serif;
 
-    font-size: 17px;
+            font-size: 14px;
 
-    margin-bottom: 6px;
-}
+            line-height: 1.5;
 
-.quick-card p {
-    color: var(--muted);
+            color: var(--text);
 
-    font-size: 12px;
+            min-height: 100vh;
 
-    margin-bottom: 15px;
-}
+            /*
+              Modern academic background.
+              Subtle enough to remain professional.
+            */
 
-/* =========================
-   BUTTONS
-========================= */
+            background:
 
-.btn {
-    display: inline-flex;
+                radial-gradient(
+                    circle at 8% 8%,
+                    rgba(11, 99, 182, 0.10),
+                    transparent 28%
+                ),
 
-    align-items: center;
-    justify-content: center;
+                radial-gradient(
+                    circle at 92% 18%,
+                    rgba(35, 160, 165, 0.08),
+                    transparent 25%
+                ),
 
-    border-radius: 8px;
+                linear-gradient(
+                    135deg,
+                    #f4f8fa 0%,
+                    #edf4f7 45%,
+                    #e9f2f7 100%
+                );
 
-    padding: 9px 13px;
+        }
 
-    font-size: 12px;
 
-    font-weight: 700;
+        a {
 
-    cursor: pointer;
+            color: inherit;
 
-    border: none;
-}
+            text-decoration: none;
 
-.btn-blue {
-    background: var(--navy);
-    color: white;
-}
+        }
 
-.btn-blue:hover {
-    background: var(--blue);
-}
 
-.btn-light {
-    background: var(--light-blue);
-    color: var(--navy);
-}
+        img {
 
-/* =========================
-   ANNOUNCEMENT
-========================= */
+            max-width: 100%;
 
-.announcement {
-    border-left: 6px solid var(--gold);
+        }
 
-    background: white;
 
-    border-radius: 10px;
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-    padding: 17px 20px;
+        .site-header {
 
-    margin-bottom: 20px;
+            background:
 
-    box-shadow: var(--shadow);
-}
+                linear-gradient(
+                    135deg,
+                    #062f59 0%,
+                    #073b6f 48%,
+                    #0b63b6 100%
+                );
 
-.announcement h2 {
-    color: var(--navy);
+            color: white;
 
-    font-size: 18px;
+            box-shadow:
+                0 5px 22px
+                rgba(0, 0, 0, 0.16);
 
-    margin-bottom: 5px;
-}
+        }
 
-/* =========================
-   FOOTER
-========================= */
 
-footer {
-    background: var(--navy);
+        .header-inner {
 
-    color: white;
+            width: min(1120px, 94%);
 
-    padding: 30px 0;
+            min-height: 122px;
 
-    margin-top: 25px;
+            margin: auto;
 
-    text-align: center;
-}
+            display: flex;
 
-.footer-title {
-    font-size: 19px;
+            align-items: center;
 
-    font-weight: 800;
-}
+            justify-content: center;
 
-.footer-tagline {
-    font-style: italic;
+            gap: 18px;
 
-    margin-top: 4px;
-}
+        }
 
-.footer-links {
-    display: flex;
 
-    justify-content: center;
+        .logo {
 
-    gap: 20px;
+            width: 76px;
 
-    flex-wrap: wrap;
+            height: 76px;
 
-    margin: 15px 0;
-}
+            object-fit: contain;
 
-.footer-links a {
-    color: #e8f3ff;
+            background: white;
 
-    font-size: 12px;
-}
+            border-radius: 7px;
 
-.footer-contact {
-    font-size: 12px;
+            padding: 3px;
 
-    color: #e8f3ff;
+            flex-shrink: 0;
 
-    margin-bottom: 15px;
-}
+        }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.2);
 
-    padding-top: 14px;
+        .brand {
 
-    font-size: 11px;
-}
+            text-align: left;
 
-/* =========================
-   RESPONSIVE
-========================= */
+        }
 
-@media (max-width: 950px) {
 
-    .quick-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-}
+        .brand-title {
 
-@media (max-width: 600px) {
+            font-size: 29px;
 
-    .header-inner {
-        min-height: 100px;
+            line-height: 1.15;
 
-        gap: 10px;
-    }
+            font-weight: 800;
 
-    .logo {
-        width: 58px;
-        height: 58px;
-    }
+            letter-spacing: -0.3px;
 
-    .brand h1 {
-        font-size: 21px;
-    }
+        }
 
-    .tagline {
-        font-size: 11px;
-    }
 
-    .lms {
-        font-size: 10px;
-    }
+        .tagline {
 
-    main {
-        padding: 14px 0;
-    }
+            margin-top: 5px;
 
-    .card {
-        padding: 15px;
-    }
+            font-size: 13px;
 
-    .hero {
-        padding: 25px 15px;
-    }
+            font-style: italic;
 
-    .hero h2 {
-        font-size: 22px;
-    }
+            opacity: 0.95;
 
-    .quick-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        }
 
-        gap: 8px;
-    }
 
-    .quick-card {
-        padding: 13px;
-    }
+        .lms-label {
 
-    .quick-card h3 {
-        font-size: 14px;
-    }
+            margin-top: 6px;
 
-    .quick-card p {
-        font-size: 11px;
-    }
+            font-size: 12px;
 
-    .quick-card .btn {
-        width: 100%;
-    }
+            font-weight: 700;
 
-}
-</style>
+            letter-spacing: 0.2px;
+
+            opacity: 0.95;
+
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+
+            width: min(1120px, 94%);
+
+            margin: auto;
+
+            padding: 25px 0 35px;
+
+        }
+
+
+        /* =====================================================
+           ANNOUNCEMENT
+        ===================================================== */
+
+        .announcement {
+
+            background: rgba(255,255,255,0.94);
+
+            border: 1px solid var(--border);
+
+            border-left: 5px solid var(--gold);
+
+            border-radius: 13px;
+
+            padding: 17px 20px;
+
+            box-shadow: var(--shadow);
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .announcement-title {
+
+            color: var(--navy);
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .announcement-text {
+
+            color: var(--text);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.97),
+                    rgba(247,252,255,0.94)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            box-shadow: var(--shadow);
+
+            padding: 34px 28px 30px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /*
+          Decorative background circles
+        */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 230px;
+
+            height: 230px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(11, 99, 182, 0.055);
+
+            top: -120px;
+
+            left: -80px;
+
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+
+            height: 200px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(35, 160, 165, 0.055);
+
+            bottom: -110px;
+
+            right: -70px;
+
+        }
+
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+        .hero-badge {
+
+            display: inline-block;
+
+            padding: 5px 11px;
+
+            border-radius: 20px;
+
+            background: var(--sky);
+
+            color: var(--navy);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            margin-bottom: 11px;
+
+        }
+
+
+        .hero-title {
+
+            color: var(--navy);
+
+            font-size: 28px;
+
+            line-height: 1.25;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .hero-text {
+
+            max-width: 680px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           SECTION TITLE
+        ===================================================== */
+
+        .section-heading {
+
+            text-align: center;
+
+            margin: 25px 0 15px;
+
+        }
+
+
+        .section-heading h2 {
+
+            color: var(--navy);
+
+            font-size: 21px;
+
+            font-weight: 750;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        .section-heading p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+        }
+
+
+        /* =====================================================
+           RESOURCE GRID
+        ===================================================== */
+
+        .resource-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 14px;
+
+        }
+
+
+        .resource-card {
+
+            background:
+                rgba(255,255,255,0.96);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 20px 18px;
+
+            min-height: 175px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            box-shadow: var(--shadow);
+
+            transition:
+                transform 0.18s ease,
+                box-shadow 0.18s ease,
+                border-color 0.18s ease;
+
+        }
+
+
+        .resource-card:hover {
+
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow-hover);
+
+            border-color:
+                rgba(11,99,182,0.30);
+
+        }
+
+
+        .resource-icon {
+
+            width: 43px;
+
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: var(--sky);
+
+            font-size: 20px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .resource-title {
+
+            color: var(--navy);
+
+            font-size: 16px;
+
+            line-height: 1.3;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .resource-description {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.45;
+
+            margin-bottom: auto;
+
+        }
+
+
+        .resource-action {
+
+            margin-top: 14px;
+
+            color: var(--blue);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           EXAM UPDATE FEATURE
+        ===================================================== */
+
+        .exam-feature {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #073b6f,
+                    #0b63b6
+                );
+
+            color: white;
+
+            border-radius: 16px;
+
+            padding: 23px;
+
+            display: grid;
+
+            grid-template-columns: 1.4fr 1fr;
+
+            gap: 20px;
+
+            align-items: center;
+
+            box-shadow:
+                0 10px 28px
+                rgba(7,59,111,0.16);
+
+            margin-top: 25px;
+
+        }
+
+
+        .exam-feature h2 {
+
+            font-size: 21px;
+
+            line-height: 1.25;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .exam-feature p {
+
+            color: rgba(255,255,255,0.84);
+
+            font-size: 12px;
+
+            max-width: 620px;
+
+        }
+
+
+        .exam-button-area {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+        }
+
+
+        .exam-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: white;
+
+            color: var(--navy);
+
+            padding: 11px 17px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+
+        }
+
+
+        .exam-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 5px 14px
+                rgba(0,0,0,0.18);
+
+        }
+
+
+        /* =====================================================
+           SMALL INFO STRIP
+        ===================================================== */
+
+        .info-strip {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .info-item {
+
+            background:
+                rgba(255,255,255,0.90);
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 11px;
+
+            padding: 14px;
+
+            text-align: center;
+
+        }
+
+
+        .info-number {
+
+            color: var(--navy);
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+        }
+
+
+        .info-label {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            margin-top: 2px;
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #052f59,
+                    #073b6f
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 29px 0;
+
+            margin-top: 0;
+
+        }
+
+
+        .footer-inner {
+
+            width: min(1120px, 94%);
+
+            margin: auto;
+
+        }
+
+
+        .footer-title {
+
+            font-size: 18px;
+
+            font-weight: 750;
+
+        }
+
+
+        .footer-tagline {
+
+            font-size: 11px;
+
+            font-style: italic;
+
+            margin-top: 3px;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 18px;
+
+            margin: 15px 0;
+
+        }
+
+
+        .footer-links a {
+
+            color: #e5f2ff;
+
+            font-size: 11px;
+
+        }
+
+
+        .footer-contact {
+
+            color: #dcecff;
+
+            font-size: 11px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .footer-line {
+
+            height: 1px;
+
+            background:
+                rgba(255,255,255,0.18);
+
+            margin: 15px 0 12px;
+
+        }
+
+
+        .copyright {
+
+            color:
+                rgba(255,255,255,0.72);
+
+            font-size: 10px;
+
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 950px) {
+
+            .resource-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .exam-feature {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .exam-button-area {
+
+                justify-content: flex-start;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                font-family:
+                    "Segoe UI",
+                    Arial,
+                    sans-serif;
+
+                font-size: 13px;
+
+                line-height: 1.45;
+
+            }
+
+
+            /* HEADER */
+
+            .header-inner {
+
+                min-height: 94px;
+
+                width: 94%;
+
+                padding: 11px 0;
+
+                gap: 10px;
+
+            }
+
+
+            .logo {
+
+                width: 57px;
+
+                height: 57px;
+
+            }
+
+
+            .brand-title {
+
+                font-size: 20px;
+
+                line-height: 1.2;
+
+                font-weight: 750;
+
+            }
+
+
+            .tagline {
+
+                font-size: 10px;
+
+                margin-top: 3px;
+
+            }
+
+
+            .lms-label {
+
+                font-size: 9px;
+
+                margin-top: 4px;
+
+            }
+
+
+            /* MAIN */
+
+            main {
+
+                width: 94%;
+
+                padding: 14px 0 24px;
+
+            }
+
+
+            /* ANNOUNCEMENT */
+
+            .announcement {
+
+                padding: 13px 14px;
+
+                border-left-width: 4px;
+
+                border-radius: 10px;
+
+                margin-bottom: 13px;
+
+            }
+
+
+            .announcement-title {
+
+                font-size: 15px;
+
+                margin-bottom: 4px;
+
+            }
+
+
+            .announcement-text {
+
+                font-size: 11px;
+
+                line-height: 1.4;
+
+            }
+
+
+            /* HERO */
+
+            .hero {
+
+                padding: 23px 15px;
+
+                border-radius: 13px;
+
+                margin-bottom: 14px;
+
+            }
+
+
+            .hero-badge {
+
+                font-size: 9px;
+
+                padding: 4px 9px;
+
+                margin-bottom: 8px;
+
+            }
+
+
+            .hero-title {
+
+                font-size: 21px;
+
+                line-height: 1.25;
+
+                font-weight: 750;
+
+                margin-bottom: 6px;
+
+            }
+
+
+            .hero-text {
+
+                font-size: 11px;
+
+                line-height: 1.45;
+
+            }
+
+
+            /* SECTION */
+
+            .section-heading {
+
+                margin: 18px 0 11px;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 18px;
+
+                line-height: 1.3;
+
+                font-weight: 700;
+
+            }
+
+
+            .section-heading p {
+
+                font-size: 10px;
+
+            }
+
+
+            /* RESOURCE CARDS */
+
+            .resource-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 8px;
+
+            }
+
+
+            .resource-card {
+
+                min-height: 155px;
+
+                padding: 13px;
+
+                border-radius: 10px;
+
+            }
+
+
+            .resource-icon {
+
+                width: 34px;
+
+                height: 34px;
+
+                font-size: 16px;
+
+                border-radius: 8px;
+
+                margin-bottom: 9px;
+
+            }
+
+
+            .resource-title {
+
+                font-size: 13px;
+
+                line-height: 1.3;
+
+                font-weight: 700;
+
+                margin-bottom: 4px;
+
+            }
+
+
+            .resource-description {
+
+                font-size: 9px;
+
+                line-height: 1.4;
+
+            }
+
+
+            .resource-action {
+
+                margin-top: 10px;
+
+                font-size: 9px;
+
+            }
+
+
+            /* EXAM FEATURE */
+
+            .exam-feature {
+
+                padding: 17px;
+
+                border-radius: 12px;
+
+                margin-top: 18px;
+
+                gap: 13px;
+
+            }
+
+
+            .exam-feature h2 {
+
+                font-size: 17px;
+
+                line-height: 1.3;
+
+            }
+
+
+            .exam-feature p {
+
+                font-size: 10px;
+
+                line-height: 1.45;
+
+            }
+
+
+            .exam-button {
+
+                width: 100%;
+
+                font-size: 10px;
+
+                padding: 10px;
+
+            }
+
+
+            /* INFO */
+
+            .info-strip {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                gap: 6px;
+
+                margin-top: 12px;
+
+            }
+
+
+            .info-item {
+
+                padding: 10px 5px;
+
+                border-radius: 8px;
+
+            }
+
+
+            .info-number {
+
+                font-size: 15px;
+
+            }
+
+
+            .info-label {
+
+                font-size: 8px;
+
+            }
+
+
+            /* FOOTER */
+
+            footer {
+
+                padding: 23px 0;
+
+            }
+
+
+            .footer-title {
+
+                font-size: 16px;
+
+            }
+
+
+            .footer-tagline {
+
+                font-size: 9px;
+
+            }
+
+
+            .footer-links {
+
+                gap: 10px;
+
+                margin: 12px 0;
+
+            }
+
+
+            .footer-links a {
+
+                font-size: 9px;
+
+            }
+
+
+            .footer-contact {
+
+                font-size: 9px;
+
+            }
+
+
+            .copyright {
+
+                font-size: 8px;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header class="site-header">
 
@@ -426,21 +1331,22 @@ footer {
 
         <img
             src="logo.png"
-            class="logo"
             alt="Bhat and Bhat Tutorials Logo"
+            class="logo"
         >
+
 
         <div class="brand">
 
-            <h1>
+            <div class="brand-title">
                 Bhat and Bhat Tutorials
-            </h1>
+            </div>
 
             <div class="tagline">
                 "Where Students Achieve Success"
             </div>
 
-            <div class="lms">
+            <div class="lms-label">
                 Learning Management System (LMS)
             </div>
 
@@ -451,226 +1357,389 @@ footer {
 </header>
 
 
-<!-- =========================
+
+<!-- =====================================================
      MAIN
-========================= -->
+===================================================== -->
 
 <main>
 
-<div class="container">
 
+    <!-- =================================================
+         ANNOUNCEMENT
+    ================================================== -->
 
-    <!-- ANNOUNCEMENT -->
+    <section class="announcement">
 
-    <div class="announcement">
+        <div class="announcement-title">
+            📢 Latest Announcement
+        </div>
 
-        <h2>
-            📢 Latest Announcements
-        </h2>
+        <div class="announcement-text">
 
-        <div>
             ✅ Mid-Term Examination &amp;
             August Month Mini Examination
             Syllabus Published &amp;
             Schedule Released.
-        </div>
-
-    </div>
-
-
-    <!-- HERO -->
-
-    <section class="card hero">
-
-        <h2>
-            Bhat &amp; Bhat Tutorials LMS
-        </h2>
-
-        <p>
-            Access study materials, question papers,
-            examination timetables and academic updates
-            in one place.
-        </p>
-
-
-        <!-- QUICK OPTIONS -->
-
-        <div class="quick-grid">
-
-
-            <!-- STUDY MATERIAL -->
-
-            <a
-                href="study-material.html"
-                class="quick-card"
-            >
-
-                <h3>
-                    📚 Study Materials
-                </h3>
-
-                <p>
-                    Access class-wise notes,
-                    revision materials and
-                    academic resources.
-                </p>
-
-                <span class="btn btn-blue">
-                    Open Study Materials →
-                </span>
-
-            </a>
-
-
-            <!-- QUESTION PAPERS -->
-
-            <a
-                href="question-papers.html"
-                class="quick-card"
-            >
-
-                <h3>
-                    📝 Question Papers
-                </h3>
-
-                <p>
-                    Mini examinations,
-                    mid-term papers,
-                    practice papers and
-                    answer keys.
-                </p>
-
-                <span class="btn btn-blue">
-                    Open Question Papers →
-                </span>
-
-            </a>
-
-
-            <!-- TIMETABLE -->
-
-            <a
-                href="timetable.html"
-                class="quick-card"
-            >
-
-                <h3>
-                    📅 Exam Timetable
-                </h3>
-
-                <p>
-                    View examination schedules
-                    and download timetable PDFs.
-                </p>
-
-                <span class="btn btn-blue">
-                    Open Timetable →
-                </span>
-
-            </a>
-
-
-            <!-- MENTORS -->
-
-            <a
-                href="mentors.html"
-                class="quick-card"
-            >
-
-                <h3>
-                    👨‍🏫 Class Mentors
-                </h3>
-
-                <p>
-                    View class-wise mentor
-                    information.
-                </p>
-
-                <span class="btn btn-blue">
-                    View Mentors →
-                </span>
-
-            </a>
-
 
         </div>
 
     </section>
 
 
-</div>
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ACADEMIC RESOURCE CENTRE
+            </div>
+
+            <h1 class="hero-title">
+                Bhat &amp; Bhat Tutorials LMS
+            </h1>
+
+            <p class="hero-text">
+
+                Your central place for
+                study materials, question papers,
+                examination timetables and
+                important academic updates.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESOURCE SECTION
+    ================================================== -->
+
+    <div class="section-heading">
+
+        <h2>
+            Explore Academic Resources
+        </h2>
+
+        <p>
+            Select an option to continue
+        </p>
+
+    </div>
+
+
+
+    <section class="resource-grid">
+
+
+        <!-- STUDY MATERIALS -->
+
+        <a
+            href="study-material.html"
+            class="resource-card"
+        >
+
+            <div class="resource-icon">
+                📚
+            </div>
+
+            <div class="resource-title">
+                Study Materials
+            </div>
+
+            <div class="resource-description">
+
+                Class-wise notes,
+                revision materials,
+                formula sheets and
+                subject resources.
+
+            </div>
+
+            <div class="resource-action">
+                Open Study Materials →
+            </div>
+
+        </a>
+
+
+
+        <!-- QUESTION PAPERS -->
+
+        <a
+            href="question-papers.html"
+            class="resource-card"
+        >
+
+            <div class="resource-icon">
+                📝
+            </div>
+
+            <div class="resource-title">
+                Question Papers
+            </div>
+
+            <div class="resource-description">
+
+                Mini exams, mid-term exams,
+                practice papers, previous
+                papers and answer keys.
+
+            </div>
+
+            <div class="resource-action">
+                Open Question Papers →
+            </div>
+
+        </a>
+
+
+
+        <!-- TIMETABLE -->
+
+        <a
+            href="timetable.html"
+            class="resource-card"
+        >
+
+            <div class="resource-icon">
+                📅
+            </div>
+
+            <div class="resource-title">
+                Exam Timetable
+            </div>
+
+            <div class="resource-description">
+
+                View examination schedules
+                and access timetable PDFs
+                by examination.
+
+            </div>
+
+            <div class="resource-action">
+                View Timetable →
+            </div>
+
+        </a>
+
+
+
+        <!-- MENTORS -->
+
+        <a
+            href="mentors.html"
+            class="resource-card"
+        >
+
+            <div class="resource-icon">
+                👨‍🏫
+            </div>
+
+            <div class="resource-title">
+                Class Mentors
+            </div>
+
+            <div class="resource-description">
+
+                Find the mentor assigned
+                to your class and access
+                relevant class information.
+
+            </div>
+
+            <div class="resource-action">
+                View Class Mentors →
+            </div>
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         EXAM FEATURE
+    ================================================== -->
+
+    <section class="exam-feature">
+
+        <div>
+
+            <h2>
+                📅 Examination Updates
+            </h2>
+
+            <p>
+
+                Stay updated with upcoming
+                examination schedules and
+                timetable releases. Select an
+                examination to preview or
+                download the official PDF.
+
+            </p>
+
+        </div>
+
+
+        <div class="exam-button-area">
+
+            <a
+                href="timetable.html"
+                class="exam-button"
+            >
+                View Examination Timetables →
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         QUICK INFORMATION
+    ================================================== -->
+
+    <section class="info-strip">
+
+
+        <div class="info-item">
+
+            <div class="info-number">
+                07–12
+            </div>
+
+            <div class="info-label">
+                Classes
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-number">
+                PDF
+            </div>
+
+            <div class="info-label">
+                Learning Resources
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-number">
+                24×7
+            </div>
+
+            <div class="info-label">
+                Resource Access
+            </div>
+
+        </div>
+
+
+    </section>
+
 
 </main>
 
 
-<!-- =========================
+
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
-<div class="container">
+    <div class="footer-inner">
 
-    <div class="footer-title">
-        Bhat and Bhat Tutorials
+
+        <div class="footer-title">
+            Bhat and Bhat Tutorials
+        </div>
+
+
+        <div class="footer-tagline">
+            "Where Students Achieve Success"
+        </div>
+
+
+        <div class="footer-links">
+
+            <a
+                href="https://www.bhatandbhat.in"
+                target="_blank"
+                rel="noopener"
+            >
+                🌐 Official Website
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/bhatandbhat_tutorials/?hl=en"
+                target="_blank"
+                rel="noopener"
+            >
+                📷 Instagram
+            </a>
+
+
+            <a
+                href="https://www.facebook.com/BhatandBhatTutorials/"
+                target="_blank"
+                rel="noopener"
+            >
+                Facebook
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            ☎ +91 83106 15947
+            &nbsp; | &nbsp;
+            +91 73385 43585
+
+            <br>
+
+            📍 Vignan Nagar, Bengaluru
+
+        </div>
+
+
+        <div class="footer-line"></div>
+
+
+        <div class="copyright">
+
+            Copyright © 2026
+            Bhat and Bhat Tutorials.
+            All Rights Reserved.
+
+        </div>
+
     </div>
-
-    <div class="footer-tagline">
-        "Where Students Achieve Success"
-    </div>
-
-
-    <div class="footer-links">
-
-        <a
-            href="https://www.bhatandbhat.in"
-            target="_blank"
-        >
-            🌐 Official Website
-        </a>
-
-        <a
-            href="https://www.instagram.com/bhatandbhat_tutorials/?hl=en"
-            target="_blank"
-        >
-            📷 Instagram
-        </a>
-
-        <a
-            href="https://www.facebook.com/BhatandBhatTutorials/"
-            target="_blank"
-        >
-            🔗 Facebook
-        </a>
-
-    </div>
-
-
-    <div class="footer-contact">
-
-        ☎ +91 83106 15947
-        &nbsp; | &nbsp;
-        ☎ +91 73385 43585
-
-        <br>
-
-        📍 Vignan Nagar, Bengaluru
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        Copyright © 2026
-        Bhat and Bhat Tutorials.
-        All Rights Reserved.
-
-    </div>
-
-</div>
 
 </footer>
 
 
 </body>
+
 </html>

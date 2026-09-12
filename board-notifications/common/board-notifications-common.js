@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", async function () {
 
-    /* -----------------------------
-       COMMON HEADER
-    ----------------------------- */
+    /* HEADER */
 
     const headerContainer =
         document.getElementById("common-header");
 
     if (headerContainer) {
-
         try {
-
             const response =
                 await fetch("../common/header.html");
 
@@ -22,28 +18,21 @@ document.addEventListener("DOMContentLoaded", async function () {
                 await response.text();
 
         } catch (error) {
-
             console.error(
                 "Header loading error:",
                 error
             );
-
         }
-
     }
 
 
-    /* -----------------------------
-       COMMON FOOTER
-    ----------------------------- */
+    /* FOOTER */
 
     const footerContainer =
         document.getElementById("common-footer");
 
     if (footerContainer) {
-
         try {
-
             const response =
                 await fetch("../common/footer.html");
 
@@ -55,88 +44,43 @@ document.addEventListener("DOMContentLoaded", async function () {
                 await response.text();
 
         } catch (error) {
-
             console.error(
                 "Footer loading error:",
                 error
             );
-
         }
-
     }
 
 
-    /* -----------------------------
-       PDF VIEWER
-    ----------------------------- */
+    /* PDF VIEWER */
 
     const pdfContainer =
         document.getElementById("pdf-viewer");
 
     if (pdfContainer) {
+        try {
+            const response =
+                await fetch("../common/pdf-viewer.html");
 
-        pdfContainer.innerHTML = `
-            <div class="pdf-modal" id="pdfModal">
+            if (!response.ok) {
+                throw new Error("PDF viewer could not be loaded");
+            }
 
-                <div class="pdf-window">
+            pdfContainer.innerHTML =
+                await response.text();
 
-                    <div class="pdf-header">
-
-                        <div
-                            class="pdf-title"
-                            id="pdfTitle"
-                        >
-                            PDF Preview
-                        </div>
-
-                        <div class="pdf-actions">
-
-                            <a
-                                id="pdfDownload"
-                                class="pdf-download"
-                                href="#"
-                                target="_blank"
-                                rel="noopener"
-                            >
-                                Download PDF
-                            </a>
-
-                            <button
-                                type="button"
-                                class="pdf-close"
-                                onclick="closePDF()"
-                                aria-label="Close PDF"
-                            >
-                                ×
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="pdf-body">
-
-                        <iframe
-                            id="pdfFrame"
-                            class="pdf-frame"
-                            title="PDF Preview"
-                        ></iframe>
-
-                    </div>
-
-                </div>
-
-            </div>
-        `;
-
+        } catch (error) {
+            console.error(
+                "PDF viewer loading error:",
+                error
+            );
+        }
     }
 
 });
 
 
-/* -----------------------------
-   OPEN PDF
------------------------------ */
+/* OPEN PDF */
 
 function loadPDF(title, fileId) {
 
@@ -145,14 +89,12 @@ function loadPDF(title, fileId) {
         fileId === "FILE_ID_HERE" ||
         fileId === "FILE_LINK"
     ) {
-
         alert(
             "PDF link is not available yet."
         );
 
         return;
     }
-
 
     const modal =
         document.getElementById("pdfModal");
@@ -173,7 +115,6 @@ function loadPDF(title, fileId) {
         !frame ||
         !download
     ) {
-
         alert(
             "PDF viewer is still loading. Please try again."
         );
@@ -195,9 +136,9 @@ function loadPDF(title, fileId) {
 
     titleElement.textContent = title;
 
-    download.href = downloadURL;
-
     frame.src = previewURL;
+
+    download.href = downloadURL;
 
     modal.classList.add("active");
 
@@ -205,9 +146,7 @@ function loadPDF(title, fileId) {
 }
 
 
-/* -----------------------------
-   CLOSE PDF
------------------------------ */
+/* CLOSE PDF */
 
 function closePDF() {
 
@@ -222,19 +161,15 @@ function closePDF() {
         modal.classList.remove("active");
     }
 
-
     if (frame) {
         frame.src = "";
     }
-
 
     document.body.classList.remove("pdf-open");
 }
 
 
-/* -----------------------------
-   CLOSE ON BACKDROP
------------------------------ */
+/* CLOSE WHEN CLICKING OUTSIDE */
 
 document.addEventListener("click", function (event) {
 
@@ -245,24 +180,18 @@ document.addEventListener("click", function (event) {
         modal &&
         event.target === modal
     ) {
-
         closePDF();
-
     }
 
 });
 
 
-/* -----------------------------
-   ESC KEY
------------------------------ */
+/* ESC KEY */
 
 document.addEventListener("keydown", function (event) {
 
     if (event.key === "Escape") {
-
         closePDF();
-
     }
 
 });

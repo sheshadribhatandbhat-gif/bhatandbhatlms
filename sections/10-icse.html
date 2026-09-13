@@ -1,8 +1,42 @@
-<div class="section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>10th CBSE | Bhat and Bhat Tutorials</title>
+    <link
+        rel="stylesheet"
+        href="css/section.css">
+</head>
+<body>
+    <!-- =================================
+         COMMON HEADER
+    ================================== -->
+    <div id="common-header"></div>
+    <!-- =================================
+         MAIN CONTENT
+    ================================== -->
+    <main class="section-container">
 
-<h2>10th ICSE</h2>
+        <!-- BACK LINK -->
+        <a
+            href="../study-material.html"
+            class="back-link">
+            ← Back to Study Materials
+        </a>
 
-<details>
+        <!-- PAGE -->
+        <section class="section-page">
+          
+            <!-- PAGE TITLE -->
+            <div class="page-header">
+                <h1>10th CBSE</h1>
+                <p>Study Materials</p>
+            </div>
+
+<details class="subject-card">
 <summary>Physics</summary>
 
 <button class="chapter-btn" onclick="loadPDF('Force','12lZ2SBVJO3pOMtfYLF7X4JZUEcv6WP5O')">Force</button>
@@ -29,26 +63,22 @@
 
 <button class="chapter-btn" onclick="loadPDF('Thermionic Emission and Radioactivity','FILE_ID_HERE')">Thermionic Emission and Radioactivity</button>
   
+</div>
+    
 </details>
 
-<h3 class="sub-heading">Mini Exam June 2026 QP</h3>
-
-<button class="chapter-btn" onclick="loadPDF('Mathematics','1O3vM79hscf3Ksszy8DbWK_p6EBsUKtRq')">Mathematics</button>
-
-<button class="chapter-btn" onclick="loadPDF('Physics','1Ypqk4UAynu9a60IofwQQfPtu6fsY-lUH')">Physics</button>
-
-<button class="chapter-btn" onclick="loadPDF('Chemistry','1e_MwfBg3Yp9fVrM8a3uJqOkYbpSkp0cM')">Chemistry</button>
-
-<button class="chapter-btn" onclick="loadPDF('Biology','1NzFTGlHlbWSNRPB8cks_ZOhyXaQtZ2BI')">Biology</button>
-
-<h3 class="sub-heading">Mid - Term August 2026 QP</h3>
-
-<button class="chapter-btn" onclick="loadPDF('Mathematics','')">Mathematics</button>
-
-<button class="chapter-btn" onclick="loadPDF('Physics','')">Physics</button>
-
-<button class="chapter-btn" onclick="loadPDF('Chemistry','')">Chemistry</button>
-
-<button class="chapter-btn" onclick="loadPDF('Biology','')">Biology</button>
-
-</div>
+</main>
+    <!-- =================================
+         COMMON FOOTER
+    ================================== -->
+    <div id="common-footer"></div>
+    <!-- =================================
+         COMMON PDF VIEWER
+    ================================== -->
+    <div id="pdf-viewer"></div>
+    <!-- =================================
+         COMMON JAVASCRIPT
+    ================================== -->
+    <script src="common/section-common.js"></script>
+</body>
+</html>
